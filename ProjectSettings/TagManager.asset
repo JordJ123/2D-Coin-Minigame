@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Players
   - Points
-  - 
+  - Maze
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Maze
+    uniqueID: 4219841279
     locked: 0
   - name: Points
     uniqueID: 1368317901
