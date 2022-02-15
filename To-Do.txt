@@ -1,0 +1,2 @@
+Player Fixed Movement [Left Trigger, Right Trigger, Top Trigger, Bottom Trigger]
+Point Respawn

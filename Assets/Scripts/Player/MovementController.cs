@@ -6,7 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : MonoBehaviour
 {
+    //Serialise Fields
     [SerializeField] private float moveDistance;
+
+    //Initialise Fields
     private Rigidbody2D rb2D;
     private Vector2 velocity;
 
