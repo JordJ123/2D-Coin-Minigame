@@ -1,2 +1,5 @@
-Player Fixed Movement [Left Trigger, Right Trigger, Top Trigger, Bottom Trigger]
-Point Respawn
+Enemy [Sprite, KillController, MovementController]
+Maze [Sprite]
+Player [LivesController, Sprite]
+Point [Sprite]
+UI [Point Counter]
