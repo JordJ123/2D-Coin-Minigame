@@ -15,16 +15,8 @@ namespace Player
             gameObjTransform = GetComponent<Transform>();
             spawnVector = gameObjTransform.position;
         }
-        
-        private void OnTriggerEnter2D(Collider2D collider) 
-        {
-            if (collider.tag == "Enemy")
-            {
-                Respawn();
-            }
-        }
-        
-        private void Respawn()
+
+        public void Respawn()
         {
             gameObjTransform.position = spawnVector;
         }
