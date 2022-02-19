@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Point
   - Maze
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Players
+  - Enemy
   - Points
   - Maze
-  - 
   - 
   - 
   - 
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Players
     uniqueID: 3348952957
+    locked: 0
+  - name: Enemy
+    uniqueID: 2957845723
     locked: 0
