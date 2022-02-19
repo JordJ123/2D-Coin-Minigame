@@ -1,5 +1,6 @@
-Enemy [Sprite, KillController, MovementController]
+Enemy [Sprite, MovementController]
+Death Screen
 Maze [Sprite]
-Player [LivesController, Sprite]
+Player [Sprite]
 Point [Sprite]
 UI [Point Counter]
