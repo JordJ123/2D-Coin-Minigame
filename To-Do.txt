@@ -1,6 +1,7 @@
-Enemy [Sprite, MovementController]
+Credits Screen
 Death Screen
-Maze [Sprite]
-Player [Sprite]
-Point [Sprite]
+Main Screen
+
+Enemy [MovementController]
+Maze [Extra Detail]
 UI [Point Counter]

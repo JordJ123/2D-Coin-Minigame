@@ -54,10 +54,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 6744bce2286eab7498e34f33fee85041, type: 2}
+    m_Data: {fileID: 11400000, guid: db65f2efa9b634c4fa43b51eb5ba195a, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    m_Data: {fileID: -4232372475135122399, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5985394191524260574}
   - component: {fileID: 6209320518083923679}
   m_Layer: 31
-  m_Name: Maze
+  m_Name: WallBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &7853145735374531181
+--- !u!114 &2690145987628692262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
