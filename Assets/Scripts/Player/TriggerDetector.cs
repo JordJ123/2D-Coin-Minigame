@@ -40,7 +40,8 @@ public class TriggerDetector : MonoBehaviour
         else if (collider.tag == "Point")
         {
             collider.GetComponent<Point.SpawnController>().Despawn();
-            pointController.CollectPoints();
+            pointController.CollectPoints(
+                collider.GetComponent<ValueController>().GetValue());
         }
         else if (collider.tag == "PowerUp")
         {

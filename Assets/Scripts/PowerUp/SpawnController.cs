@@ -7,17 +7,13 @@ namespace PowerUp
 {
     public class SpawnController : MonoBehaviour
     {
-        private static GameObject[] powerUps;
-        private static GameObject currentPowerUp;
+        private static SpawnController[] powerUps;
+        private static SpawnController currentPowerUp;
         private GameObject gameObj;
 
         public static void StaticAwake()
         {
-            powerUps = GameObject.FindGameObjectsWithTag("PowerUp");
-            foreach (var powerUp in powerUps)
-            {
-                powerUp.GetComponent<SpawnController>().Despawn();
-            }
+            powerUps = FindObjectsOfType<SpawnController>(true);
             SpawnPowerUp();
         }
         
@@ -25,15 +21,16 @@ namespace PowerUp
         {
             if (currentPowerUp != null)
             {
-                currentPowerUp.GetComponent<SpawnController>().Despawn();
+                currentPowerUp.Despawn();
             }
             currentPowerUp = powerUps[Random.Range(0, powerUps.Length)];
-            currentPowerUp.GetComponent<SpawnController>().Respawn();
+            currentPowerUp.Respawn();
         }
 
         private void Awake()
         {
             gameObj = gameObject;
+            Despawn();
         }
 
         public void Respawn()

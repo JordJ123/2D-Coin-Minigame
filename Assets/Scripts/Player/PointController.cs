@@ -6,8 +6,10 @@ using UnityEngine;
 public class PointController : MonoBehaviour
 {
     private GameObject[] points;
+    private int pointsValue;
+    private int pointsCollected;
     private int pointsCounter;
-    private int pointsCollected = 0;
+    
     
     private void Awake()
     {
@@ -15,8 +17,9 @@ public class PointController : MonoBehaviour
         pointsCounter = points.Length;
     }
     
-    public void CollectPoints() 
+    public void CollectPoints(int value) 
     {
+        pointsValue += value;
         pointsCollected++;
         if (pointsCollected % pointsCounter == 0)
         {

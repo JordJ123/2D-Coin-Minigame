@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,10 @@ namespace Player
         {
             gameObjTransform = GetComponent<Transform>();
             spawnVector = gameObjTransform.position;
+        }
+
+        private void Start()
+        {
             PowerUp.SpawnController.StaticAwake();
         }
 
