@@ -2,6 +2,8 @@ Credits Screen
 Death Screen
 Main Screen
 
+Coins [Bronze, Silver, Gold]
 Enemy [MovementController]
 Maze [Extra Detail]
-UI [Point Counter]
+Lives Potion
+UI [Lives Counter + Point Counter]

@@ -7,6 +7,7 @@ TagManager:
   - Point
   - Maze
   - Enemy
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - Points
   - Maze
-  - 
+  - PowerUp
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Points
     uniqueID: 1368317901
+    locked: 0
+  - name: PowerUp
+    uniqueID: 3566222327
     locked: 0
   - name: Players
     uniqueID: 3348952957

@@ -15,18 +15,15 @@ public class PointController : MonoBehaviour
         pointsCounter = points.Length;
     }
     
-    private void OnTriggerEnter2D(Collider2D collider) 
+    public void CollectPoints() 
     {
-        if (collider.tag == "Point")
+        pointsCollected++;
+        if (pointsCollected % pointsCounter == 0)
         {
-            collider.GetComponent <Point.SpawnController>().Despawn();
-            pointsCollected++;
-            if (pointsCollected % pointsCounter == 0)
+            foreach (var point in points)
             {
-                foreach (var point in points)
-                {
-                    point.GetComponent<Point.SpawnController>().Respawn();
-                }
+                point.GetComponent<Point.SpawnController>().Respawn();
+                PowerUp.SpawnController.SpawnPowerUp();
             }
         }
     }
