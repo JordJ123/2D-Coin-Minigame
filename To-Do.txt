@@ -2,8 +2,7 @@ Credits Screen
 Death Screen
 Main Screen
 
-Enemy [MovementController]
+Enemy [Movement Trigger Areas + Random Movement]
 Maze [Extra Detail]
-UI [Lives Counter, Point Counter + Power-Up Timer]
+User Interface [Lives Counter, Point Counter + Power-Up Timer]
 Sound
-Sword [Player Sprite]

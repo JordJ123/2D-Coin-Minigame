@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 763793633124784747}
   - component: {fileID: 3776275157545064281}
   - component: {fileID: 6576014316418219941}
+  - component: {fileID: 8969528801936269435}
+  - component: {fileID: 4467212069261342102}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -946014339
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 5546671543968653177, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -198,3 +200,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0064012, y: 1.2514412}
   m_EdgeRadius: 0
+--- !u!114 &8969528801936269435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762479222101774135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0489b886d96eea47bb5f6684739fd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 5546671543968653177, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
+  swordSprite: {fileID: 4178410084677973412, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
+--- !u!114 &4467212069261342102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762479222101774135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c6cc21d771f284b9a3778d379e1600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

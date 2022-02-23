@@ -13,7 +13,7 @@ public class SwordAbilityController : MonoBehaviour, AbilityController
         yield return new WaitForSeconds(duration);
         foreach (var enemy in enemies)
         {
-            enemy.GetComponent<Enemy.SpriteController>().SetNormal();
+            enemy.transform.parent.GetComponent<Enemy.SpriteController>().SetNormal();
         }
         player.GetComponent<PowerUpController>().RemoveSword();
     }
@@ -33,7 +33,7 @@ public class SwordAbilityController : MonoBehaviour, AbilityController
     {
         foreach (var enemy in enemies)
         {
-            enemy.GetComponent<Enemy.SpriteController>().SetVunerable();
+            enemy.transform.parent.GetComponent<Enemy.SpriteController>().SetVunerable();
         }
         player.GetComponent<PowerUpController>().SetSword();
     }

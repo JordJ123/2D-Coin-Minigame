@@ -29,7 +29,7 @@ public class TriggerDetector : MonoBehaviour
         {
             if (powerUpController.HasSword())
             {
-                collider.GetComponent<Enemy.SpawnController>().Despawn();
+                collider.transform.parent.gameObject.GetComponent<Enemy.SpawnController>().Despawn();
             }
             else
             {

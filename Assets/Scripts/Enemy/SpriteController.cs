@@ -25,6 +25,16 @@ namespace Enemy
         {
             spriteRend.color = Color.red;
         }
+        
+        public void FlipLeft()
+        {
+            spriteRend.flipX = false;
+        }
+        
+        public void FlipRight()
+        {
+            spriteRend.flipX = true;
+        }
     }
 }
 
