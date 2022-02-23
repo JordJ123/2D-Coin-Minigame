@@ -4,6 +4,6 @@ Main Screen
 
 Enemy [MovementController]
 Maze [Extra Detail]
-Lives Potion
 UI [Lives Counter, Point Counter + Power-Up Timer]
 Sound
+Sword [Player Sprite]

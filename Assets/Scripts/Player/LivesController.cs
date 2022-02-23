@@ -7,6 +7,11 @@ public class LivesController : MonoBehaviour
 {
     [SerializeField] private int lives;
 
+    public void GainLife()
+    {
+        lives++;
+    }
+    
     public void LoseLife()
     {
         lives--;

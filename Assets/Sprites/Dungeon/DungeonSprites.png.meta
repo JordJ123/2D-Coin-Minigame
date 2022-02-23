@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -1123227848461733444
     second: Sword Power Up
+  - first:
+      213: -7952917711141154236
+    second: LivesPotion
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -210,7 +213,7 @@ TextureImporter:
         width: 10
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,6 +221,27 @@ TextureImporter:
       bones: []
       spriteID: cb1bc92193e7960f0800000000000000
       internalID: -1123227848461733444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivesPotion
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 65
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442d4836a7f81a190800000000000000
+      internalID: -7952917711141154236
       vertices: []
       indices: 
       edges: []

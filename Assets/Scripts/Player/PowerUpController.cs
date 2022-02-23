@@ -6,11 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Player.SpriteController))]
 public class PowerUpController : MonoBehaviour
 {
+    private LivesController livesController;
     private Player.SpriteController spriteController;
     private bool hasSword;
 
     private void Awake()
     {
+        livesController = GetComponent<LivesController>();
         spriteController = GetComponent<Player.SpriteController>();
     }
 
@@ -18,6 +20,11 @@ public class PowerUpController : MonoBehaviour
     {
         spriteController.SetSword();
         hasSword = true;
+    }
+
+    public void SetLivesPotion()
+    {
+        livesController.GainLife();
     }
     
     public void RemoveSword()
