@@ -41,7 +41,6 @@ namespace Enemy
                 if (!wallDetector.HasWall())
                 {
                     availableDirections.Add(wallDetector.GetDirection());   
-                    Debug.Log(wallDetector.GetDirection());
                 }
             }
             direction = availableDirections[Random.Range(0, availableDirections.Count)];
