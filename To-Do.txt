@@ -2,6 +2,5 @@ Credits Screen
 Death Screen
 Main Screen
 
-Enemy [Movement Intersection Triggers]
-Maze [Extra Detail + Sound]
+Maze [Coordinates Restructure, Extra Detail + Sound]
 User Interface [Lives Counter, Point Counter + Power-Up Timer]
