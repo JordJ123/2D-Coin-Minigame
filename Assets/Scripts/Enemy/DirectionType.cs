@@ -9,3 +9,10 @@ public enum Direction
     UP,
     DOWN
 }
+
+public class DirectionType : MonoBehaviour
+{
+    [SerializeField] private Direction direction;
+
+    public Direction Direction => direction;
+}

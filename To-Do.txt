@@ -3,6 +3,5 @@ Death Screen
 Main Screen
 
 Enemy [Movement Intersection Triggers]
-Maze [Extra Detail]
-Sound
+Maze [Extra Detail + Sound]
 User Interface [Lives Counter, Point Counter + Power-Up Timer]

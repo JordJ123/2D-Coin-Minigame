@@ -29,7 +29,20 @@ namespace Enemy
             }
         }
 
-        public void SetDirection()
+        public void SetIntersectionDirection(Direction intersectionDirection)
+        {
+            velocity = rigidbody2D.velocity;
+            velocity.x = 0;
+            velocity.y = 0;
+            rigidbody2D.velocity = velocity;
+            availableDirections.Clear();
+            availableDirections.Add(direction);
+            availableDirections.Add(intersectionDirection);
+            direction = availableDirections[Random.Range(0, 2)];
+            SetSpriteDirection();
+        }
+
+        public void SetWallDirection()
         {
             velocity = rigidbody2D.velocity;
             velocity.x = 0;
@@ -44,6 +57,20 @@ namespace Enemy
                 }
             }
             direction = availableDirections[Random.Range(0, availableDirections.Count)];
+            SetSpriteDirection();
+        }
+
+        private void SetSpriteDirection()
+        {
+            switch (direction)
+            {
+                case Direction.RIGHT:
+                    spriteController.FlipRight();
+                    break;
+                case Direction.LEFT:
+                    spriteController.FlipLeft();
+                    break;
+            }
         }
 
         private void FixedUpdate()

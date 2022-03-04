@@ -8,6 +8,7 @@ TagManager:
   - Maze
   - Enemy
   - PowerUp
+  - Intersection
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Maze
   - PowerUp
   - Trigger
-  - 
+  - Intersection
   - 
   - 
   - 
@@ -59,4 +60,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 2957845723
+    locked: 0
+  - name: Intersection
+    uniqueID: 3143989927
     locked: 0
