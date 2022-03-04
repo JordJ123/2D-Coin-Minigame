@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//For Player Objects
 public class PointController : MonoBehaviour
 {
     private GameObject[] points;

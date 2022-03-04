@@ -12,7 +12,8 @@ public class WallDetector : MonoBehaviour
     
     private void Awake()
     {
-        movementController = transform.parent.gameObject.GetComponent<MovementController>();
+        movementController = transform.parent.gameObject
+			.GetComponent<MovementController>();
     }
 
     public Direction GetDirection()

@@ -8,12 +8,14 @@ public class SwordAbilityController : MonoBehaviour, AbilityController
     [SerializeField] private int duration;
     private GameObject[] enemies;
 
-    private static IEnumerator AbilityEnd(int duration, GameObject[] enemies, GameObject player)
+    private static IEnumerator AbilityEnd(int duration, GameObject[] enemies, 
+		GameObject player)
     {
         yield return new WaitForSeconds(duration);
         foreach (var enemy in enemies)
         {
-            enemy.transform.parent.GetComponent<Enemy.SpriteController>().SetNormal();
+            enemy.transform.parent
+				.GetComponent<Enemy.SpriteController>().SetNormal();
         }
         player.GetComponent<PowerUpController>().RemoveSword();
     }
@@ -26,14 +28,16 @@ public class SwordAbilityController : MonoBehaviour, AbilityController
     public void Ability(GameObject player)
     {
         AbilityStart(player);
-        player.GetComponent<PowerUpController>().StartCoroutine(AbilityEnd(duration, enemies, player));
+        player.GetComponent<PowerUpController>()
+			.StartCoroutine(AbilityEnd(duration, enemies, player));
     }
 
     void AbilityStart(GameObject player)
     {
         foreach (var enemy in enemies)
         {
-            enemy.transform.parent.GetComponent<Enemy.SpriteController>().SetVunerable();
+            enemy.transform.parent
+				.GetComponent<Enemy.SpriteController>().SetVunerable();
         }
         player.GetComponent<PowerUpController>().SetSword();
     }

@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class IntersectionController : MonoBehaviour
 {
-    private Bounds intersectionBounds;
-    private float intersectionLeftX;
-    private float intersectionRightX;
-    private float intersectionTopY;
-    private float intersectionBottomY;
+    private Bounds colliderBounds;
+    private float leftX;
+    private float rightX;
+    private float topY;
+    private float bottomY;
     
     private void Awake()
     {
-        intersectionBounds = GetComponent<BoxCollider2D>().bounds;
-        intersectionLeftX = intersectionBounds.center.x - intersectionBounds.extents.x;
-        intersectionRightX = intersectionBounds.center.x + intersectionBounds.extents.x;
-        intersectionTopY = intersectionBounds.center.y + intersectionBounds.extents.y;
-        intersectionBottomY = intersectionBounds.center.y - intersectionBounds.extents.y;
+        colliderBounds = GetComponent<BoxCollider2D>().bounds;
+        leftX = colliderBounds.center.x - colliderBounds.extents.x;
+        rightX = colliderBounds.center.x + colliderBounds.extents.x;
+        topY = colliderBounds.center.y + colliderBounds.extents.y;
+        bottomY = colliderBounds.center.y - colliderBounds.extents.y;
     }
 
-    public float GetIntersectionLeftX()
+    public float GetLeftX()
     {
-        return intersectionLeftX;
+        return leftX;
     }
     
-    public float GetIntersectionRightX()
+    public float GetRightX()
     {
-        return intersectionRightX;
+        return rightX;
     }
     
-    public float GetIntersectionTopY()
+    public float GetTopY()
     {
-        return intersectionTopY;
+        return topY;
     }
     
-    public float GetIntersectionBottomY()
+    public float GetBottomY()
     {
-        return intersectionBottomY;
+        return bottomY;
     }
 }

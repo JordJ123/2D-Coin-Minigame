@@ -14,5 +14,9 @@ public class DirectionType : MonoBehaviour
 {
     [SerializeField] private Direction direction;
 
-    public Direction Direction => direction;
+    public Direction Direction
+	{
+		set => direction = value;
+		get => direction;
+	}
 }

@@ -30,7 +30,8 @@ namespace Player {
             {
                 if (powerUpController.HasSword())
                 {
-                    collider.transform.parent.gameObject.GetComponent<Enemy.SpawnController>().Despawn();
+                    collider.transform.parent.gameObject
+						.GetComponent<Enemy.SpawnController>().Despawn();
                 }
                 else
                 {

@@ -6,26 +6,30 @@ using Random = UnityEngine.Random;
 
 namespace Enemy
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+	[RequireComponent(typeof(DirectionType))]
+	[RequireComponent(typeof(Rigidbody2D))]
+	[RequireComponent(typeof(SpriteController))]
     public class MovementController : MonoBehaviour
     {
         [SerializeField] private float moveDistance;
-        [SerializeField] private Direction direction;
-        
-        private Rigidbody2D rigidbody2D;
+
+		private DirectionType directionType;
+		private Rigidbody2D rigidbody2D;
         private SpriteController spriteController;
         private WallDetector[] wallDetectors = new WallDetector[4];
-            
+		
         private List<Direction> availableDirections = new List<Direction>();
         private Vector2 velocity;
 
         private void Awake()
-        {
-            rigidbody2D = GetComponent<Rigidbody2D>();
+		{
+			directionType = GetComponent<DirectionType>();
+			rigidbody2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
             for (int i = 0; i < 4; i++)
             {
-                wallDetectors[i] = transform.GetChild(i + 1).gameObject.GetComponent<WallDetector>();
+                wallDetectors[i] = transform.GetChild(i + 1)
+					.gameObject.GetComponent<WallDetector>();
             }
         }
 
@@ -36,9 +40,9 @@ namespace Enemy
             velocity.y = 0;
             rigidbody2D.velocity = velocity;
             availableDirections.Clear();
-            availableDirections.Add(direction);
+            availableDirections.Add(directionType.Direction);
             availableDirections.Add(intersectionDirection);
-            direction = availableDirections[Random.Range(0, 2)];
+            directionType.Direction = availableDirections[Random.Range(0, 2)];
             SetSpriteDirection();
         }
 
@@ -56,13 +60,14 @@ namespace Enemy
                     availableDirections.Add(wallDetector.GetDirection());   
                 }
             }
-            direction = availableDirections[Random.Range(0, availableDirections.Count)];
+            directionType.Direction = availableDirections[
+				Random.Range(0, availableDirections.Count)];
             SetSpriteDirection();
         }
 
         private void SetSpriteDirection()
         {
-            switch (direction)
+            switch (directionType.Direction)
             {
                 case Direction.RIGHT:
                     spriteController.FlipRight();
@@ -81,7 +86,7 @@ namespace Enemy
         private void Move()
         {
             velocity = rigidbody2D.velocity;
-            switch (direction)
+            switch (directionType.Direction)
             {
                 case Direction.RIGHT:
                     velocity.x = moveDistance;

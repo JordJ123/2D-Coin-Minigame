@@ -9,17 +9,14 @@ namespace Player
     [RequireComponent(typeof(SpriteController))]
     public class MovementController : MonoBehaviour
     {
-        //Serialise Fields
         [SerializeField] private float moveDistance;
-        private float horizontalSpeed;
-        private bool lookingRight = true;
-
-        //Initialise Fields
+		
         private Rigidbody2D rb2D;
         private SpriteController spriteController;
+		private float horizontalSpeed;
+		private bool lookingRight = true;
         private Vector2 velocity;
 
-        //Awake is called during initialisation
         private void Awake() 
         {
             rb2D = GetComponent<Rigidbody2D>();
@@ -27,8 +24,7 @@ namespace Player
             velocity = new Vector2();
         }
 
-        // Update is called once per frame
-        void Update()
+		void Update()
         {
             Move();
         }
