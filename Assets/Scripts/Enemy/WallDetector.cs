@@ -10,9 +10,8 @@ public class WallDetector : MonoBehaviour
 	private DirectionType directionType;
     private MovementController movementController;
     private bool hasWall;
-	private bool isValid;
-    
-    private void Awake()
+
+	private void Awake()
 	{
 		directionType = transform.parent.gameObject
 			.GetComponent<DirectionType>();
@@ -35,7 +34,6 @@ public class WallDetector : MonoBehaviour
         if (collider.tag == "Maze")
         {
             hasWall = true;
-			isValid = false;
 			if (directionType.Direction == direction)
 			{
 				movementController.SetWallDirection();
