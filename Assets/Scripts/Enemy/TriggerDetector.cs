@@ -5,21 +5,26 @@ using UnityEngine;
 
 namespace Enemy 
 {
-    [RequireComponent(typeof(MovementController))]
+	[RequireComponent(typeof(DirectionType))]
+	[RequireComponent(typeof(MovementController))]
     public class TriggerDetector : MonoBehaviour
     {
-        private MovementController movementController;
-        private bool detect;
+		private DirectionType directionType;
+		private MovementController movementController;
+		private bool detect = true;
         private BoxCollider2D colliderBounds;
         private float leftX;
         private float rightX;
         private float topY;
         private float bottomY;
+        private Direction intersectionDirection;
         private IntersectionController intersectionController;
+		private bool inBounds;
 
         private void Awake()
-        {
-            movementController = GetComponent<MovementController>();
+		{
+			directionType = GetComponent<DirectionType>();
+			movementController = GetComponent<MovementController>();
             colliderBounds = GetComponent<BoxCollider2D>();
         }
 
@@ -27,32 +32,53 @@ namespace Enemy
         {
             if (collider.tag == "Intersection" && detect)
             {
-                leftX = colliderBounds.bounds.center.x 
+				leftX = colliderBounds.bounds.center.x 
 					- colliderBounds.bounds.extents.x;
-                rightX = colliderBounds.bounds.center.x 
+				rightX = colliderBounds.bounds.center.x 
 					+ colliderBounds.bounds.extents.x;
-                topY = colliderBounds.bounds.center.y 
+				topY = colliderBounds.bounds.center.y 
 					+ colliderBounds.bounds.extents.y;
-                bottomY = colliderBounds.bounds.center.y 
+				bottomY = colliderBounds.bounds.center.y 
 					- colliderBounds.bounds.extents.y;
-                intersectionController 
+                intersectionDirection 
+					= collider.GetComponent<DirectionType>().Direction;
+				intersectionController 
 					= collider.GetComponent<IntersectionController>();
-                if (leftX >= intersectionController.GetLeftX() 
-                    && rightX <= intersectionController.GetRightX() 
-                    && topY <= intersectionController.GetTopY() 
-                    & bottomY >= intersectionController.GetBottomY())
-                {
-                    detect = false;
-                    movementController.SetIntersectionDirection(
-                        collider.GetComponent<DirectionType>().Direction);
-                }
+				inBounds = false;
+				switch (intersectionDirection)
+				{
+					case Direction.LEFT:
+					case Direction.RIGHT:
+						inBounds = topY <= intersectionController.GetTopY()
+							&& bottomY >= intersectionController.GetBottomY()
+							&& directionType.Direction != Direction.LEFT
+							&& directionType.Direction != Direction.RIGHT;
+						break;
+					case Direction.UP:
+					case Direction.DOWN:
+						inBounds = leftX >= intersectionController.GetLeftX() 
+							&& rightX <= intersectionController.GetRightX()
+							&& directionType.Direction != Direction.UP
+							&& directionType.Direction != Direction.DOWN;
+						break;
+				}
+				if (inBounds)
+				{
+					detect = false;
+					Debug.Log("Intersection");
+					movementController
+						.SetIntersectionDirection(intersectionDirection);
+				}
             }
         }
 
         private void OnTriggerExit2D(Collider2D collider)
         {
-            detect = true;
-        }
+			if (collider.tag == "Intersection")
+			{
+				detect = true;
+			}
+		}
     }
 }
 

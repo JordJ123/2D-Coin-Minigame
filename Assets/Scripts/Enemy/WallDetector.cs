@@ -7,12 +7,16 @@ using UnityEngine;
 public class WallDetector : MonoBehaviour
 {
     [SerializeField] private Direction direction;
+	private DirectionType directionType;
     private MovementController movementController;
     private bool hasWall;
+	private bool isValid;
     
     private void Awake()
-    {
-        movementController = transform.parent.gameObject
+	{
+		directionType = transform.parent.gameObject
+			.GetComponent<DirectionType>();
+		movementController = transform.parent.gameObject
 			.GetComponent<MovementController>();
     }
 
@@ -31,8 +35,12 @@ public class WallDetector : MonoBehaviour
         if (collider.tag == "Maze")
         {
             hasWall = true;
-            movementController.SetWallDirection();
-        }
+			isValid = false;
+			if (directionType.Direction == direction)
+			{
+				movementController.SetWallDirection();
+			}
+		}
     }
     
     private void OnTriggerExit2D(Collider2D collider) 
