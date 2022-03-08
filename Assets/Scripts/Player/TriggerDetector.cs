@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Player {
     [RequireComponent(typeof(LivesController))]
-    [RequireComponent(typeof(PointController))]
+    [RequireComponent(typeof(Player.PointController))]
     [RequireComponent(typeof(PowerUpController))]
     [RequireComponent(typeof(Player.SpawnController))]
     public class TriggerDetector : MonoBehaviour
     {
         private LivesController livesController;
-        private PointController pointController;
+        private Player.PointController pointController;
         private PowerUpController powerUpController;
         private Player.SpawnController spawnController;
         private GameObject gameObj;

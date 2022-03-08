@@ -2,31 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointController : MonoBehaviour
-{
-    private GameObject[] points;
-    private int pointsValue;
-    private int pointsCollected;
-    private int pointsCounter;
-    
-    
-    private void Awake()
+namespace Player {
+    public class PointController : MonoBehaviour
     {
-        points = GameObject.FindGameObjectsWithTag("Point");
-        pointsCounter = points.Length;
-    }
-    
-    public void CollectPoints(int value) 
-    {
-        pointsValue += value;
-        pointsCollected++;
-        if (pointsCollected % pointsCounter == 0)
+        [SerializeField] private UI.PointController ui;
+        private GameObject[] points;
+        private int pointsValue;
+        private int pointsCollected;
+        private int pointsCounter;
+        
+        private void Awake()
         {
-            foreach (var point in points)
+            points = GameObject.FindGameObjectsWithTag("Point");
+            pointsCounter = points.Length;
+        }
+        
+        public void CollectPoints(int value) 
+        {
+            pointsValue += value;
+            pointsCollected++;
+            ui.UpdatePoints(pointsValue);
+            if (pointsCollected % pointsCounter == 0)
             {
-                point.GetComponent<Point.SpawnController>().Respawn();
-                PowerUp.SpawnController.SpawnPowerUp();
+                foreach (var point in points)
+                {
+                    point.GetComponent<Point.SpawnController>().Respawn();
+                    PowerUp.SpawnController.SpawnPowerUp();
+                }
             }
         }
     }
 }
+

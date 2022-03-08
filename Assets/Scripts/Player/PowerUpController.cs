@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Player.SpriteController))]
 public class PowerUpController : MonoBehaviour
 {
-    private LivesController livesController;
+    private Player.LivesController livesController;
     private Player.SpriteController spriteController;
     private bool hasSword;
 
     private void Awake()
     {
-        livesController = GetComponent<LivesController>();
+        livesController = GetComponent<Player.LivesController>();
         spriteController = GetComponent<Player.SpriteController>();
     }
 
