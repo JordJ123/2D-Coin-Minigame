@@ -2,7 +2,7 @@ Credits Screen
 Death Screen
 Main Screen
 
-Overall [Extra Detail + Sound]
-Enemy [Respawn Controller]
+Overall [Sound + Visuals]
+Enemy [Spawn Controller]
+Player [Spawn Controller]
 Maze [External Paths]
-User Interface [Power-Up Timer]

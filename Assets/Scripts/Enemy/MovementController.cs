@@ -14,7 +14,7 @@ namespace Enemy
         [SerializeField] private float moveDistance;
 
 		private DirectionType directionType;
-		private Rigidbody2D rigidbody2D;
+		private Rigidbody2D rb2D;
         private SpriteController spriteController;
         private WallDetector[] wallDetectors = new WallDetector[4];
 		
@@ -24,7 +24,7 @@ namespace Enemy
         private void Awake()
 		{
 			directionType = GetComponent<DirectionType>();
-			rigidbody2D = GetComponent<Rigidbody2D>();
+			rb2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
             for (int i = 0; i < 4; i++)
             {
@@ -35,10 +35,10 @@ namespace Enemy
 
         public void SetIntersectionDirection(Direction intersectionDirection)
         {
-            velocity = rigidbody2D.velocity;
+            velocity = rb2D.velocity;
             velocity.x = 0;
             velocity.y = 0;
-            rigidbody2D.velocity = velocity;
+            rb2D.velocity = velocity;
             availableDirections.Clear();
             availableDirections.Add(directionType.Direction);
             availableDirections.Add(intersectionDirection);
@@ -48,10 +48,10 @@ namespace Enemy
 
         public void SetWallDirection()
         {
-            velocity = rigidbody2D.velocity;
+            velocity = rb2D.velocity;
             velocity.x = 0;
             velocity.y = 0;
-            rigidbody2D.velocity = velocity;
+            rb2D.velocity = velocity;
             availableDirections.Clear();
             foreach (var wallDetector in wallDetectors)
             {
@@ -85,7 +85,7 @@ namespace Enemy
 
         private void Move()
         {
-            velocity = rigidbody2D.velocity;
+            velocity = rb2D.velocity;
             switch (directionType.Direction)
             {
                 case Direction.RIGHT:
@@ -101,7 +101,7 @@ namespace Enemy
                     velocity.y = -moveDistance;
                     break;
             }
-            rigidbody2D.velocity = velocity;
+            rb2D.velocity = velocity;
         }
     }
 }
