@@ -1,40 +1,67 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Player.SpriteController))]
 public class PowerUpController : MonoBehaviour
 {
+	private GameObject gameObj;
     private Player.LivesController livesController;
     private Player.SpriteController spriteController;
-    private bool hasSword;
+    private PowerUp.TimedAbilityController powerUpController;
 
-    private void Awake()
-    {
-        livesController = GetComponent<Player.LivesController>();
+	private void Awake()
+	{
+		livesController = GetComponent<Player.LivesController>();
         spriteController = GetComponent<Player.SpriteController>();
-    }
+	}
 
-    public void SetSword()
-    {
-        spriteController.SetSword();
-        hasSword = true;
-    }
+    public void SetAttackPowerUp(PowerUp.AttackAbilityController
+		attackAbilityController)
+	{
+		RemovePowerUp();
+		spriteController.SetAttackPowerUp();
+		powerUpController = attackAbilityController;
+	}
 
-    public void SetLivesPotion()
+    public void SetLivesPowerUp()
     {
         livesController.GainLife();
     }
-    
-    public void RemoveSword()
-    {
-        spriteController.SetNormal();
-        hasSword = false;
-    }
+	
+	public void SetSpeedPowerUp(PowerUp.SpeedAbilityController 
+		speedAbilityController)
+	{
+		RemovePowerUp();
+		spriteController.SetSpeedPowerUp();
+		powerUpController = speedAbilityController;
+	}
+	
+	public void RemovePowerUp()
+	{
+		if (powerUpController != null)
+		{
+			StopAllCoroutines();
+			spriteController.SetNormal();
+			powerUpController = null;
+		}
+	}
 
-    public bool HasSword()
-    {
-        return hasSword;
-    }
+	public bool HasAttackPowerUp()
+	{
+		if (powerUpController != null)
+		{
+			return powerUpController.GetType() == 
+				typeof(PowerUp.AttackAbilityController);
+		}
+		return false;
+	}
+	
+	public bool HasSpeedPowerUp()
+	{
+		if (powerUpController != null)
+		{
+			return powerUpController.GetType() == 
+				typeof(PowerUp.SpeedAbilityController);
+		}
+		return false;
+	}
 }

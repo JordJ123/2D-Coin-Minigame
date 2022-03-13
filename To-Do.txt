@@ -2,7 +2,7 @@ Credits Screen
 Death Screen
 Main Screen
 
-Overall [Sound + Visuals]
+Overall [Achievements, Sound + Visuals]
 Enemy [Spawn Controller]
-Player [Spawn Controller]
+Player [Box Collider + Spawn Controller]
 Maze [External Paths]

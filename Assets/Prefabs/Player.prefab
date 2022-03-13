@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3feb9e7674e3264e8fe2b786e8eee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 0}
 --- !u!114 &4669650999890111351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594e1a0b7347254e91bb97b85e1dae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 0}
   lives: 3
 --- !u!114 &3776275157545064281
 MonoBehaviour:
@@ -213,7 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalSprite: {fileID: 5546671543968653177, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
-  swordSprite: {fileID: 4178410084677973412, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
+  attackPowerUpSprite: {fileID: 4178410084677973412, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
+  speedPowerUpColour: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4467212069261342102
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,11 @@ namespace PowerUp
 
         public static void StaticAwake()
         {
-            powerUps = FindObjectsOfType<SpawnController>(true);
+            powerUps = FindObjectsOfType<SpawnController>(false);
+			foreach (SpawnController powerUp in powerUps)
+			{
+				powerUp.Despawn();
+			}
             SpawnPowerUp();
         }
         
@@ -30,8 +34,7 @@ namespace PowerUp
         private void Awake()
         {
             gameObj = gameObject;
-            Despawn();
-        }
+		}
 
         public void Respawn()
         {

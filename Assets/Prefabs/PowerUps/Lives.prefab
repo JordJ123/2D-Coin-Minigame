@@ -18,7 +18,7 @@ PrefabInstance:
     - target: {fileID: 956635040670717678, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7952917711141154236, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
+      objectReference: {fileID: 3971684389860991708, guid: 85b80bacf37f34e49b5a8d3332f70d54, type: 3}
     - target: {fileID: 956635040670717678, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -97,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617218130049908249, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.75
+      value: 1.0833334
       objectReference: {fileID: 0}
     - target: {fileID: 4617218130049908249, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9166667
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4617218130049908249, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191534882999533467, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_Name
-      value: LivesPotion
+      value: Lives
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}

@@ -8,7 +8,8 @@ namespace Player
     public class SpriteController : MonoBehaviour
     {
         [SerializeField] private Sprite normalSprite;
-        [SerializeField] private Sprite swordSprite;
+        [SerializeField] private Sprite attackPowerUpSprite;
+		[SerializeField] private Color speedPowerUpColour;
         private SpriteRenderer spriteRend;
 
         void Awake()
@@ -16,17 +17,25 @@ namespace Player
             spriteRend = GetComponent<SpriteRenderer>();
         }
 
-        public void SetNormal()
+		public void SetNormal()
+		{
+			spriteRend.color = Color.white;
+			spriteRend.sprite = normalSprite;
+		}
+
+        public void SetAttackPowerUp()
         {
-            spriteRend.sprite = normalSprite;
-        }
-        
-        public void SetSword()
-        {
-            spriteRend.sprite = swordSprite;
+			spriteRend.color = Color.white;
+			spriteRend.sprite = attackPowerUpSprite;
         }
 
-        public void FlipLeft()
+		public void SetSpeedPowerUp()
+		{
+			spriteRend.color = speedPowerUpColour;
+			spriteRend.sprite = normalSprite;
+		}
+
+		public void FlipLeft()
         {
             spriteRend.flipX = true;
         }

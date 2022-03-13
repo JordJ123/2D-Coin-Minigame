@@ -5,21 +5,25 @@ using UnityEngine;
 
 namespace Player 
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+	[RequireComponent(typeof(PowerUpController))]
+	[RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteController))]
-    public class MovementController : MonoBehaviour
+	public class MovementController : MonoBehaviour
     {
         [SerializeField] private float moveDistance;
 		
+		private PowerUpController powerUpController;
         private Rigidbody2D rb2D;
         private SpriteController spriteController;
 		private float horizontalSpeed;
+		private float verticalSpeed;
 		private bool lookingRight = true;
         private Vector2 velocity;
 
-        private void Awake() 
-        {
-            rb2D = GetComponent<Rigidbody2D>();
+        private void Awake()
+		{
+			powerUpController = GetComponent<PowerUpController>();
+			rb2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
             velocity = new Vector2();
         }
@@ -51,14 +55,21 @@ namespace Player
                 lookingRight = true;
                 spriteController.FlipRight();
             }
-            return horizontalSpeed;
-        }
+			if (powerUpController.HasSpeedPowerUp())
+			{
+				return horizontalSpeed * 2;
+			}
+			return horizontalSpeed;
+		}
         
         private float MoveVertical()
-        {
-            return Input.GetAxis("Vertical") * moveDistance;
+		{
+			verticalSpeed = Input.GetAxis("Vertical") * moveDistance;
+			if (powerUpController.HasSpeedPowerUp())
+			{
+				return verticalSpeed * 2;
+			}
+            return verticalSpeed;
         }
     }
 }
-
-

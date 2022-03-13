@@ -21,7 +21,10 @@ namespace UI {
 
 		public void EndTimer()
 		{
-			timerText.text = "";
+			if (timerText.text.Equals("1"))
+			{
+				timerText.text = "";
+			}
 		}
     }
 }

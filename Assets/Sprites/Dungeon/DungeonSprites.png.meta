@@ -16,10 +16,10 @@ TextureImporter:
     second: FloorBlank
   - first:
       213: -1123227848461733444
-    second: Sword Power Up
+    second: Sword
   - first:
       213: -7952917711141154236
-    second: LivesPotion
+    second: Potion
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -205,7 +205,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sword Power Up
+      name: Sword
       rect:
         serializedVersion: 2
         x: 179
@@ -226,15 +226,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LivesPotion
+      name: Potion
       rect:
         serializedVersion: 2
         x: 196
-        y: 65
+        y: 49
         width: 9
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

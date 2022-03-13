@@ -28,7 +28,7 @@ namespace Player {
         {
             if (collider.tag == "Enemy")
             {
-                if (powerUpController.HasSword())
+                if (powerUpController.HasAttackPowerUp())
                 {
                     collider.transform.parent.gameObject
 						.GetComponent<Enemy.SpawnController>().Respawn();
@@ -48,7 +48,8 @@ namespace Player {
             else if (collider.tag == "PowerUp")
             {
                 collider.GetComponent<PowerUp.SpawnController>().Despawn();
-                collider.GetComponent<AbilityController>().Ability(gameObj);
+                collider.GetComponent<PowerUp.IAbilityController>()
+					.Ability(gameObj);
             }
         }
     }
