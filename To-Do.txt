@@ -4,5 +4,5 @@ Main Screen
 
 Overall [Achievements, Sound + Visuals]
 Enemy [Spawn Controller]
-Player [Box Collider + Spawn Controller]
+Player [Co-op, Movement Controller + Spawn Controller]
 Maze [External Paths]
