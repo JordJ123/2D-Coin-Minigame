@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Achievement
 {
-	[RequireComponent(typeof(AchievementSystem))]
 	public abstract class AchievementController : MonoBehaviour
 	{
 		protected AchievementSystem achievementSystem;
@@ -12,7 +11,8 @@ namespace Achievement
 
 		protected void Awake()
 		{
-			achievementSystem = GetComponent<AchievementSystem>();
+			achievementSystem = transform
+				.parent.GetComponent<AchievementSystem>();
 		}
 	}
 }

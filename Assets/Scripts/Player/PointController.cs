@@ -6,18 +6,16 @@ using UnityEngine;
 namespace Player {
     public class PointController : MonoBehaviour
     {
-        [SerializeField] private int startingPointsValue;
+        [SerializeField] private int pointsValue;
 		
 		public static event Action<int> OnCollect;
 		private GameObject[] points;
-        private int pointsValue;
-        private int pointsCollected;
+		private int pointsCollected;
         private int pointsCounter;
         
         private void Awake()
         {
             points = GameObject.FindGameObjectsWithTag("Point");
-			pointsValue = startingPointsValue;
 			pointsCounter = points.Length;
         }
 

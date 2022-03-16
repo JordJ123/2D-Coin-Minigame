@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Achievement
+namespace Achievement.Point
 {
-	public class PointsSmallController : AchievementController
+	public class PointSmallController : AchievementController
 	{
 		[SerializeField] private int pointsValue;
 		

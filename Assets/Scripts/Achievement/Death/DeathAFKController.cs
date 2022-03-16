@@ -1,4 +1,4 @@
-﻿namespace Achievement
+﻿namespace Achievement.Death
 {
 	public class DeathAFKController : AchievementController
 	{

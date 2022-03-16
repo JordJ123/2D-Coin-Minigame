@@ -1,4 +1,4 @@
-﻿namespace Achievement
+﻿namespace Achievement.Speed
 {
 	public class SpeedFirstController : AchievementController
 	{

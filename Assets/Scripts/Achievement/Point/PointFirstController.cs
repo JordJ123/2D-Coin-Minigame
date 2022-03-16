@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 
-namespace Achievement
+namespace Achievement.Point
 {
-	public class PointsLargeController : AchievementController
+	public class PointFirstController : AchievementController
 	{
-		[SerializeField] private int pointsValue;
-		
 		private void Awake()
 		{
 			base.Awake();
-			achievement = new Achievement("Large Points",
-				string.Format("Collect {0} points in one game", pointsValue));
+			achievement = new Achievement("First Point", 
+				"Collect your first point");
 		}
 		
 		private void Start()
@@ -23,11 +21,11 @@ namespace Achievement
 
 		private void CheckAchievement(int pointsValue)
 		{
-			if (pointsValue >= this.pointsValue)
+			if (pointsValue > 0)
 			{
 				achievementSystem.Unlock(achievement);
 				Player.PointController.OnCollect -= CheckAchievement;
 			}
 		}
-	}
+	}	
 }

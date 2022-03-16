@@ -137,8 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3feb9e7674e3264e8fe2b786e8eee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
-  startingPointsValue: 0
+  pointsValue: 0
 --- !u!114 &4669650999890111351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594e1a0b7347254e91bb97b85e1dae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
   lives: 3
 --- !u!114 &3776275157545064281
 MonoBehaviour:

@@ -1,4 +1,4 @@
-﻿namespace Achievement
+﻿namespace Achievement.Kill
 {
 	public class KillFirstController : AchievementController
 	{
