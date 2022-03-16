@@ -1,4 +1,6 @@
-﻿namespace Achievement.Speed
+﻿using UnityEngine;
+
+namespace Achievement.Speed
 {
 	public class SpeedFirstController : AchievementController
 	{
@@ -17,7 +19,7 @@
 			}
 		}
 
-		private void CheckAchievement(bool hasSpeedPowerUp)
+		private void CheckAchievement(bool hasSpeedPowerUp, Transform ignore)
 		{
 			if (hasSpeedPowerUp)
 			{

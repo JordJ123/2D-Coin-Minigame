@@ -22,6 +22,16 @@ namespace Player
             PowerUp.SpawnController.StaticAwake();
         }
 
+		public float GetSpawnX()
+		{
+			return spawnVector.x;
+		}
+		
+		public float GetSpawnY()
+		{
+			return spawnVector.y;
+		}
+
         public void Respawn()
         {
             gameObjTransform.position = spawnVector;

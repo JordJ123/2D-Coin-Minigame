@@ -1,8 +1,10 @@
-﻿namespace Achievement.Death
+﻿using UnityEngine;
+
+namespace Achievement.Death
 {
 	public class DeathAFKController : AchievementController
 	{
-		private bool isFailed = false;
+		private bool isFailed;
 		
 		private void Awake()
 		{
@@ -34,7 +36,7 @@
 			}
 		}
 
-		private void FailAchievement(bool ignore)
+		private void FailAchievement(bool ignore, Transform ignore2)
 		{
 			isFailed = true;
 			Player.MovementController.OnMove -= FailAchievement;

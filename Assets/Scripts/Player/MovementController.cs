@@ -13,8 +13,9 @@ namespace Player
     {
         [SerializeField] private float moveDistance;
 		
-		public static event Action<bool> OnMove;
+		public static event Action<bool, Transform> OnMove;
 		private PowerUpController powerUpController;
+		private Transform tf;
         private Rigidbody2D rb2D;
         private SpriteController spriteController;
 		private float horizontalSpeed;
@@ -25,6 +26,7 @@ namespace Player
         private void Awake()
 		{
 			powerUpController = GetComponent<PowerUpController>();
+			tf = transform;
 			rb2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
             velocity = new Vector2();
@@ -43,7 +45,7 @@ namespace Player
             rb2D.velocity = velocity;
 			if (velocity.x != 0 || velocity.y != 0)
 			{
-				OnMove?.Invoke(powerUpController.HasSpeedPowerUp());
+				OnMove?.Invoke(powerUpController.HasSpeedPowerUp(), tf);
 			}
         }
 

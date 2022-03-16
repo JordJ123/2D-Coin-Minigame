@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Player.SpriteController))]
 public class PowerUpController : MonoBehaviour
 {
+	public static event Action OnAttackReset;
+	public static event Action OnSpeedReset;
 	private GameObject gameObj;
     private Player.LivesController livesController;
     private Player.SpriteController spriteController;
@@ -41,6 +44,14 @@ public class PowerUpController : MonoBehaviour
 		{
 			StopAllCoroutines();
 			spriteController.SetNormal();
+			if (HasAttackPowerUp())
+			{
+				OnAttackReset?.Invoke();
+			} 
+			else if (HasSpeedPowerUp())
+			{
+				OnSpeedReset?.Invoke();
+			}
 			powerUpController = null;
 		}
 	}
