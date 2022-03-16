@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
+  startingPointsValue: 0
 --- !u!114 &4669650999890111351
 MonoBehaviour:
   m_ObjectHideFlags: 0

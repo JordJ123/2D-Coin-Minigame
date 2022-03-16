@@ -12,9 +12,10 @@ namespace UI {
         private void Awake()
         {
 			pointsText = GetComponent<TextMeshProUGUI>();
-        }
+			Player.PointController.OnCollect += UpdatePoints;
+		}
         
-        public void UpdatePoints(int points)
+        private void UpdatePoints(int points)
         {
 			pointsText.text = "Points: " + points.ToString();
         }

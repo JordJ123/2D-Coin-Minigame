@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,10 @@ namespace Player {
     [RequireComponent(typeof(PowerUpController))]
     [RequireComponent(typeof(Player.SpawnController))]
     public class TriggerDetector : MonoBehaviour
-    {
+	{
+		public static event Action OnDeath;
+		public static event Action OnKill;
+		
         private LivesController livesController;
         private Player.PointController pointController;
         private PowerUpController powerUpController;
@@ -32,19 +36,21 @@ namespace Player {
                 {
                     collider.transform.parent.gameObject
 						.GetComponent<Enemy.SpawnController>().Respawn();
+					OnKill?.Invoke();
                 }
                 else
                 {
                     livesController.LoseLife();
                     spawnController.Respawn();
-                }
+					OnDeath?.Invoke();
+				}
             }
             else if (collider.tag == "Point")
             {
                 collider.GetComponent<Point.SpawnController>().Despawn();
                 pointController.CollectPoints(
                     collider.GetComponent<ValueController>().GetValue());
-            }
+			}
             else if (collider.tag == "PowerUp")
             {
                 collider.GetComponent<PowerUp.SpawnController>().Despawn();

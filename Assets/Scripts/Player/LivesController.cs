@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,15 @@ namespace Player
 {
 	public class LivesController : MonoBehaviour
 	{
-		[SerializeField] private UI.LivesController ui;
 		[SerializeField] private int lives;
+		
+		public static event Action<int> OnGain;
+		public static event Action<int> OnLose;
 
 		public void GainLife()
 		{
 			lives++;
-			ui.UpdateLives(lives);
+			OnGain?.Invoke(lives);
 		}
     
 		public void LoseLife()
@@ -25,7 +28,7 @@ namespace Player
 			}
 			else
 			{
-				ui.UpdateLives(lives);
+				OnLose?.Invoke(lives);
 			}
 		}
 

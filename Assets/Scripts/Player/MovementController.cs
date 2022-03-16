@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
@@ -12,6 +13,7 @@ namespace Player
     {
         [SerializeField] private float moveDistance;
 		
+		public static event Action<bool> OnMove;
 		private PowerUpController powerUpController;
         private Rigidbody2D rb2D;
         private SpriteController spriteController;
@@ -39,6 +41,10 @@ namespace Player
             velocity.x = MoveHorizontal();
             velocity.y = MoveVertical();
             rb2D.velocity = velocity;
+			if (velocity.x != 0 || velocity.y != 0)
+			{
+				OnMove?.Invoke(powerUpController.HasSpeedPowerUp());
+			}
         }
 
         private float MoveHorizontal()
