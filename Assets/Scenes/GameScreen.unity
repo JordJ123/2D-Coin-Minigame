@@ -541,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113327459
 Transform:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452368474031220621, guid: 6e9860af31b7ab54b82ccf68892af392, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9860af31b7ab54b82ccf68892af392, type: 3}
@@ -2716,7 +2716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &696878193
 Transform:
   m_ObjectHideFlags: 0
@@ -3622,7 +3622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7655500346416538234, guid: a019d1352959ced499968bc558114cff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a019d1352959ced499968bc558114cff, type: 3}
@@ -11549,6 +11549,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1339165223}
   - component: {fileID: 1339165224}
+  - component: {fileID: 1339165227}
+  - component: {fileID: 1339165226}
+  - component: {fileID: 1339165225}
   m_Layer: 0
   m_Name: LifeAchievements
   m_TagString: Untagged
@@ -11582,6 +11585,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ffca71e8adc044daf4661562848144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1339165225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339165222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a787612182e904198bb168dee69480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesCount: 10
+--- !u!114 &1339165226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339165222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66213f655329f14ca54fce257c36dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesCount: 10
+--- !u!114 &1339165227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339165222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed4e2bef808599439820ef57a6a9fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesCount: 3
 --- !u!4 &1342558911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 653677664921407926, guid: a9cf15ffb99e4174589a711d09cb2ed1, type: 3}
@@ -12531,7 +12573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1690633120
 Transform:
   m_ObjectHideFlags: 0
@@ -13246,7 +13288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1866481824
 Transform:
   m_ObjectHideFlags: 0

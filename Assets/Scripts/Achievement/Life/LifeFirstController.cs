@@ -1,6 +1,6 @@
 ﻿namespace Achievement.Life
 {
-	public class LifeController : AchievementController
+	public class LifeFirstController : AchievementController
 	{
 		private void Awake()
 		{
