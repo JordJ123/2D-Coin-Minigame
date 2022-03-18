@@ -3062,17 +3062,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58c940589d21ef44e8d9935a4c20e3e9, type: 3}
---- !u!114 &770312381 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4774013577194699081, guid: 5476b03e7ae7806499c631a218d1ef88, type: 3}
-  m_PrefabInstance: {fileID: 50238700}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37a88359df7ea04492a3e23e70737b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &773350219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10731,9 +10720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432400680f0860847b85c6a3c5f4c8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementController: {fileID: 770312381}
   achievementDisplayDuration: 3
   achievementGapDuration: 1
+  resetData: 1
 --- !u!4 &1005177182
 Transform:
   m_ObjectHideFlags: 0
