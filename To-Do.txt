@@ -2,10 +2,9 @@ Credits Screen
 Death Screen
 Main Screen
 
-Overall [Effects + Sound]
-Achievements [Description Display]
+Overall [Animations, Effects + Sound]
+Achievements [Display Names]
 Achievements [Images]
-Achievements [Name Display]
 Enemy [Spawn Controller]
 Maze [Extra Detail]
 Maze [External Paths]
