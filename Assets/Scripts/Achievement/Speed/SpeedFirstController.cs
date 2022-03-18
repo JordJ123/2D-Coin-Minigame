@@ -6,13 +6,14 @@ namespace Achievement.Speed
 	{
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("First Speed Movement",
 				"Move with the speed power-up for the first time");
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.MovementController.OnMove += CheckAchievement;

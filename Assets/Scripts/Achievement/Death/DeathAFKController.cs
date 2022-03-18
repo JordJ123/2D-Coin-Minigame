@@ -8,12 +8,13 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("AFK Death", "Die without moving");
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.TriggerDetector.OnDeath += CheckAchievement;

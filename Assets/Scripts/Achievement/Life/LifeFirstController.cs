@@ -4,13 +4,14 @@
 	{
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("First Life",
 				"Gain your first extra life");
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.LivesController.OnGain += CheckAchievement;

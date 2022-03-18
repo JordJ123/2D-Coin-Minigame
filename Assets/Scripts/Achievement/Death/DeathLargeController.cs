@@ -9,13 +9,14 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("Large Deaths",
 				string.Format("Experience {0} deaths in one game", deathCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.TriggerDetector.OnDeath += CheckAchievement;

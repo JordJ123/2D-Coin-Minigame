@@ -5,7 +5,7 @@ Main Screen
 Overall [Effects + Sound]
 Achievements [Description Display]
 Achievements [Images]
-Achievements [Name Changes]
+Achievements [Name Display]
 Achievements [Unlocks (Consecutive)]
 Enemy [Spawn Controller]
 Maze [Extra Detail]

@@ -8,14 +8,15 @@ namespace Achievement.Point
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("No Kills Points",
 				string.Format("Collect {0} points without getting a kill in one"
 					+ " game", pointsValue));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.PointController.OnCollect += CheckAchievement;

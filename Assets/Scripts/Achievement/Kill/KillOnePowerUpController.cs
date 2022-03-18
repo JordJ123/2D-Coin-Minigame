@@ -9,13 +9,14 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("One Power-Up Kills", string.Format(
 				"Kill {0} enemies during one attack power-up", killCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.TriggerDetector.OnKill += CheckAchievement;

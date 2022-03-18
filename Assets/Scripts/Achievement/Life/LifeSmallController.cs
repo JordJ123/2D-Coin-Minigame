@@ -9,13 +9,14 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("Small Lives",
 				string.Format("Gain {0} lives in one game", livesCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.LivesController.OnGain += CheckAchievement;

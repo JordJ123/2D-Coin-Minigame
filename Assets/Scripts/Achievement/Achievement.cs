@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SaveData;
 using UnityEngine;
 
 namespace Achievement
 {
 	public class Achievement
 	{
-		private string name;
+		private string idName;
+		private string displayName;
 		private string description;
 		private bool isUnlocked;
 	
-		public Achievement(string name, string description)
+		public Achievement(string idName, string description)
 		{
-			this.name = name;
+			this.idName = idName;
+			this.displayName = idName;
 			this.description = description;
 		}
 
-		public string GetName()
+		public string GetIdName()
 		{
-			return name;
+			return idName;
+		}
+		
+		public string GetDisplayName()
+		{
+			return displayName;
 		}
 		
 		public string GetDescription()

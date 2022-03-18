@@ -9,13 +9,14 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("Small Kills",
 				string.Format("Kill {0} enemies in one game", killCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.TriggerDetector.OnKill += CheckAchievement;

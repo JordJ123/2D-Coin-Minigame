@@ -13,14 +13,15 @@ namespace Achievement.Speed
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("One Power-Up Speed Movement", 
 				string.Format("Move a distance of {0} within one speed power-up", 
 				distanceCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				distanceCurrentX = 

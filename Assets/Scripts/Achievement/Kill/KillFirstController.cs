@@ -4,13 +4,14 @@
 	{
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("First Kill",
 				"Kill your first enemy");
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.TriggerDetector.OnKill += CheckAchievement;

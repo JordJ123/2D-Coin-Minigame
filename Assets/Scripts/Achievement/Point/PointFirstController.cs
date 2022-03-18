@@ -6,13 +6,14 @@ namespace Achievement.Point
 	{
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("First Point", 
 				"Collect your first point");
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.PointController.OnCollect += CheckAchievement;

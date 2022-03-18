@@ -11,8 +11,16 @@ namespace Achievement
 
 		protected void Awake()
 		{
-			achievementSystem = transform
-				.parent.GetComponent<AchievementSystem>();
+			achievementSystem = transform.parent
+				.GetComponent<AchievementSystem>();
+		}
+
+		protected void Start()
+		{
+			if (achievementSystem.IsUnlocked(achievement))
+			{
+				achievement.Unlock();
+			}
 		}
 	}
 }

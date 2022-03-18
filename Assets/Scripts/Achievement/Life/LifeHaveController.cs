@@ -9,13 +9,14 @@ namespace Achievement.Life
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("Have Lives",
 				string.Format("Have {0} lives at one time", livesCount));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.LivesController.OnGain += CheckAchievement;

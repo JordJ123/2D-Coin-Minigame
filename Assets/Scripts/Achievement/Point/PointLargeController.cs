@@ -8,13 +8,14 @@ namespace Achievement.Point
 		
 		private void Awake()
 		{
-			base.Awake();
 			achievement = new Achievement("Large Points",
 				string.Format("Collect {0} points in one game", pointsValue));
+			base.Awake();
 		}
 		
 		private void Start()
 		{
+			base.Start();
 			if (!achievement.IsUnlocked())
 			{
 				Player.PointController.OnCollect += CheckAchievement;
