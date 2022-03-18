@@ -36,6 +36,16 @@ namespace Achievement
 			return achievementData.HasAchievement(achievement);
 		}
 
+		public float GetProgress(Achievement achievement)
+		{
+			return achievementData.GetProgress(achievement);
+		}
+
+		public void SaveProgress(Achievement achievement, float data)
+		{
+			achievementData.SaveProgress(achievement, data);
+		}
+
 		public void Unlock(Achievement achievement)
 		{
 			achievement.Unlock();

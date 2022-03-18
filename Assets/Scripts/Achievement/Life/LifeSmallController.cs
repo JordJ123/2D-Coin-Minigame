@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Achievement.Death
+namespace Achievement.Life
 {
 	public class LifeSmallController : AchievementController
 	{

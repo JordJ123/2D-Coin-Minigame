@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 133073297}
   - component: {fileID: 133073299}
   - component: {fileID: 133073298}
+  - component: {fileID: 133073301}
   - component: {fileID: 133073300}
   m_Layer: 0
   m_Name: PointAchievements
@@ -838,6 +839,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsValue: 1000
+--- !u!114 &133073301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133073295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0e54a931d6cad4eb098b17743d278e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsValue: 100000
 --- !u!1001 &133517312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1931,6 +1945,7 @@ GameObject:
   - component: {fileID: 460962049}
   - component: {fileID: 460962050}
   - component: {fileID: 460962052}
+  - component: {fileID: 460962053}
   - component: {fileID: 460962051}
   m_Layer: 0
   m_Name: SpeedAchievements
@@ -2003,7 +2018,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d576aea360c90f46b2deeff6c74d5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCount: 20000
+  distanceCount: 25000
+--- !u!114 &460962053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460962047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1ea5ee198a5224bae39cd3be95efbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceCount: 50000
 --- !u!1 &463601563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2867,6 +2895,7 @@ GameObject:
   - component: {fileID: 745343410}
   - component: {fileID: 745343413}
   - component: {fileID: 745343412}
+  - component: {fileID: 745343414}
   - component: {fileID: 745343411}
   m_Layer: 0
   m_Name: KillAchievements
@@ -2940,6 +2969,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 5
+--- !u!114 &745343414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745343408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8b449a1d9023a488d55056d2a30f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCount: 100
 --- !u!4 &746209927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 653677664921407926, guid: a9cf15ffb99e4174589a711d09cb2ed1, type: 3}
@@ -10722,7 +10764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementDisplayDuration: 3
   achievementGapDuration: 1
-  resetData: 1
+  resetData: 0
 --- !u!4 &1005177182
 Transform:
   m_ObjectHideFlags: 0
@@ -11624,6 +11666,7 @@ GameObject:
   - component: {fileID: 1339165224}
   - component: {fileID: 1339165227}
   - component: {fileID: 1339165226}
+  - component: {fileID: 1339165228}
   - component: {fileID: 1339165225}
   m_Layer: 0
   m_Name: LifeAchievements
@@ -11696,7 +11739,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4e2bef808599439820ef57a6a9fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesCount: 3
+  livesCount: 5
+--- !u!114 &1339165228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339165222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa7bfb7b960f704490a93ae7236e4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesCount: 100
 --- !u!4 &1342558911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 653677664921407926, guid: a9cf15ffb99e4174589a711d09cb2ed1, type: 3}
@@ -13208,6 +13264,7 @@ GameObject:
   - component: {fileID: 1821950649}
   - component: {fileID: 1821950648}
   - component: {fileID: 1821950647}
+  - component: {fileID: 1821950650}
   - component: {fileID: 1821950646}
   m_Layer: 0
   m_Name: DeathAchievements
@@ -13267,7 +13324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db57df887f3afbd43898fd9353cb77ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCount: 3
+  deathCount: 5
 --- !u!114 &1821950649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13280,6 +13337,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdff9807f48a860438c61471db37299c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1821950650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821950644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29331d5457cff184b91e68905a503432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathCount: 100
 --- !u!4 &1822184171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5170540254905322405, guid: bfb78734b9fa3a444966bfc070a6852c, type: 3}
