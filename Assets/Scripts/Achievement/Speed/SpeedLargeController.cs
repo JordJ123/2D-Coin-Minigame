@@ -13,7 +13,8 @@ namespace Achievement.Speed
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Large Speed Movement", string.Format(
+			achievement = new Achievement("Large Speed Movement", 
+				"Diogoooooooooo Jota!!!", string.Format(
 				"Move with the speed power-up a distance of {0} in one game", 
 				distanceCount));
 			base.Awake();

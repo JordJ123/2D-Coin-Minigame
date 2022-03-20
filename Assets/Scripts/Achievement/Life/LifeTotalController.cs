@@ -9,7 +9,7 @@ namespace Achievement.Life
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Total Lives",
+			achievement = new Achievement("Total Lives", "The Dark Knight",
 				string.Format("Gain {0} lives in total", livesCount));
 			base.Awake();
 		}

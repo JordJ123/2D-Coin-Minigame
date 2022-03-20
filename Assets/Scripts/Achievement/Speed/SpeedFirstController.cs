@@ -6,7 +6,7 @@ namespace Achievement.Speed
 	{
 		private void Awake()
 		{
-			achievement = new Achievement("First Speed Movement",
+			achievement = new Achievement("First Speed Movement", "First Steps",
 				"Move with the speed power-up for the first time");
 			base.Awake();
 		}

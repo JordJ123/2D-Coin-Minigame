@@ -12,7 +12,8 @@ namespace Achievement.Speed
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Total Speed Movement", string.Format(
+			achievement = new Achievement("Total Speed Movement", 
+				"The Knights of Run", string.Format(
 				"Move with the speed power-up a distance of {0} in total", 
 				distanceCount));
 			base.Awake();

@@ -2,13 +2,10 @@ Credits Screen
 Death Screen
 Main Screen
 
-Overall [Animations, Effects + Sound]
-Achievements [Display Names]
+Overall [Animations, Effects, Extra Detail + Sound]
 Achievements [Images]
-Enemy [Spawn Controller]
-Maze [Extra Detail]
+Co-op
 Maze [External Paths]
-Player [Co-op]
-Player [Spawn Controller]
-User Interface [Extra Detail]
+Spawns [Enemy]
+Spawns [Player]
 

@@ -4,7 +4,7 @@
 	{
 		private void Awake()
 		{
-			achievement = new Achievement("First Death",
+			achievement = new Achievement("First Death", "Initiation",
 				"Experience your first death");
 			base.Awake();
 		}

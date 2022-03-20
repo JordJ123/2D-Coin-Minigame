@@ -9,7 +9,7 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Large Kills",
+			achievement = new Achievement("Large Kills", "Grand Cross",
 				string.Format("Kill {0} enemies in one game", killCount));
 			base.Awake();
 		}

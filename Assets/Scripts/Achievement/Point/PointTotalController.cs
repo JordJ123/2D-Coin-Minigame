@@ -9,7 +9,8 @@ namespace Achievement.Point
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Total Points",
+			achievement = new Achievement("Total Points", 
+				"The Lord of the Coins", 
 				string.Format("Collect {0} points in total", pointsValue));
 			base.Awake();
 		}

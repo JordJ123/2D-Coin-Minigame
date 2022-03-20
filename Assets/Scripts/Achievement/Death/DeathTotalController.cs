@@ -9,7 +9,7 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Total Deaths",
+			achievement = new Achievement("Total Deaths", "Elder Ring", 
 				string.Format("Experience {0} deaths in total", deathCount));
 			base.Awake();
 		}

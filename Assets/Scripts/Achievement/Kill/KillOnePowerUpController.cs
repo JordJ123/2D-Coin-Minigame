@@ -9,8 +9,9 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			achievement = new Achievement("One Power-Up Kills", string.Format(
-				"Kill {0} enemies during one attack power-up", killCount));
+			achievement = new Achievement("One Power-Up Kills", "Bloodbath",
+				string.Format("Kill {0} enemies during one attack power-up", 
+				killCount));
 			base.Awake();
 		}
 		

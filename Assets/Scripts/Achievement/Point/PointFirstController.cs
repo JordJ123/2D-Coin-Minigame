@@ -6,7 +6,7 @@ namespace Achievement.Point
 	{
 		private void Awake()
 		{
-			achievement = new Achievement("First Point", 
+			achievement = new Achievement("First Point", "Peasant",
 				"Collect your first point");
 			base.Awake();
 		}

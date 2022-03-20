@@ -8,7 +8,7 @@ namespace Achievement.Point
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Large Points",
+			achievement = new Achievement("Large Points", "Royalty",
 				string.Format("Collect {0} points in one game", pointsValue));
 			base.Awake();
 		}

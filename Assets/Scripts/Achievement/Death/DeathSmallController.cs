@@ -9,7 +9,8 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Small Deaths",
+			achievement = new Achievement("Small Deaths", 
+				"Took a Zombie to the Knee",
 				string.Format("Experience {0} deaths in one game", deathCount));
 			base.Awake();
 		}

@@ -9,7 +9,8 @@ namespace Achievement.Life
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Small Lives",
+			achievement = new Achievement("Small Lives", 
+				"Knight in Shining Armor",
 				string.Format("Gain {0} lives in one game", livesCount));
 			base.Awake();
 		}

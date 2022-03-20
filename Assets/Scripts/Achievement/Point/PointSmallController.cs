@@ -8,7 +8,7 @@ namespace Achievement.Point
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Small Points",
+			achievement = new Achievement("Small Points", "Noble",
 				string.Format("Collect {0} points in one game", pointsValue));
 			base.Awake();
 		}

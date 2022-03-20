@@ -9,7 +9,8 @@ namespace Achievement.Life
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Large Lives",
+			achievement = new Achievement("Large Lives", 
+				"Marvelous Black Knight",
 				string.Format("Gain {0} lives in one game", livesCount));
 			base.Awake();
 		}

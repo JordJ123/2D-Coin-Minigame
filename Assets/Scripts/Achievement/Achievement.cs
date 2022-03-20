@@ -12,10 +12,11 @@ namespace Achievement
 		private string description;
 		private bool isUnlocked;
 	
-		public Achievement(string idName, string description)
+		public Achievement(string idName, string displayName, 
+			string description)
 		{
 			this.idName = idName;
-			this.displayName = idName;
+			this.displayName = displayName;
 			this.description = description;
 		}
 

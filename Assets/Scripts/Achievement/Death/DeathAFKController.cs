@@ -8,7 +8,8 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			achievement = new Achievement("AFK Death", "Die without moving");
+			achievement = new Achievement("AFK Death", "AFKnight", 
+				"Die without moving");
 			base.Awake();
 		}
 		

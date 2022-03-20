@@ -9,7 +9,7 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Total Kills",
+			achievement = new Achievement("Total Kills", "Legend",
 				string.Format("Kill {0} enemies in total", killCount));
 			base.Awake();
 		}

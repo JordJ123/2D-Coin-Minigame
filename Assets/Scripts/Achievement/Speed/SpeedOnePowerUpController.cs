@@ -14,6 +14,7 @@ namespace Achievement.Speed
 		private void Awake()
 		{
 			achievement = new Achievement("One Power-Up Speed Movement", 
+				"Sonic and the Blue Knight", 
 				string.Format("Move a distance of {0} within one speed power-up", 
 				distanceCount));
 			base.Awake();

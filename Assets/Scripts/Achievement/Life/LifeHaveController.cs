@@ -9,7 +9,7 @@ namespace Achievement.Life
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Have Lives",
+			achievement = new Achievement("Have Lives", "Escape Artist",
 				string.Format("Have {0} lives at one time", livesCount));
 			base.Awake();
 		}

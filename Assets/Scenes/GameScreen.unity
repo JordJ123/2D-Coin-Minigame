@@ -344,6 +344,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 692920550945598773, guid: 5476b03e7ae7806499c631a218d1ef88, type: 3}
+      propertyPath: m_text
+      value: 'Achievement Unlocked:'
+      objectReference: {fileID: 0}
     - target: {fileID: 5679588690891129712, guid: 5476b03e7ae7806499c631a218d1ef88, type: 3}
       propertyPath: m_Name
       value: StandardUI
@@ -10764,7 +10768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementDisplayDuration: 3
   achievementGapDuration: 1
-  resetData: 0
+  resetData: 1
 --- !u!4 &1005177182
 Transform:
   m_ObjectHideFlags: 0

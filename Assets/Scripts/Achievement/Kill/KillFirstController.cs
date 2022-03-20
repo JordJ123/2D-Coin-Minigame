@@ -4,7 +4,7 @@
 	{
 		private void Awake()
 		{
-			achievement = new Achievement("First Kill",
+			achievement = new Achievement("First Kill", "Knight",
 				"Kill your first enemy");
 			base.Awake();
 		}

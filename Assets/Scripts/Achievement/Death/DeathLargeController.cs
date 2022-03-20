@@ -9,7 +9,7 @@ namespace Achievement.Death
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Large Deaths",
+			achievement = new Achievement("large Deaths", "Fus Ro Die",
 				string.Format("Experience {0} deaths in one game", deathCount));
 			base.Awake();
 		}

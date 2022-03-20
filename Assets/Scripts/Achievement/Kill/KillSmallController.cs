@@ -9,7 +9,7 @@ namespace Achievement.Kill
 		
 		private void Awake()
 		{
-			achievement = new Achievement("Small Kills",
+			achievement = new Achievement("Small Kills", "Commander",
 				string.Format("Kill {0} enemies in one game", killCount));
 			base.Awake();
 		}
