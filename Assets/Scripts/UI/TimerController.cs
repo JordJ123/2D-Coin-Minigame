@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PowerUp;
 using TMPro;
 using UnityEngine;
 
@@ -12,20 +13,25 @@ namespace UI {
         private void Awake() {
 			timerText = GetComponent<TextMeshProUGUI>();
 			timerText.text = "";
+			TimedAbilityController.OnSecond += UpdateSeconds;
+		}
+		
+		private void OnDisable()
+		{
+			TimedAbilityController.OnSecond -= UpdateSeconds;
 		}
         
         public void UpdateSeconds(int seconds)
         {
-			timerText.text = seconds.ToString();
-        }
-
-		public void EndTimer()
-		{
-			if (timerText.text.Equals("1"))
+			if (seconds != 0)
+			{
+				timerText.text = seconds.ToString();
+			}
+			else
 			{
 				timerText.text = "";
 			}
 		}
-    }
+	}
 }
 

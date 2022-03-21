@@ -24,8 +24,7 @@ namespace PowerUp
         {
 			foreach (var enemy in enemies)
             {
-                enemy.transform.parent
-    				.GetComponent<Enemy.SpriteController>().SetVunerable();
+                enemy.GetComponent<Enemy.SpriteController>().SetVunerable();
             }
 			player.GetComponent<PowerUpController>().SetAttackPowerUp(this);
 		}
@@ -35,14 +34,13 @@ namespace PowerUp
 			for (currentDuration = duration; currentDuration > 0; 
 				currentDuration--)
     		{
-				timerController.UpdateSeconds(currentDuration);
+				InvokeOnSecondEvent(currentDuration);
 				yield return new WaitForSeconds(1);
     		}
-			timerController.EndTimer();
+			InvokeOnSecondEvent(0);
 			foreach (var enemy in enemies)
 			{
-				enemy.transform.parent
-					.GetComponent<Enemy.SpriteController>().SetNormal();
+				enemy.GetComponent<Enemy.SpriteController>().SetInvunerable();
 			}
 			player.GetComponent<PowerUpController>().RemovePowerUp();
 		}

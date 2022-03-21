@@ -15,6 +15,12 @@ namespace UI {
 			Player.LivesController.OnGain += UpdateLives;
 			Player.LivesController.OnLose += UpdateLives;
 		}
+		
+		private void OnDisable()
+		{
+			Player.LivesController.OnGain -= UpdateLives;
+			Player.LivesController.OnLose -= UpdateLives;
+		}
         
         private void UpdateLives(int lives)
 		{

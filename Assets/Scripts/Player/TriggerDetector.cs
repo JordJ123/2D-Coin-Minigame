@@ -18,6 +18,8 @@ namespace Player {
         private PowerUpController powerUpController;
         private Player.SpawnController spawnController;
         private GameObject gameObj;
+
+		private Enemy.HealthController enemyHealthController;
         
         private void Awake()
         {
@@ -31,20 +33,25 @@ namespace Player {
         private void OnTriggerEnter2D(Collider2D collider) 
         {
             if (collider.tag == "Enemy")
-            {
-                if (powerUpController.HasAttackPowerUp())
-                {
-                    collider.transform.parent.gameObject
-						.GetComponent<Enemy.SpawnController>().Respawn();
-					OnKill?.Invoke();
-                }
-                else
-                {
-                    livesController.LoseLife();
-                    spawnController.Respawn();
-					OnDeath?.Invoke();
+			{
+				enemyHealthController
+					= collider.GetComponent<Enemy.HealthController>();
+				if (enemyHealthController.IsAlive())
+				{
+					if (powerUpController.HasAttackPowerUp())
+					{
+						enemyHealthController.Die();
+						OnKill?.Invoke();
+					}
+					else
+					{
+						livesController.LoseLife();
+						spawnController.Respawn();
+						OnDeath?.Invoke();
+					}
 				}
-            }
+				enemyHealthController = null;
+			}
             else if (collider.tag == "Point")
             {
                 collider.GetComponent<Point.SpawnController>().Despawn();

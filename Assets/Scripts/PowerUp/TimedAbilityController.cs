@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UI;
 using UnityEngine;
@@ -7,8 +8,8 @@ namespace PowerUp
 	public abstract class TimedAbilityController : MonoBehaviour, 
 		IAbilityController
 	{
-		[SerializeField] protected TimerController timerController;
 		[SerializeField] protected int duration;
+		public static event Action<int> OnSecond;
 		protected int currentDuration;
 
 		public abstract void Ability(GameObject player);
@@ -16,5 +17,10 @@ namespace PowerUp
 		protected abstract void AbilityStart(GameObject player);
 
 		protected abstract IEnumerator AbilityEnd(GameObject player);
+
+		protected void InvokeOnSecondEvent(int currentDuration)
+		{
+			OnSecond?.Invoke(currentDuration);
+		}
 	}
 }

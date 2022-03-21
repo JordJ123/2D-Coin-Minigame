@@ -14,6 +14,11 @@ namespace UI {
 			pointsText = GetComponent<TextMeshProUGUI>();
 			Player.PointController.OnCollect += UpdatePoints;
 		}
+		
+		private void OnDisable()
+		{
+			Player.PointController.OnCollect -= UpdatePoints;
+		}
         
         private void UpdatePoints(int points)
         {

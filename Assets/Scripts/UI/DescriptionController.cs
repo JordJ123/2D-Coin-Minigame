@@ -16,6 +16,12 @@ namespace UI {
 			AchievementSystem.OnDisplay += DisplayAchievement;
 			AchievementSystem.OnRemove += RemoveAchievement;
 		}
+		
+		private void OnDisable()
+		{
+			AchievementSystem.OnDisplay -= DisplayAchievement;
+			AchievementSystem.OnRemove -= RemoveAchievement;
+		}
         
 		public void DisplayAchievement(Achievement.Achievement achievement)
 		{

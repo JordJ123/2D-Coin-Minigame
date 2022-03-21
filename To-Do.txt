@@ -2,7 +2,7 @@ Credits Screen
 Death Screen
 Main Screen
 
-Overall [Animations, Effects, Extra Detail + Sound]
+Overall [Animations, Detail, Effects, Events + Sound]
 Achievements [Images]
 Co-op
 Maze [External Paths]

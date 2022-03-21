@@ -7,33 +7,51 @@ using Random = UnityEngine.Random;
 namespace Enemy
 {
 	[RequireComponent(typeof(DirectionType))]
+	[RequireComponent(typeof(HealthController))]
 	[RequireComponent(typeof(Rigidbody2D))]
 	[RequireComponent(typeof(SpriteController))]
     public class MovementController : MonoBehaviour
     {
         [SerializeField] private float moveDistance;
-
+		
 		private DirectionType directionType;
+		private HealthController healthController;
 		private Rigidbody2D rb2D;
         private SpriteController spriteController;
         private WallDetector[] wallDetectors = new WallDetector[4];
-		
-        private List<Direction> availableDirections = new List<Direction>();
-        private Vector2 velocity;
+
+		private List<Direction> availableDirections = new List<Direction>();
+		private Vector2 velocity;
+		private bool canMove = true;
+		private Direction startingDirection;
 
         private void Awake()
 		{
 			directionType = GetComponent<DirectionType>();
+			healthController = GetComponent<HealthController>();
 			rb2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
             for (int i = 0; i < 4; i++)
             {
-                wallDetectors[i] = transform.GetChild(i + 1)
+                wallDetectors[i] = transform.GetChild(i)
 					.gameObject.GetComponent<WallDetector>();
             }
-        }
+			startingDirection = directionType.Direction;
+		}
+		
+		private void Start()
+		{
+			healthController.OnDeath += FreezeMovement;
+			healthController.OnRevive += UnfreezeMovement;
+		}
 
-        public void SetIntersectionDirection(Direction intersectionDirection)
+		private void OnDisable()
+		{
+			healthController.OnDeath -= FreezeMovement;
+			healthController.OnRevive -= UnfreezeMovement;
+		}
+
+		public void SetIntersectionDirection(Direction intersectionDirection)
         {
             velocity = rb2D.velocity;
             velocity.x = 0;
@@ -85,24 +103,45 @@ namespace Enemy
 
         private void Move()
         {
-            velocity = rb2D.velocity;
-            switch (directionType.Direction)
-            {
-                case Direction.RIGHT:
-                    velocity.x = moveDistance;
-                    break;
-                case Direction.LEFT:
-                    velocity.x = -moveDistance;
-                    break;
-                case Direction.UP:
-                    velocity.y = moveDistance;
-                    break;
-                case Direction.DOWN:
-                    velocity.y = -moveDistance;
-                    break;
-            }
-            rb2D.velocity = velocity;
-        }
-    }
+			if (canMove)
+			{
+				velocity = rb2D.velocity;
+				switch (directionType.Direction)
+				{
+					case Direction.RIGHT:
+						velocity.x = moveDistance;
+						break;
+					case Direction.LEFT:
+						velocity.x = -moveDistance;
+						break;
+					case Direction.UP:
+						velocity.y = moveDistance;
+						break;
+					case Direction.DOWN:
+						velocity.y = -moveDistance;
+						break;
+				}
+				rb2D.velocity = velocity;
+			}
+			else
+			{
+				velocity = rb2D.velocity;
+				velocity.x = 0;
+				velocity.y = 0;
+				rb2D.velocity = velocity;
+			}
+		}
+		
+		private void FreezeMovement()
+		{
+			directionType.Direction = startingDirection;
+			canMove = false;
+		}
+
+		private void UnfreezeMovement()
+		{
+			canMove = true;
+		}
+	}
 }
     

@@ -22,10 +22,10 @@ namespace PowerUp
 			for (currentDuration = duration; currentDuration > 0; 
 				currentDuration--)
 			{
-				timerController.UpdateSeconds(currentDuration);
+				InvokeOnSecondEvent(currentDuration);
 				yield return new WaitForSeconds(1);
 			}
-			timerController.EndTimer(); 
+			InvokeOnSecondEvent(0);
 			player.GetComponent<PowerUpController>().RemovePowerUp();
 		}
 	}

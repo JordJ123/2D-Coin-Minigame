@@ -21,7 +21,7 @@ TagManager:
   - Points
   - Maze
   - PowerUp
-  - Trigger
+  - 
   - Intersection
   - 
   - 
@@ -55,11 +55,11 @@ TagManager:
   - name: PowerUp
     uniqueID: 3566222327
     locked: 0
-  - name: Players
-    uniqueID: 3348952957
-    locked: 0
   - name: Enemy
     uniqueID: 2957845723
+    locked: 0
+  - name: Players
+    uniqueID: 3348952957
     locked: 0
   - name: Intersection
     uniqueID: 3143989927
