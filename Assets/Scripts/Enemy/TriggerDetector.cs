@@ -12,7 +12,7 @@ namespace Enemy
 		private BoxCollider2D boxCollider2D;
 		private DirectionType directionType;
 		private MovementController movementController;
-		private bool hasChecked = true;
+		private bool isValid = true;
         private float leftX;
         private float rightX;
         private float topY;
@@ -30,7 +30,7 @@ namespace Enemy
 
         private void OnTriggerStay2D(Collider2D collider) 
         {
-            if (collider.tag == "Intersection" && hasChecked)
+            if (collider.tag == "Intersection" && isValid)
             {
 				intersectionDirection 
 					= collider.GetComponent<DirectionType>().Direction;
@@ -41,30 +41,44 @@ namespace Enemy
 				{
 					case Direction.LEFT:
 					case Direction.RIGHT:
-						topY = boxCollider2D.bounds.center.y 
-							+ boxCollider2D.bounds.extents.y;
-						bottomY = boxCollider2D.bounds.center.y 
-							- boxCollider2D.bounds.extents.y;
-						inBounds = topY <= intersectionController.GetTopY()
-							&& bottomY >= intersectionController.GetBottomY()
-							&& directionType.Direction != Direction.LEFT
-							&& directionType.Direction != Direction.RIGHT;
+						if (directionType.Direction == Direction.UP
+							|| directionType.Direction == Direction.DOWN)
+						{
+							topY = boxCollider2D.bounds.center.y 
+								+ boxCollider2D.bounds.extents.y;
+							bottomY = boxCollider2D.bounds.center.y 
+								- boxCollider2D.bounds.extents.y;
+							inBounds = topY <= intersectionController.GetTopY() 
+								&& bottomY 
+									>= intersectionController.GetBottomY();
+						}
+						else
+						{
+							isValid = false;
+						}
 						break;
 					case Direction.UP:
 					case Direction.DOWN:
-						leftX = boxCollider2D.bounds.center.x 
-							- boxCollider2D.bounds.extents.x;
-						rightX = boxCollider2D.bounds.center.x 
-							+ boxCollider2D.bounds.extents.x;
-						inBounds = leftX >= intersectionController.GetLeftX() 
-							&& rightX <= intersectionController.GetRightX()
-							&& directionType.Direction != Direction.UP
-							&& directionType.Direction != Direction.DOWN;
+						if (directionType.Direction == Direction.LEFT
+							|| directionType.Direction == Direction.RIGHT)
+						{
+							leftX = boxCollider2D.bounds.center.x 
+								- boxCollider2D.bounds.extents.x;
+							rightX = boxCollider2D.bounds.center.x 
+								+ boxCollider2D.bounds.extents.x;
+							inBounds
+								= leftX >= intersectionController.GetLeftX()
+								&& rightX <= intersectionController.GetRightX();
+						}
+						else
+						{
+							isValid = false;
+						}
 						break;
 				}
 				if (inBounds)
 				{
-					hasChecked = false;
+					isValid = false;
 					movementController
 						.SetIntersectionDirection(intersectionDirection);
 				}
@@ -75,7 +89,7 @@ namespace Enemy
         {
 			if (collider.tag == "Intersection")
 			{
-				hasChecked = true;
+				isValid = true;
 			}
 		}
     }

@@ -1,7 +1,6 @@
+Overall [Animations, Detail, Effects, Events + Sound]
 Credits Screen
 Death Screen
 Main Screen
 
-Overall [Animations, Detail, Effects, Events + Sound]
-Co-op
-Enemy [Previous Direction]
+Two Players

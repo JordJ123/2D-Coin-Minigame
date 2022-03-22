@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,6 +22,7 @@ namespace Enemy
         private WallDetector[] wallDetectors = new WallDetector[4];
 
 		private List<Direction> availableDirections = new List<Direction>();
+		private Direction reverseDirection;
 		private Vector2 velocity;
 		private bool canMove = true;
 		private Direction startingDirection;
@@ -36,14 +38,31 @@ namespace Enemy
                 wallDetectors[i] = transform.GetChild(i)
 					.gameObject.GetComponent<WallDetector>();
             }
+			reverseDirection = SetReverseDirection();
 			startingDirection = directionType.Direction;
 		}
-		
+
 		private void Start()
 		{
 			Player.TriggerDetector.OnDeath += ResetMovement;
 			healthController.OnDeath += FreezeMovement;
 			healthController.OnRevive += UnfreezeMovement;
+		}
+
+		private Direction SetReverseDirection()
+		{
+			switch (directionType.Direction)
+			{
+				case Direction.RIGHT:
+					return Direction.LEFT;
+				case Direction.LEFT:
+					return Direction.RIGHT;
+				case Direction.UP:
+					return Direction.DOWN;
+				case Direction.DOWN:
+					return Direction.UP;
+			}
+			throw new InvalidEnumArgumentException();
 		}
 
 		private void OnDisable()
@@ -60,6 +79,7 @@ namespace Enemy
             availableDirections.Add(directionType.Direction);
             availableDirections.Add(intersectionDirection);
             directionType.Direction = availableDirections[Random.Range(0, 2)];
+			reverseDirection = SetReverseDirection();
             SetSpriteDirection();
         }
 
@@ -69,14 +89,16 @@ namespace Enemy
             availableDirections.Clear();
             foreach (var wallDetector in wallDetectors)
             {
-                if (!wallDetector.HasWall())
+                if (!wallDetector.HasWall() 
+					&& wallDetector.GetDirection() != reverseDirection)
                 {
                     availableDirections.Add(wallDetector.GetDirection());   
                 }
             }
             directionType.Direction = availableDirections[
 				Random.Range(0, availableDirections.Count)];
-            SetSpriteDirection();
+			reverseDirection = SetReverseDirection();
+			SetSpriteDirection();
         }
 
         private void SetSpriteDirection()
@@ -129,6 +151,7 @@ namespace Enemy
 		{
 			ResetVelocity();
 			directionType.Direction = startingDirection;
+			reverseDirection = SetReverseDirection();
 		}
 		
 		private void FreezeMovement()
