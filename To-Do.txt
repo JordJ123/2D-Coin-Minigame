@@ -4,5 +4,4 @@ Main Screen
 
 Overall [Animations, Detail, Effects, Events + Sound]
 Co-op
-Maze [External Paths]
-
+Enemy [Previous Direction]
