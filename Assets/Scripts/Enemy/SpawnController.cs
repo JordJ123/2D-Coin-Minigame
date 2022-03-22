@@ -17,6 +17,7 @@ namespace Enemy
 			healthController = GetComponent<HealthController>();
 			gameObjTransform = GetComponent<Transform>();
             spawnVector = gameObjTransform.position;
+            Player.TriggerDetector.OnDeath += Respawn;
 		}
 		
 		private void Start()
@@ -26,11 +27,12 @@ namespace Enemy
 		
 		private void OnDisable()
 		{
+		    Player.TriggerDetector.OnDeath -= Respawn;
 			healthController.OnDeath -= Respawn;
 		}
 
         public void Respawn()
-        {
+		{
 			gameObjTransform.position = spawnVector;
 		}
 	}

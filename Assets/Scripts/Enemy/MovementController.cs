@@ -41,22 +41,21 @@ namespace Enemy
 		
 		private void Start()
 		{
+			Player.TriggerDetector.OnDeath += ResetMovement;
 			healthController.OnDeath += FreezeMovement;
 			healthController.OnRevive += UnfreezeMovement;
 		}
 
 		private void OnDisable()
 		{
+			Player.TriggerDetector.OnDeath -= ResetMovement;
 			healthController.OnDeath -= FreezeMovement;
 			healthController.OnRevive -= UnfreezeMovement;
 		}
 
 		public void SetIntersectionDirection(Direction intersectionDirection)
-        {
-            velocity = rb2D.velocity;
-            velocity.x = 0;
-            velocity.y = 0;
-            rb2D.velocity = velocity;
+		{
+			ResetVelocity();
             availableDirections.Clear();
             availableDirections.Add(directionType.Direction);
             availableDirections.Add(intersectionDirection);
@@ -65,11 +64,8 @@ namespace Enemy
         }
 
         public void SetWallDirection()
-        {
-            velocity = rb2D.velocity;
-            velocity.x = 0;
-            velocity.y = 0;
-            rb2D.velocity = velocity;
+		{
+			ResetVelocity();
             availableDirections.Clear();
             foreach (var wallDetector in wallDetectors)
             {
@@ -125,22 +121,33 @@ namespace Enemy
 			}
 			else
 			{
-				velocity = rb2D.velocity;
-				velocity.x = 0;
-				velocity.y = 0;
-				rb2D.velocity = velocity;
+				ResetVelocity();
 			}
+		}
+
+		public void ResetMovement()
+		{
+			ResetVelocity();
+			directionType.Direction = startingDirection;
 		}
 		
 		private void FreezeMovement()
 		{
-			directionType.Direction = startingDirection;
+			ResetMovement();
 			canMove = false;
 		}
 
 		private void UnfreezeMovement()
 		{
 			canMove = true;
+		}
+
+		private void ResetVelocity()
+		{
+			velocity = rb2D.velocity;
+			velocity.x = 0;
+			velocity.y = 0;
+			rb2D.velocity = velocity;
 		}
 	}
 }

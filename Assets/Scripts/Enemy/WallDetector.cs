@@ -32,7 +32,7 @@ public class WallDetector : MonoBehaviour
     {
         if (collider.tag == "Maze")
         {
-            hasWall = true;
+			hasWall = true;
 			if (directionType.Direction == direction)
 			{
 				movementController.SetWallDirection();

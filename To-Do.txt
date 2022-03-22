@@ -3,9 +3,6 @@ Death Screen
 Main Screen
 
 Overall [Animations, Detail, Effects, Events + Sound]
-Achievements [Images]
 Co-op
 Maze [External Paths]
-Spawns [Enemy]
-Spawns [Player]
 
