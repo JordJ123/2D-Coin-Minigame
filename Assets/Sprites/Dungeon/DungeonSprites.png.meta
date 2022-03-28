@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -7952917711141154236
     second: Potion
+  - first:
+      213: 8804714881647133235
+    second: PlayerTwo
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -242,6 +245,27 @@ TextureImporter:
       bones: []
       spriteID: 442d4836a7f81a190800000000000000
       internalID: -7952917711141154236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTwo
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3324c251981a03a70800000000000000
+      internalID: 8804714881647133235
       vertices: []
       indices: 
       edges: []

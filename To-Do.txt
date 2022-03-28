@@ -3,4 +3,10 @@ Credits Screen
 Death Screen
 Main Screen
 
-Two Players
+Two Players [Achievements]
+Two Players [Lives]
+Two Players [Manager]
+Two Players [Points]
+Two Players [Power-Ups]
+Two Players [Spawn]
+Two Players [Sprites]

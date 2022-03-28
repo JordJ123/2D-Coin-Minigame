@@ -20,8 +20,9 @@ GameObject:
   - component: {fileID: 8969528801936269435}
   - component: {fileID: 4467212069261342102}
   - component: {fileID: 1207813943}
+  - component: {fileID: 6067519171477077945}
   m_Layer: 6
-  m_Name: Player
+  m_Name: 1PPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55128cd28da3e244fb86105d7ff6d54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 10
+  moveDistance: 5
 --- !u!114 &2762479222101774154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12179941, y: -0.20761263}
+  m_Offset: {x: 0.1248838, y: -0.20844018}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -200,7 +201,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0064012, y: 1.2514412}
+  m_Size: {x: 1.0002325, y: 1.2497861}
   m_EdgeRadius: 0
 --- !u!114 &8969528801936269435
 MonoBehaviour:
@@ -241,3 +242,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab15a9e349e65b49ba5a10ed9d7614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6067519171477077945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762479222101774135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ffffdf0cd98d54aa12cb53f4ddbc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: 97
+  right: 100
+  up: 119
+  down: 115

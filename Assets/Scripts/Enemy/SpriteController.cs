@@ -55,7 +55,7 @@ namespace Enemy
 
 		private void SetAlive()
 		{
-			SetColour(Color.white, 1);
+			SetColour(spriteRend.color, 1);
 		}
 
 		private void SetColour(Color color, float opacity)

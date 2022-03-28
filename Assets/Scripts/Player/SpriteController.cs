@@ -7,15 +7,16 @@ namespace Player
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteController : MonoBehaviour
     {
-        [SerializeField] private Sprite normalSprite;
         [SerializeField] private Sprite attackPowerUpSprite;
 		[SerializeField] private Color speedPowerUpColour;
         private SpriteRenderer spriteRend;
+		private Sprite normalSprite;
 
         void Awake()
         {
             spriteRend = GetComponent<SpriteRenderer>();
-        }
+			normalSprite = spriteRend.sprite;
+		}
 
 		public void SetNormal()
 		{

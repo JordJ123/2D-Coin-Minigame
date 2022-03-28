@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Player 
 {
+	[RequireComponent(typeof(InputController))]
 	[RequireComponent(typeof(PowerUpController))]
 	[RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteController))]
@@ -14,6 +15,7 @@ namespace Player
         [SerializeField] private float moveDistance;
 		
 		public static event Action<bool, Transform> OnMove;
+		private InputController inputController;
 		private PowerUpController powerUpController;
 		private Transform tf;
         private Rigidbody2D rb2D;
@@ -25,6 +27,7 @@ namespace Player
 
         private void Awake()
 		{
+			inputController = GetComponent<InputController>();
 			powerUpController = GetComponent<PowerUpController>();
 			tf = transform;
 			rb2D = GetComponent<Rigidbody2D>();
@@ -52,8 +55,9 @@ namespace Player
         private float MoveHorizontal()
         {
             
-            horizontalSpeed = Input.GetAxis("Horizontal") * moveDistance;
-            if (horizontalSpeed < 0 && lookingRight)
+            horizontalSpeed = inputController.GetHorizontalAxis()
+				* moveDistance;
+			if (horizontalSpeed < 0 && lookingRight)
             {
                 lookingRight = false;
                 spriteController.FlipLeft();
@@ -72,7 +76,7 @@ namespace Player
         
         private float MoveVertical()
 		{
-			verticalSpeed = Input.GetAxis("Vertical") * moveDistance;
+			verticalSpeed = inputController.GetVerticalAxis() * moveDistance;
 			if (powerUpController.HasSpeedPowerUp())
 			{
 				return verticalSpeed * 2;
