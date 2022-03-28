@@ -464,10 +464,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 846964393}
     m_Modifications:
-    - target: {fileID: 998861750090061976, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 8804714881647133235, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
     - target: {fileID: 998861750090061977, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
       propertyPath: m_Name
       value: 2P Player Two
@@ -520,6 +516,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6336790777134987221, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
+      propertyPath: attackPowerUpSprite
+      value: 
+      objectReference: {fileID: 2735099843672317681, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
     - target: {fileID: 9205023135535114263, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
       propertyPath: up
       value: 273
@@ -14568,6 +14568,10 @@ PrefabInstance:
     - target: {fileID: 2762479222101774135, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: m_Name
       value: 1P Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479222101774135, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
