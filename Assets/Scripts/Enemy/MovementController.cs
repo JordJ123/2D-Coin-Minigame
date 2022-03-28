@@ -44,9 +44,16 @@ namespace Enemy
 
 		private void Start()
 		{
-			Player.TriggerDetector.OnDeath += ResetMovement;
 			healthController.OnDeath += FreezeMovement;
 			healthController.OnRevive += UnfreezeMovement;
+			healthController.OnReset += ResetMovement;
+		}
+		
+		private void OnDisable()
+		{
+			healthController.OnDeath -= FreezeMovement;
+			healthController.OnRevive -= UnfreezeMovement;
+			healthController.OnReset -= ResetMovement;
 		}
 
 		private Direction SetReverseDirection()
@@ -63,13 +70,6 @@ namespace Enemy
 					return Direction.UP;
 			}
 			throw new InvalidEnumArgumentException();
-		}
-
-		private void OnDisable()
-		{
-			Player.TriggerDetector.OnDeath -= ResetMovement;
-			healthController.OnDeath -= FreezeMovement;
-			healthController.OnRevive -= UnfreezeMovement;
 		}
 
 		public void SetIntersectionDirection(Direction intersectionDirection)
@@ -147,11 +147,12 @@ namespace Enemy
 			}
 		}
 
-		public void ResetMovement()
+		private void ResetMovement()
 		{
 			ResetVelocity();
 			directionType.Direction = startingDirection;
 			reverseDirection = SetReverseDirection();
+			canMove = true;
 		}
 		
 		private void FreezeMovement()

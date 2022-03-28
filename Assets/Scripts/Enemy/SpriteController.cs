@@ -25,16 +25,16 @@ namespace Enemy
 		
 		private void Start()
 		{
-			Player.TriggerDetector.OnDeath += Reset;
 			healthController.OnDeath += SetDead;
 			healthController.OnRevive += SetAlive;
+			healthController.OnReset += Reset;
 		}
 		
 		private void OnDisable()
 		{
-			Player.TriggerDetector.OnDeath -= Reset;
 			healthController.OnDeath -= SetDead;
 			healthController.OnRevive -= SetAlive;
+			healthController.OnReset -= Reset;
 		}
 
         public void SetVunerable()
@@ -50,7 +50,7 @@ namespace Enemy
 		private void SetDead()
 		{
 			SetColour(spriteRend.color, deadOpacity);
-			Reset();
+			spriteRend.flipX = isBaseFlipX;
 		}
 
 		private void SetAlive()
@@ -76,6 +76,7 @@ namespace Enemy
 
 		private void Reset()
 		{
+			SetAlive();
 			spriteRend.flipX = isBaseFlipX;
 		}
     }

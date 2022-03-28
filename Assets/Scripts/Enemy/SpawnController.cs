@@ -17,18 +17,18 @@ namespace Enemy
 			healthController = GetComponent<HealthController>();
 			gameObjTransform = GetComponent<Transform>();
             spawnVector = gameObjTransform.position;
-            Player.TriggerDetector.OnDeath += Respawn;
 		}
 		
 		private void Start()
 		{
 			healthController.OnDeath += Respawn;
+			healthController.OnReset += Respawn;
 		}
 		
 		private void OnDisable()
 		{
-		    Player.TriggerDetector.OnDeath -= Respawn;
 			healthController.OnDeath -= Respawn;
+			healthController.OnReset -= Respawn;
 		}
 
         public void Respawn()

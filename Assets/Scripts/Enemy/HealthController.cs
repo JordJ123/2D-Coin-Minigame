@@ -11,7 +11,13 @@ namespace Enemy
 		
 		public event Action OnDeath;
 		public event Action OnRevive;
+		public event Action OnReset;
 		private bool isAlive = true;
+
+		private void Awake()
+		{
+			Player.TriggerDetector.OnDeath += Reset;
+		}
 
 		public bool IsAlive()
 		{
@@ -28,8 +34,16 @@ namespace Enemy
 		private IEnumerator Revive()
 		{
 			yield return new WaitForSeconds(reviveDuration);
+			Debug.Log("Reset");
 			isAlive = true;
 			OnRevive?.Invoke();
+		}
+		
+		private void Reset()
+		{
+			StopAllCoroutines();
+			isAlive = true;
+			OnReset?.Invoke();
 		}
 	}
 }

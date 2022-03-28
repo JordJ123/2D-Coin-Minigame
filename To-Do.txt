@@ -3,6 +3,7 @@ Credits Screen
 Death Screen
 Main Screen
 
+Spawn [Enemy Automatic Revive]
 Two Players [Achievements]
 Two Players [Manager]
 Two Players [Lives]
