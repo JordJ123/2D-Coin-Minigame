@@ -44,13 +44,13 @@ namespace Player
 			lives--;
 			if (lives == 0)
 			{
-				isDead = Die();
+				isDead = EndGame();
 			}
 			OnLose?.Invoke(lives);
 			return isDead;
 		}
 
-		private bool Die()
+		private bool EndGame()
 		{
 			isGameOver = true;
 			if (livesControllers == null)

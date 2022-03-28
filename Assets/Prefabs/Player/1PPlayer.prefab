@@ -237,6 +237,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7053f2620ba3454081a1358ecd85880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4669650999890111351}
+        m_TargetAssemblyTypeName: Player.SpawnController, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2762479222101774154}
+        m_TargetAssemblyTypeName: Player.PointController, Assembly-CSharp
+        m_MethodName: CollectPoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnInvulnerability:
     m_PersistentCalls:
       m_Calls:

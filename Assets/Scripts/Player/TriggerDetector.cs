@@ -14,15 +14,15 @@ namespace Player {
 		public static event Action OnStaticDeath;
 		public static event Action OnKill;
 
+		[SerializeField] private UnityEvent OnDeath;
+		[SerializeField] private UnityEvent<int> OnPoint;
 		[SerializeField] private UnityEvent OnInvulnerability;
 		[SerializeField] private UnityEvent OnVulnerability;
 		[SerializeField] private int invulnerabilityDuration;
 		
         private LivesController livesController;
-        private Player.PointController pointController;
-        private PowerUpController powerUpController;
-        private Player.SpawnController spawnController;
-        private GameObject gameObj;
+		private PowerUpController powerUpController;
+		private GameObject gameObj;
 
 		private Enemy.HealthController enemyHealthController;
 		private bool ignoreEnemies;
@@ -30,10 +30,8 @@ namespace Player {
         private void Awake()
         {
             livesController = GetComponent<LivesController>();
-            pointController = GetComponent<PointController>();
             powerUpController = GetComponent<PowerUpController>();
-            spawnController = GetComponent<Player.SpawnController>();
-            gameObj = gameObject;
+			gameObj = gameObject;
         }
         
         private void OnTriggerEnter2D(Collider2D collider) 
@@ -53,7 +51,7 @@ namespace Player {
 					{
 						if (!livesController.LoseLife())
 						{
-							spawnController.Respawn();
+							OnDeath?.Invoke();
 							StartCoroutine(Invulnerability());
 						};
 						OnStaticDeath?.Invoke();
@@ -64,8 +62,8 @@ namespace Player {
             else if (collider.tag == "Point")
             {
                 collider.GetComponent<Point.SpawnController>().Despawn();
-                pointController.CollectPoints(
-                    collider.GetComponent<ValueController>().GetValue());
+                OnPoint?.Invoke(
+					collider.GetComponent<ValueController>().GetValue());
 			}
             else if (collider.tag == "PowerUp")
             {
