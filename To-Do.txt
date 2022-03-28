@@ -4,7 +4,7 @@ Death Screen
 Main Screen
 
 Two Players [Achievements]
-Two Players [Lives]
-Two Players [Points]
-Two Players [Power-Ups]
-Two Players [Spawn]
+Two Players [Death]
+Two Players [Respawn]
+
+

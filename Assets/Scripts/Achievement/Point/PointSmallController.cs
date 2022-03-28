@@ -18,7 +18,7 @@ namespace Achievement.Point
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.PointController.OnCollect += CheckAchievement;
+				Player.PointController.OnStaticCollect += CheckAchievement;
 			}
 		}
 
@@ -27,7 +27,7 @@ namespace Achievement.Point
 			if (pointsValue >= this.pointsValue)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.PointController.OnCollect -= CheckAchievement;
+				Player.PointController.OnStaticCollect -= CheckAchievement;
 			}
 		}
 	}

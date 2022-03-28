@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Enemy
 {
 	[RequireComponent(typeof(HealthController))]
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class SpriteController : MonoBehaviour
+	[RequireComponent(typeof(SpriteRenderer))]
+	public class SpriteController : MonoBehaviour
 	{
+		[SerializeField] private Color twoPlayerColour;
 		[SerializeField] private float deadOpacity;
 		
 		private HealthController healthController;
         private SpriteRenderer spriteRend;
         private Color baseColour;
 		private bool isBaseFlipX;
+		private List<Color> currentColours = new List<Color>();
 
 		void Awake()
         {
@@ -37,14 +40,33 @@ namespace Enemy
 			healthController.OnReset -= Reset;
 		}
 
-        public void SetVunerable()
+        public void SetVunerable(Color colour)
         {
-			SetColour(Color.red, spriteRend.color.a);
+			if (CompareColours(spriteRend.color, Color.white))
+			{
+				SetColour(colour, spriteRend.color.a);
+			}
+			else if (!CompareColours(spriteRend.color, colour))
+			{
+				SetColour(twoPlayerColour, spriteRend.color.a);
+			}
+			if (!currentColours.Contains(colour))
+			{
+				currentColours.Add(colour);
+			}
 		}
 		
-		public void SetInvunerable()
+		public void SetInvunerable(Color colour)
 		{
-			SetColour(Color.white, spriteRend.color.a);
+			currentColours.Remove(colour);
+			if (CompareColours(spriteRend.color, colour))
+			{
+				SetColour(Color.white, spriteRend.color.a);
+			}
+			else
+			{
+				SetColour(currentColours[0], spriteRend.color.a);
+			}
 		}
 
 		private void SetDead()
@@ -63,8 +85,15 @@ namespace Enemy
 			color.a = opacity;
 			spriteRend.color = color;
 		}
-        
-        public void FlipLeft()
+
+		private bool CompareColours(Color colourOne, Color colourTwo)
+		{
+			return colourOne.r == colourTwo.r
+				&& colourOne.g == colourTwo.g
+				&& colourOne.b == colourTwo.b;
+		}
+
+		public void FlipLeft()
         {
             spriteRend.flipX = false;
         }

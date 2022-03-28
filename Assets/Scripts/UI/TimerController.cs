@@ -13,15 +13,9 @@ namespace UI {
         private void Awake() {
 			timerText = GetComponent<TextMeshProUGUI>();
 			timerText.text = "";
-			TimedAbilityController.OnSecond += UpdateSeconds;
 		}
 		
-		private void OnDisable()
-		{
-			TimedAbilityController.OnSecond -= UpdateSeconds;
-		}
-        
-        public void UpdateSeconds(int seconds)
+		public void UpdateSeconds(int seconds)
         {
 			if (seconds != 0)
 			{

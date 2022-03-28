@@ -10,12 +10,24 @@ public class PlayerCountManager : MonoBehaviour
 	{
 		if (!isTwoPlayers)
 		{
-			Destroy(GameObject.Find("2P Player One"));
-			Destroy(GameObject.Find("2P Player Two"));
+			OnePlayerMode();
 		}
 		else
 		{
-			Destroy(GameObject.Find("1P Player"));
+		    TwoPlayerMode();
 		}
+	}
+
+	private void OnePlayerMode()
+	{
+		Destroy(GameObject.Find("2P User Interface"));
+		Destroy(GameObject.Find("2P Player One"));
+		Destroy(GameObject.Find("2P Player Two"));
+	}
+
+	private void TwoPlayerMode()
+	{
+		Destroy(GameObject.Find("1P User Interface"));
+		Destroy(GameObject.Find("1P Player"));
 	}
 }

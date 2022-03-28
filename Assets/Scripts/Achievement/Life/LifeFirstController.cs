@@ -14,14 +14,14 @@
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.LivesController.OnGain += CheckAchievement;
+				Player.LivesController.OnStaticGain += CheckAchievement;
 			}
 		}
 
 		private void CheckAchievement(int ignore)
 		{
 			achievementSystem.Unlock(achievement);
-			Player.LivesController.OnGain -= CheckAchievement;
+			Player.LivesController.OnStaticGain -= CheckAchievement;
 		}
 	}
 }

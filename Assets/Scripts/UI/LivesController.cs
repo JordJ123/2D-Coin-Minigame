@@ -12,17 +12,9 @@ namespace UI {
         private void Awake()
         {
 			livesText = GetComponent<TextMeshProUGUI>();
-			Player.LivesController.OnGain += UpdateLives;
-			Player.LivesController.OnLose += UpdateLives;
 		}
 		
-		private void OnDisable()
-		{
-			Player.LivesController.OnGain -= UpdateLives;
-			Player.LivesController.OnLose -= UpdateLives;
-		}
-        
-        private void UpdateLives(int lives)
+		public void UpdateLives(int lives)
 		{
 			livesText.text = "Lives: " + lives;
 		}

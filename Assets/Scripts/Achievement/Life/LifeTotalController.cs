@@ -21,7 +21,7 @@ namespace Achievement.Life
 			{
 				SetCurrentLifeCount(
 					(int) achievementSystem.GetProgress(achievement));
-				Player.LivesController.OnGain += CheckAchievement;
+				Player.LivesController.OnStaticGain += CheckAchievement;
 			}
 		}
 		
@@ -36,7 +36,7 @@ namespace Achievement.Life
 			if (currentLifeCount >= livesCount)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.LivesController.OnGain -= CheckAchievement;
+				Player.LivesController.OnStaticGain -= CheckAchievement;
 			}
 			achievementSystem.SaveProgress(achievement, currentLifeCount);
 		}

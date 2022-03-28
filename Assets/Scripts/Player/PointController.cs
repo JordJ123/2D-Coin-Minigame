@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player {
     public class PointController : MonoBehaviour
-    {
+	{
+		[SerializeField] private UnityEvent<int> OnCollect;
         [SerializeField] private int pointsValue;
 		
-		public static event Action<int> OnCollect;
+		public static event Action<int> OnStaticCollect;
 		private GameObject[] points;
 		private int pointsCollected;
         private int pointsCounter;
@@ -21,6 +23,7 @@ namespace Player {
 
 		private void Start()
 		{
+			OnStaticCollect?.Invoke(pointsValue);
 			OnCollect?.Invoke(pointsValue);
 		}
         
@@ -28,6 +31,7 @@ namespace Player {
         {
             pointsValue += value;
             pointsCollected++;
+			OnStaticCollect?.Invoke(pointsValue);
 			OnCollect?.Invoke(pointsValue);
 			if (pointsCollected % pointsCounter == 0)
             {

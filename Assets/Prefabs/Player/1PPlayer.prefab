@@ -139,6 +139,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3feb9e7674e3264e8fe2b786e8eee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.PointController, Assembly-CSharp
+        m_MethodName: UpdatePoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   pointsValue: 0
 --- !u!114 &4669650999890111351
 MonoBehaviour:
@@ -164,6 +179,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594e1a0b7347254e91bb97b85e1dae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGain:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.LivesController, Assembly-CSharp
+        m_MethodName: UpdateLives
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.LivesController, Assembly-CSharp
+        m_MethodName: UpdateLives
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lives: 3
 --- !u!114 &3776275157545064281
 MonoBehaviour:
@@ -215,7 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0489b886d96eea47bb5f6684739fd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSprite: {fileID: 5546671543968653177, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
   attackPowerUpSprite: {fileID: 4178410084677973412, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
   speedPowerUpColour: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4467212069261342102
@@ -230,6 +274,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c6cc21d771f284b9a3778d379e1600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnSecond:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.TimerController, Assembly-CSharp
+        m_MethodName: UpdateSeconds
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  attackColour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1207813943
 MonoBehaviour:
   m_ObjectHideFlags: 0

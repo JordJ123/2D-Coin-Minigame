@@ -22,7 +22,7 @@ namespace Achievement.Point
 			{
 				SetSavedPointsValue(
 					(int) achievementSystem.GetProgress(achievement));
-				Player.PointController.OnCollect += CheckAchievement;
+				Player.PointController.OnStaticCollect += CheckAchievement;
 			}
 		}
 		
@@ -36,7 +36,7 @@ namespace Achievement.Point
 			if (savedPointsValue + pointsValue >= this.pointsValue)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.PointController.OnCollect -= CheckAchievement;
+				Player.PointController.OnStaticCollect -= CheckAchievement;
 			}
 			achievementSystem.SaveProgress(achievement, 
 				savedPointsValue + pointsValue);

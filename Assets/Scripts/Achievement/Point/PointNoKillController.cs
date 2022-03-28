@@ -19,7 +19,7 @@ namespace Achievement.Point
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.PointController.OnCollect += CheckAchievement;
+				Player.PointController.OnStaticCollect += CheckAchievement;
 				Player.TriggerDetector.OnKill += FailAchievement;
 			}
 		}
@@ -29,14 +29,14 @@ namespace Achievement.Point
 			if (pointsValue >= this.pointsValue)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.PointController.OnCollect -= CheckAchievement;
+				Player.PointController.OnStaticCollect -= CheckAchievement;
 				Player.TriggerDetector.OnKill -= FailAchievement;
 			}
 		}
 
 		private void FailAchievement()
 		{
-			Player.PointController.OnCollect -= CheckAchievement;
+			Player.PointController.OnStaticCollect -= CheckAchievement;
 			Player.TriggerDetector.OnKill -= FailAchievement;
 		}
 	}

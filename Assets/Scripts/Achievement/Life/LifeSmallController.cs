@@ -20,7 +20,7 @@ namespace Achievement.Life
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.LivesController.OnGain += CheckAchievement;
+				Player.LivesController.OnStaticGain += CheckAchievement;
 			}
 		}
 
@@ -30,7 +30,7 @@ namespace Achievement.Life
 			if (currentLifeCount >= livesCount)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.LivesController.OnGain -= CheckAchievement;
+				Player.LivesController.OnStaticGain -= CheckAchievement;
 			}
 		}
 	}

@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12f652cf40497342bf8855a6bf8c862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  twoPlayerColour: {r: 1, g: 0, b: 0, a: 1}
   deadOpacity: 0.5
 --- !u!114 &6294316720596674809
 MonoBehaviour:
