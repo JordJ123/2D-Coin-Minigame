@@ -6,7 +6,7 @@ public class PlayerCountManager : MonoBehaviour
 {
     [SerializeField] private bool isTwoPlayers;
 
-	private void Start()
+	private void Awake()
 	{
 		if (!isTwoPlayers)
 		{

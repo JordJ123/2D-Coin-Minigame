@@ -53,6 +53,7 @@ public class PowerUpController : MonoBehaviour
 		if (powerUpController != null)
 		{
 			StopAllCoroutines();
+			OnSecondEvent(0);
 			spriteController.SetNormal();
 			if (HasAttackPowerUp())
 			{

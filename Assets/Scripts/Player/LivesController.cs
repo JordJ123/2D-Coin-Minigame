@@ -12,9 +12,18 @@ namespace Player
 		[SerializeField] private UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnLose;
 		[SerializeField] private int lives;
-		
+		private static LivesController[] livesControllers;
+		private GameObject gameObj;
+		private PowerUpController powerUpController;
+		private bool isGameOver;
+
 		public static event Action<int> OnStaticGain;
-		public static event Action<int> OnStaticLose;
+
+		private void Awake()
+		{
+			gameObj = gameObject;
+			powerUpController = GetComponent<PowerUpController>();
+		}
 
 		public void GainLife()
 		{
@@ -30,16 +39,33 @@ namespace Player
 			{
 				Die();
 			}
-			else
-			{
-				OnStaticLose?.Invoke(lives);
-				OnLose?.Invoke(lives);
-			}
+			OnLose?.Invoke(lives);
 		}
 
 		private void Die()
 		{
-			SceneManager.LoadScene("DeathScreen");
+			isGameOver = true;
+			if (livesControllers == null)
+			{
+				livesControllers = FindObjectsOfType<LivesController>(false);
+			}
+			foreach (var livesController in livesControllers)
+			{
+				if (livesController.lives != 0)
+				{
+					isGameOver = false;
+					break;
+				}
+			}
+			if (isGameOver)
+			{
+				SceneManager.LoadScene("DeathScreen");
+			}
+			else
+			{
+				powerUpController.RemovePowerUp();
+				Destroy(gameObj);
+			}
 		}
 	}
 }

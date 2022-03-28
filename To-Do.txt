@@ -4,7 +4,6 @@ Death Screen
 Main Screen
 
 Two Players [Achievements]
-Two Players [Death]
 Two Players [Respawn]
 
 

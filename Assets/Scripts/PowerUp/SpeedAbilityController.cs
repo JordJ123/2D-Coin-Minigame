@@ -26,7 +26,6 @@ namespace PowerUp
 				playerPowerUpController.OnSecondEvent(currentDuration);
 				yield return new WaitForSeconds(1);
 			}
-			playerPowerUpController.OnSecondEvent(0);
 			playerPowerUpController.RemovePowerUp();
 		}
 	}
