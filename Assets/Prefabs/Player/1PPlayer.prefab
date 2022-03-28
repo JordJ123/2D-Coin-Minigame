@@ -179,6 +179,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594e1a0b7347254e91bb97b85e1dae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.LivesController, Assembly-CSharp
+        m_MethodName: UpdateLives
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGain:
     m_PersistentCalls:
       m_Calls:
@@ -222,6 +237,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7053f2620ba3454081a1358ecd85880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInvulnerability:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8969528801936269435}
+        m_TargetAssemblyTypeName: Player.SpriteController, Assembly-CSharp
+        m_MethodName: SetInvulnerable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnVulnerability:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8969528801936269435}
+        m_TargetAssemblyTypeName: Player.SpriteController, Assembly-CSharp
+        m_MethodName: SetVulnerable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  invulnerabilityDuration: 5
 --- !u!61 &6576014316418219941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0489b886d96eea47bb5f6684739fd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invulnerableOpacity: 0.5
   attackPowerUpSprite: {fileID: 4178410084677973412, guid: 215c68c0c6b8bdb4b85c3461d41ddf1d, type: 3}
   speedPowerUpColour: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4467212069261342102

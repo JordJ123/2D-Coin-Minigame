@@ -14,14 +14,14 @@
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.TriggerDetector.OnDeath += CheckAchievement;
+				Player.TriggerDetector.OnStaticDeath += CheckAchievement;
 			}
 		}
 
 		private void CheckAchievement()
 		{
 			achievementSystem.Unlock(achievement);
-			Player.TriggerDetector.OnDeath -= CheckAchievement;
+			Player.TriggerDetector.OnStaticDeath -= CheckAchievement;
 		}
 	}
 }

@@ -14,11 +14,6 @@ namespace Enemy
 		public event Action OnReset;
 		private bool isAlive = true;
 
-		private void Awake()
-		{
-			Player.TriggerDetector.OnDeath += Reset;
-		}
-
 		public bool IsAlive()
 		{
 			return isAlive;

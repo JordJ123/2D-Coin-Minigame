@@ -20,7 +20,7 @@ namespace Achievement.Death
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.TriggerDetector.OnDeath += CheckAchievement;
+				Player.TriggerDetector.OnStaticDeath += CheckAchievement;
 			}
 		}
 
@@ -30,7 +30,7 @@ namespace Achievement.Death
 			if (currentDeathCount >= deathCount)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.TriggerDetector.OnDeath -= CheckAchievement;
+				Player.TriggerDetector.OnStaticDeath -= CheckAchievement;
 			}
 		}
 	}

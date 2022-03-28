@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2762479222101774135, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: m_Name
-      value: 2P Player One
+      value: 2PPlayerOne
       objectReference: {fileID: 0}
     - target: {fileID: 4467212069261342102, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: attackColour.b
@@ -70,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 4467212069261342102, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: attackColour.r
       value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969528801936269435, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: speedPowerUpColour.g
+      value: 0.49803922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}

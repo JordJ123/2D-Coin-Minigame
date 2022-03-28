@@ -6,7 +6,8 @@ namespace Player
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteController : MonoBehaviour
-    {
+	{
+		[SerializeField] private float invulnerableOpacity;
         [SerializeField] private Sprite attackPowerUpSprite;
 		[SerializeField] private Color speedPowerUpColour;
         private SpriteRenderer spriteRend;
@@ -24,16 +25,32 @@ namespace Player
 			spriteRend.sprite = normalSprite;
 		}
 
+		public void SetInvulnerable()
+		{
+			SetColour(spriteRend.color, invulnerableOpacity);
+		}
+		
+		public void SetVulnerable()
+		{
+			SetColour(spriteRend.color, 1);
+		}
+
         public void SetAttackPowerUp()
         {
-			spriteRend.color = Color.white;
+			SetColour(Color.white, spriteRend.color.a);
 			spriteRend.sprite = attackPowerUpSprite;
         }
 
 		public void SetSpeedPowerUp()
 		{
-			spriteRend.color = speedPowerUpColour;
+			SetColour(speedPowerUpColour, spriteRend.color.a);
 			spriteRend.sprite = normalSprite;
+		}
+		
+		private void SetColour(Color color, float opacity)
+		{
+			color.a = opacity;
+			spriteRend.color = color;
 		}
 
 		public void FlipLeft()

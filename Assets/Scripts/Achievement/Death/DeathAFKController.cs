@@ -18,7 +18,7 @@ namespace Achievement.Death
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				Player.TriggerDetector.OnDeath += CheckAchievement;
+				Player.TriggerDetector.OnStaticDeath += CheckAchievement;
 				Player.MovementController.OnMove += FailAchievement;
 			}
 		}
@@ -28,7 +28,7 @@ namespace Achievement.Death
 			if (!isFailed)
 			{
 				achievementSystem.Unlock(achievement);
-				Player.TriggerDetector.OnDeath -= CheckAchievement;
+				Player.TriggerDetector.OnStaticDeath -= CheckAchievement;
 				Player.MovementController.OnMove -= FailAchievement;
 			}
 			else

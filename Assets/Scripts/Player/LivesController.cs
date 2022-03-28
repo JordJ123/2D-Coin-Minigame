@@ -9,12 +9,14 @@ namespace Player
 {
 	public class LivesController : MonoBehaviour
 	{
+		[SerializeField] private UnityEvent<int> OnStart;
 		[SerializeField] private UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnLose;
 		[SerializeField] private int lives;
 		private static LivesController[] livesControllers;
 		private GameObject gameObj;
 		private PowerUpController powerUpController;
+		private bool isDead;
 		private bool isGameOver;
 
 		public static event Action<int> OnStaticGain;
@@ -25,6 +27,11 @@ namespace Player
 			powerUpController = GetComponent<PowerUpController>();
 		}
 
+		private void Start()
+		{
+			OnStart?.Invoke(lives);
+		}
+
 		public void GainLife()
 		{
 			lives++;
@@ -32,17 +39,18 @@ namespace Player
 			OnGain?.Invoke(lives);
 		}
     
-		public void LoseLife()
+		public bool LoseLife()
 		{
 			lives--;
 			if (lives == 0)
 			{
-				Die();
+				isDead = Die();
 			}
 			OnLose?.Invoke(lives);
+			return isDead;
 		}
 
-		private void Die()
+		private bool Die()
 		{
 			isGameOver = true;
 			if (livesControllers == null)
@@ -65,7 +73,9 @@ namespace Player
 			{
 				powerUpController.RemovePowerUp();
 				Destroy(gameObj);
+				return true;
 			}
+			return false;
 		}
 	}
 }

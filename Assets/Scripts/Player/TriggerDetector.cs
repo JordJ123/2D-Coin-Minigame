@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player {
     [RequireComponent(typeof(LivesController))]
@@ -10,8 +11,12 @@ namespace Player {
     [RequireComponent(typeof(Player.SpawnController))]
     public class TriggerDetector : MonoBehaviour
 	{
-		public static event Action OnDeath;
+		public static event Action OnStaticDeath;
 		public static event Action OnKill;
+
+		[SerializeField] private UnityEvent OnInvulnerability;
+		[SerializeField] private UnityEvent OnVulnerability;
+		[SerializeField] private int invulnerabilityDuration;
 		
         private LivesController livesController;
         private Player.PointController pointController;
@@ -20,6 +25,7 @@ namespace Player {
         private GameObject gameObj;
 
 		private Enemy.HealthController enemyHealthController;
+		private bool ignoreEnemies;
         
         private void Awake()
         {
@@ -32,7 +38,7 @@ namespace Player {
         
         private void OnTriggerEnter2D(Collider2D collider) 
         {
-            if (collider.tag == "Enemy")
+            if (!ignoreEnemies && collider.tag == "Enemy")
 			{
 				enemyHealthController
 					= collider.GetComponent<Enemy.HealthController>();
@@ -45,9 +51,12 @@ namespace Player {
 					}
 					else
 					{
-						livesController.LoseLife();
-						spawnController.Respawn();
-						OnDeath?.Invoke();
+						if (!livesController.LoseLife())
+						{
+							spawnController.Respawn();
+							StartCoroutine(Invulnerability());
+						};
+						OnStaticDeath?.Invoke();
 					}
 				}
 				enemyHealthController = null;
@@ -65,6 +74,15 @@ namespace Player {
 					.Ability(gameObj);
             }
         }
+
+		private IEnumerator Invulnerability()
+		{
+			ignoreEnemies = true;
+			OnInvulnerability?.Invoke();
+			yield return new WaitForSeconds(invulnerabilityDuration);
+			ignoreEnemies = false;
+			OnVulnerability?.Invoke();
+		}
     }
 }
 
