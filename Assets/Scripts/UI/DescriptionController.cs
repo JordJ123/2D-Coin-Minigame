@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Achievement;
 using TMPro;
 using UnityEngine;
 
@@ -13,14 +12,14 @@ namespace UI {
 		private void Awake() {
 			achievementDisplay = GetComponent<TextMeshProUGUI>();
 			achievementDisplay.text = "";
-			AchievementSystem.OnDisplay += DisplayAchievement;
-			AchievementSystem.OnRemove += RemoveAchievement;
+			Manager.AchievementManager.OnDisplay += DisplayAchievement;
+			Manager.AchievementManager.OnRemove += RemoveAchievement;
 		}
 		
 		private void OnDisable()
 		{
-			AchievementSystem.OnDisplay -= DisplayAchievement;
-			AchievementSystem.OnRemove -= RemoveAchievement;
+			Manager.AchievementManager.OnDisplay -= DisplayAchievement;
+			Manager.AchievementManager.OnRemove -= RemoveAchievement;
 		}
         
 		public void DisplayAchievement(Achievement.Achievement achievement)
