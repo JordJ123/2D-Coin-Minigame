@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: profileName
+      value: PlayerTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.b
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.g
+      value: 0.7725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.r
+      value: 0.86274517
+      objectReference: {fileID: 0}
     - target: {fileID: 2762479222101774133, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 8804714881647133235, guid: ee3bbcc514d01724bb0a8010ebb6e126, type: 3}
     - target: {fileID: 2762479222101774135, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: m_Name
-      value: 2P Player Two
+      value: 2PPlayerTwo
       objectReference: {fileID: 0}
     - target: {fileID: 4467212069261342102, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: attackColour.b

@@ -15,6 +15,6 @@ namespace PowerUp
 		protected abstract void AbilityStart(GameObject player);
 
 		protected abstract IEnumerator AbilityEnd(
-			PowerUpController playerPowerUpController);
+			Player.PowerUpController playerPowerUpController);
 	}
 }

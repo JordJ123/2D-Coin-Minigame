@@ -6,7 +6,7 @@ namespace PowerUp
 	{
 		public void Ability(GameObject player)
 		{
-			player.GetComponent<PowerUpController>().SetLivesPowerUp();
+			player.GetComponent<Player.PowerUpController>().SetLivesPowerUp();
 		}
 	}
 }

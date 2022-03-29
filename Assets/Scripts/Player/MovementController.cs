@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player 
 {
@@ -11,10 +12,10 @@ namespace Player
 	[RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteController))]
 	public class MovementController : MonoBehaviour
-    {
+	{
+		[SerializeField] public UnityEvent<bool, Transform> OnMove;
         [SerializeField] private float moveDistance;
 		
-		public static event Action<bool, Transform> OnMove;
 		private InputController inputController;
 		private PowerUpController powerUpController;
 		private Transform tf;

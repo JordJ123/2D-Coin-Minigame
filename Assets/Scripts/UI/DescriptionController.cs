@@ -22,8 +22,10 @@ namespace UI {
 			Manager.AchievementManager.OnRemove -= RemoveAchievement;
 		}
         
-		public void DisplayAchievement(Achievement.Achievement achievement)
+		public void DisplayAchievement(
+			Player.Achievement.Achievement achievement)
 		{
+			achievementDisplay.color = achievement.GetColour();
 			achievementDisplay.text = achievement.GetDescription();
 		}
 

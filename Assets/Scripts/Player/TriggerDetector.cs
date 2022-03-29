@@ -11,10 +11,8 @@ namespace Player {
     [RequireComponent(typeof(Player.SpawnController))]
     public class TriggerDetector : MonoBehaviour
 	{
-		public static event Action OnStaticDeath;
-		public static event Action OnKill;
-
-		[SerializeField] private UnityEvent OnDeath;
+		[SerializeField] public UnityEvent OnDeath;
+		[SerializeField] public UnityEvent OnKill;
 		[SerializeField] private UnityEvent<int> OnPoint;
 		[SerializeField] private UnityEvent OnInvulnerability;
 		[SerializeField] private UnityEvent OnVulnerability;
@@ -54,7 +52,7 @@ namespace Player {
 							OnDeath?.Invoke();
 							StartCoroutine(Invulnerability());
 						};
-						OnStaticDeath?.Invoke();
+						OnDeath?.Invoke();
 					}
 				}
 				enemyHealthController = null;

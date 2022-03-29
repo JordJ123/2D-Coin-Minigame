@@ -8,17 +8,18 @@ namespace PowerUp
 		public override void Ability(GameObject player)
 		{
 			AbilityStart(player);
-			player.GetComponent<PowerUpController>().StartCoroutine(
-				AbilityEnd(player.GetComponent<PowerUpController>()));
+			player.GetComponent<Player.PowerUpController>().StartCoroutine(
+				AbilityEnd(player.GetComponent<Player.PowerUpController>()));
 		}
 
 		protected override void AbilityStart(GameObject player)
 		{
-			player.GetComponent<PowerUpController>().SetSpeedPowerUp(this);
+			player.GetComponent<Player.PowerUpController>()
+				.SetSpeedPowerUp(this);
 		}
 	
 		protected override IEnumerator AbilityEnd(
-			PowerUpController playerPowerUpController)
+			Player.PowerUpController playerPowerUpController)
 		{
 			for (int currentDuration = duration; currentDuration > 0; 
 				currentDuration--)

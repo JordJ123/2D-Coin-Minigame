@@ -9,8 +9,8 @@ namespace Player
 {
 	public class LivesController : MonoBehaviour
 	{
+		[SerializeField] public UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnStart;
-		[SerializeField] private UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnLose;
 		[SerializeField] private int lives;
 		private static LivesController[] livesControllers;
@@ -18,8 +18,6 @@ namespace Player
 		private PowerUpController powerUpController;
 		private bool isDead;
 		private bool isGameOver;
-
-		public static event Action<int> OnStaticGain;
 
 		private void Awake()
 		{
@@ -35,7 +33,6 @@ namespace Player
 		public void GainLife()
 		{
 			lives++;
-			OnStaticGain?.Invoke(lives);
 			OnGain?.Invoke(lives);
 		}
     

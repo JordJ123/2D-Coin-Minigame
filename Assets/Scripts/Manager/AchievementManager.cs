@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using SaveData;
 using UnityEngine;
 
 namespace Manager
@@ -11,17 +10,19 @@ namespace Manager
 		[SerializeField] private float achievementDisplayDuration;
 		[SerializeField] private float achievementGapDuration;
 
-		public static event Action<Achievement.Achievement> OnDisplay;
+		public static event 
+			Action<Player.Achievement.Achievement> OnDisplay;
 		public static event Action OnRemove;
-		private Queue<Achievement.Achievement> achievementQueue 
-			= new Queue<Achievement.Achievement>();
+		private Queue<Player.Achievement.Achievement> achievementQueue 
+			= new Queue<Player.Achievement.Achievement>();
 
 		private void Awake()
 		{
 			StartCoroutine(DisplayAchievement());
 		}
 
-		public void EnqueueAchievement(Achievement.Achievement achievement)
+		public void EnqueueAchievement(
+			Player.Achievement.Achievement achievement)
 		{
 			achievementQueue.Enqueue(achievement);
 		}
