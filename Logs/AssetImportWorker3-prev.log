@@ -15,11 +15,11 @@ C:/Users/Jorda/University/CSC384 - VGP (Not Complete)/Coursework
 -logFile
 Logs/AssetImportWorker3.log
 -srvPort
-50908
+65391
 Successfully changed project path to: C:/Users/Jorda/University/CSC384 - VGP (Not Complete)/Coursework
 C:/Users/Jorda/University/CSC384 - VGP (Not Complete)/Coursework
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 490.37 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1690.09 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.30f1 (1fb1bf06830e)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Resources/UnitySubsystems
@@ -35,45 +35,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56180
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.056558 seconds.
+Registered in 0.041502 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 295.95 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 370.38 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.436 seconds
+- Completed reload, in  9.377 seconds
 Domain Reload Profiling:
-	ReloadAssembly (5437ms)
-		BeginReloadAssembly (1387ms)
+	ReloadAssembly (9378ms)
+		BeginReloadAssembly (1550ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (14ms)
-		EndReloadAssembly (3353ms)
-			LoadAssemblies (1305ms)
+			CreateAndSetChildDomain (5ms)
+		EndReloadAssembly (5543ms)
+			LoadAssemblies (1392ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (921ms)
+			SetupTypeCache (1423ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (172ms)
-			SetupLoadedEditorAssemblies (1591ms)
+			RebuildScriptCaches (345ms)
+			SetupLoadedEditorAssemblies (2838ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (37ms)
+				InitializePlatformSupportModulesInManaged (41ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (296ms)
-				BeforeProcessingInitializeOnLoad (75ms)
-				ProcessInitializeOnLoadAttributes (1011ms)
-				ProcessInitializeOnLoadMethodAttributes (170ms)
+				RefreshPlugins (371ms)
+				BeforeProcessingInitializeOnLoad (187ms)
+				ProcessInitializeOnLoadAttributes (2049ms)
+				ProcessInitializeOnLoadMethodAttributes (187ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (3ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.536018 seconds.
-Begin MonoManager ReloadAssembly
+Registered in 0.089272 seconds.

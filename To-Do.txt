@@ -1,7 +1,4 @@
-Overall [Animations, Detail, Effects, Events + Sound]
-Credits Screen
 Death Screen
+Detail
+
 Main Screen
-
-Two Players [Achievements]
-
