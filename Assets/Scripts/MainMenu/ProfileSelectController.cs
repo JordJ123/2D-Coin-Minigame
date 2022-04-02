@@ -7,6 +7,7 @@ public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
 	[SerializeField] private UnityEvent<bool> OnCreateButton;
+	[SerializeField] private UnityEvent<string> OnCreate;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
 
@@ -32,6 +33,28 @@ public class ProfileSelectController : MonoBehaviour
 		ToggleCreateButton();
 	}
 
+	public void Create()
+	{
+		profileNames.Insert(profileNames.Count - 1, 
+			profileNames.Count.ToString());
+		profileSelected = profileNames.Count - 2;
+		Directory.CreateDirectory(Application.persistentDataPath + "\\"
+			+ profileNames[profileSelected]);
+		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleCreateButton();
+		OnCreate?.Invoke(profileNames[profileSelected]);
+	}
+
+	public void AddProfileName(string profileName)
+	{
+		if (profileNames[profileSelected].Equals(""))
+		{
+			profileSelected++;
+		}
+		profileNames.Insert(profileNames.Count - 1, 
+			profileNames.Count.ToString());
+	}
+
 	public void Left()
 	{
 		profileSelected--;
@@ -40,8 +63,8 @@ public class ProfileSelectController : MonoBehaviour
 			profileSelected = profileNames.Count - 1;
 			
 		}
-		ToggleCreateButton();
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleCreateButton();
 	}
 	
 	public void Right()
@@ -51,8 +74,8 @@ public class ProfileSelectController : MonoBehaviour
 		{
 			profileSelected = 0;
 		}
-		ToggleCreateButton();
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleCreateButton();
 	}
 
 	private void ToggleCreateButton()
