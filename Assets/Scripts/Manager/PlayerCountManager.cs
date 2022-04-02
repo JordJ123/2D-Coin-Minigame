@@ -8,6 +8,10 @@ public class PlayerCountManager : MonoBehaviour
 
 	private void Awake()
 	{
+		if (MainMenuController.IsTwoPlayers())
+		{
+			isTwoPlayers = true;
+		}
 		if (!isTwoPlayers)
 		{
 			OnePlayerMode();
