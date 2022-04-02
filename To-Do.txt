@@ -1,4 +1,4 @@
 Death Screen
 Detail
 
-Main Screen
+Main Screen [Create Function]

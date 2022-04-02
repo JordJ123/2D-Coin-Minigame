@@ -29,15 +29,19 @@ public class ModeSelectController : MonoBehaviour
 	public void OnePlayer()
 	{
 		playerOneName = playerOneSelect.GetProfileName();
-		isTwoPlayers = false;
-        SceneManager.LoadScene("GameScreen");
-    }
+		if (playerOneName != "")
+		{
+			isTwoPlayers = false;
+			SceneManager.LoadScene("GameScreen");
+		}
+	}
     
 	public void TwoPlayers()
 	{
 		playerOneName = playerOneSelect.GetProfileName();
 		playerTwoName = playerTwoSelect.GetProfileName();
-		if (!playerOneName.Equals(playerTwoName))
+		if (playerOneName != "" && playerTwoName != "" 
+			&& !playerOneName.Equals(playerTwoName))
 		{
 			isTwoPlayers = true;
 			SceneManager.LoadScene("GameScreen");

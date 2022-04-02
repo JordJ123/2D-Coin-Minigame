@@ -6,9 +6,10 @@ using UnityEngine.Events;
 public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
+	[SerializeField] private UnityEvent<bool> OnCreateButton;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
-	
+
 	private void Awake()
 	{
 		DirectoryInfo[] profiles = new DirectoryInfo(
@@ -17,6 +18,7 @@ public class ProfileSelectController : MonoBehaviour
 		{
 			profileNames.Add(profile.Name);
 		}
+		profileNames.Add("");
 	}
 
 	public string GetProfileName()
@@ -26,10 +28,8 @@ public class ProfileSelectController : MonoBehaviour
 
 	private void Start()
 	{
-		if (profileNames.Count >= 1)
-		{
-			OnProfileSelect?.Invoke(profileNames[0]);
-		}
+		OnProfileSelect?.Invoke(profileNames[0]);
+		ToggleCreateButton();
 	}
 
 	public void Left()
@@ -38,7 +38,9 @@ public class ProfileSelectController : MonoBehaviour
 		if (profileSelected < 0)
 		{
 			profileSelected = profileNames.Count - 1;
+			
 		}
+		ToggleCreateButton();
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
 	}
 	
@@ -49,6 +51,18 @@ public class ProfileSelectController : MonoBehaviour
 		{
 			profileSelected = 0;
 		}
+		ToggleCreateButton();
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+	}
+
+	private void ToggleCreateButton()
+	{
+		if (profileNames[profileSelected].Equals("")) {
+			OnCreateButton?.Invoke(true);
+		}
+		else
+		{
+			OnCreateButton?.Invoke(false);
+		}
 	}
 }
