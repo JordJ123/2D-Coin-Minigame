@@ -6,6 +6,7 @@ using UnityEngine;
 public class SaveDataController : MonoBehaviour
 {
 	[SerializeField] private string profileName;
+	[SerializeField] private bool isPlayerOne;
 	[SerializeField] private Color achievementColour;
 	[SerializeField] private bool resetAchievementData;
 	private Manager.AchievementManager achievementManager;
@@ -14,6 +15,20 @@ public class SaveDataController : MonoBehaviour
 	
 	private void Awake()
 	{
+		if (isPlayerOne)
+		{
+			if (ModeSelectController.GetPlayerOneName() != "")
+			{
+				profileName = ModeSelectController.GetPlayerOneName();
+			}
+		}
+		else
+		{
+			if (ModeSelectController.GetPlayerTwoName() != "")
+			{
+				profileName = ModeSelectController.GetPlayerTwoName();
+			}
+		}
 		achievementManager = FindObjectOfType<Manager.AchievementManager>();
 		SaveData saveData = SaveData.Load(profileName + "/achievements");
 		if (saveData != null && !resetAchievementData)

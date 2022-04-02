@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: isPlayerOne
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: profileName
       value: PlayerTwo
       objectReference: {fileID: 0}
