@@ -6,8 +6,10 @@ using UnityEngine.Events;
 public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
+	[SerializeField] private UnityEvent<bool> OnDeleteButton;
 	[SerializeField] private UnityEvent<bool> OnCreateButton;
 	[SerializeField] private UnityEvent<string> OnCreate;
+	[SerializeField] private UnityEvent<string> OnDelete;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
 
@@ -30,7 +32,7 @@ public class ProfileSelectController : MonoBehaviour
 	private void Start()
 	{
 		OnProfileSelect?.Invoke(profileNames[0]);
-		ToggleCreateButton();
+		ToggleButtons();
 	}
 
 	public void Create()
@@ -40,9 +42,10 @@ public class ProfileSelectController : MonoBehaviour
 		profileSelected = profileNames.Count - 2;
 		Directory.CreateDirectory(Application.persistentDataPath + "\\"
 			+ profileNames[profileSelected]);
-		OnProfileSelect?.Invoke(profileNames[profileSelected]);
-		ToggleCreateButton();
 		OnCreate?.Invoke(profileNames[profileSelected]);
+		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleButtons();
+		
 	}
 
 	public void AddProfileName(string profileName)
@@ -51,8 +54,35 @@ public class ProfileSelectController : MonoBehaviour
 		{
 			profileSelected++;
 		}
-		profileNames.Insert(profileNames.Count - 1, 
-			profileNames.Count.ToString());
+		profileNames.Insert(profileNames.Count - 1, profileName);
+		ToggleButtons();
+	}
+
+	public void Delete()
+	{
+		Directory.Delete(Application.persistentDataPath + "\\"
+			+ profileNames[profileSelected]);
+		OnDelete?.Invoke(profileNames[profileSelected]);
+		profileNames.Remove(profileNames[profileSelected]);
+		if (profileSelected != 0)
+		{
+			profileSelected--;
+		}
+		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleButtons();
+	}
+
+	public void RemoveProfileName(string profileName)
+	{
+		if (profileNames[profileSelected].Equals("") 
+			|| (profileSelected == profileNames.Count - 2 
+				&& profileSelected != 0))
+		{
+			profileSelected--;
+		}
+		profileNames.Remove(profileName);
+		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		ToggleButtons();
 	}
 
 	public void Left()
@@ -64,7 +94,7 @@ public class ProfileSelectController : MonoBehaviour
 			
 		}
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
-		ToggleCreateButton();
+		ToggleButtons();
 	}
 	
 	public void Right()
@@ -75,17 +105,19 @@ public class ProfileSelectController : MonoBehaviour
 			profileSelected = 0;
 		}
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
-		ToggleCreateButton();
+		ToggleButtons();
 	}
 
-	private void ToggleCreateButton()
+	private void ToggleButtons()
 	{
-		if (profileNames[profileSelected].Equals("")) {
-			OnCreateButton?.Invoke(true);
+		if (!profileNames[profileSelected].Equals("")) {
+			OnDeleteButton?.Invoke(true); 
+			OnCreateButton?.Invoke(false);
 		}
 		else
 		{
-			OnCreateButton?.Invoke(false);
+			OnDeleteButton?.Invoke(false);
+			OnCreateButton?.Invoke(true);
 		}
 	}
 }
