@@ -74,6 +74,11 @@ public class ModeSelectController : MonoBehaviour
 			SceneManager.LoadScene("GameScreen");
 		}
 	}
+
+	public void Credits()
+	{
+		SceneManager.LoadScene("CreditsScreen");
+	}
 	
     public void Quit()
     {

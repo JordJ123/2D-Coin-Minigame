@@ -2,16 +2,19 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
-	[SerializeField] private UnityEvent<bool> OnDeleteButton;
+	[SerializeField] private UnityEvent<bool> OnProfileButtons;
 	[SerializeField] private UnityEvent<bool> OnCreateButton;
 	[SerializeField] private UnityEvent<string> OnCreate;
 	[SerializeField] private UnityEvent<string> OnDelete;
+	private static string profileNameSelected;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
+	
 
 	private void Awake()
 	{
@@ -40,12 +43,11 @@ public class ProfileSelectController : MonoBehaviour
 		profileNames.Insert(profileNames.Count - 1, 
 			profileNames.Count.ToString());
 		profileSelected = profileNames.Count - 2;
-		Directory.CreateDirectory(Application.persistentDataPath + "\\"
+		Directory.CreateDirectory(Application.persistentDataPath + "/"
 			+ profileNames[profileSelected]);
 		OnCreate?.Invoke(profileNames[profileSelected]);
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
 		ToggleButtons();
-		
 	}
 
 	public void AddProfileName(string profileName)
@@ -60,8 +62,8 @@ public class ProfileSelectController : MonoBehaviour
 
 	public void Delete()
 	{
-		Directory.Delete(Application.persistentDataPath + "\\"
-			+ profileNames[profileSelected]);
+		Directory.Delete(Application.persistentDataPath + "/"
+			+ profileNames[profileSelected], true);
 		OnDelete?.Invoke(profileNames[profileSelected]);
 		profileNames.Remove(profileNames[profileSelected]);
 		if (profileSelected != 0)
@@ -83,6 +85,12 @@ public class ProfileSelectController : MonoBehaviour
 		profileNames.Remove(profileName);
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
 		ToggleButtons();
+	}
+
+	public void ViewProfile()
+	{
+		profileNameSelected = profileNames[profileSelected];
+		SceneManager.LoadScene("ProfileScreen");
 	}
 
 	public void Left()
@@ -111,12 +119,12 @@ public class ProfileSelectController : MonoBehaviour
 	private void ToggleButtons()
 	{
 		if (!profileNames[profileSelected].Equals("")) {
-			OnDeleteButton?.Invoke(true); 
+			OnProfileButtons?.Invoke(true); 
 			OnCreateButton?.Invoke(false);
 		}
 		else
 		{
-			OnDeleteButton?.Invoke(false);
+			OnProfileButtons?.Invoke(false);
 			OnCreateButton?.Invoke(true);
 		}
 	}

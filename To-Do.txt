@@ -1,4 +1,6 @@
 Death Screen
+Pause Screen
+Profile Screen
 Detail
 
-Main Screen [Create Function]
+Menu Screen [Create Profile Name Function]
