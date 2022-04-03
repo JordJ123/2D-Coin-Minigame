@@ -12,8 +12,10 @@ public class ProfileSelectController : MonoBehaviour
 	[SerializeField] private UnityEvent<bool> OnCreateButtons;
 	[SerializeField] private UnityEvent<string> OnCreate;
 	[SerializeField] private UnityEvent<string> OnDelete;
+	[SerializeField] private UnityEvent OnSwapControls;
 	[SerializeField] private UnityEvent<string> OnError;
 	[SerializeField] private bool isPlayerOne;
+	public static bool isPlayerOneWASD { private set; get; } = true;
 	private static string profileNameSelected;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
@@ -155,6 +157,12 @@ public class ProfileSelectController : MonoBehaviour
 		}
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
 		ToggleButtons();
+	}
+
+	public void SwapControls()
+	{
+		isPlayerOneWASD = !isPlayerOneWASD;
+		OnSwapControls?.Invoke();
 	}
 
 	private void ToggleButtons()

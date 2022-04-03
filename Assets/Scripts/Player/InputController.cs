@@ -4,11 +4,50 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-	[SerializeField] private KeyCode left;
-	[SerializeField] private KeyCode right;
-	[SerializeField] private KeyCode up;
-	[SerializeField] private KeyCode down;
+	[SerializeField] private bool isPlayerOne;
+	private KeyCode left;
+	private KeyCode right;
+	private KeyCode up;
+	private KeyCode down;
 
+	private void Awake()
+	{
+		if (isPlayerOne)
+		{
+			if (ProfileSelectController.isPlayerOneWASD)
+			{
+				left = KeyCode.A;
+				right = KeyCode.D;
+				up = KeyCode.W;
+				down = KeyCode.S;
+			}
+			else
+			{
+				left = KeyCode.LeftArrow;
+				right = KeyCode.RightArrow;
+				up = KeyCode.UpArrow;
+				down = KeyCode.DownArrow;
+			}
+		}
+		else
+		{
+			if (!ProfileSelectController.isPlayerOneWASD)
+			{
+				left = KeyCode.A;
+				right = KeyCode.D;
+				up = KeyCode.W;
+				down = KeyCode.S;
+			}
+			else
+			{
+				left = KeyCode.LeftArrow;
+				right = KeyCode.RightArrow;
+				up = KeyCode.UpArrow;
+				down = KeyCode.DownArrow;
+			}
+		}
+	}
+	
 	public int GetHorizontalAxis()
 	{
 		if (Input.GetKey(left))
