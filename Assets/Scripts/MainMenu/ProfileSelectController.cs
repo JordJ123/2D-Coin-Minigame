@@ -8,12 +8,16 @@ public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
 	[SerializeField] private UnityEvent<bool> OnProfileButtons;
-	[SerializeField] private UnityEvent<bool> OnCreateButton;
+	[SerializeField] private UnityEvent<bool> OnNewButton;
+	[SerializeField] private UnityEvent<bool> OnCreateButtons;
 	[SerializeField] private UnityEvent<string> OnCreate;
 	[SerializeField] private UnityEvent<string> OnDelete;
+	[SerializeField] private UnityEvent<string> OnError;
+	[SerializeField] private bool isPlayerOne;
 	private static string profileNameSelected;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
+	private string playerMessage = "";
 	
 
 	private void Awake()
@@ -36,18 +40,53 @@ public class ProfileSelectController : MonoBehaviour
 	{
 		OnProfileSelect?.Invoke(profileNames[0]);
 		ToggleButtons();
+		OnCreateButtons?.Invoke(false);
+	}
+	
+	public void Create() {
+		OnNewButton?.Invoke(false);
+	    OnCreateButtons?.Invoke(true);
 	}
 
-	public void Create()
+	public void Save(string profileName)
 	{
-		profileNames.Insert(profileNames.Count - 1, 
-			profileNames.Count.ToString());
-		profileSelected = profileNames.Count - 2;
-		Directory.CreateDirectory(Application.persistentDataPath + "/"
-			+ profileNames[profileSelected]);
-		OnCreate?.Invoke(profileNames[profileSelected]);
-		OnProfileSelect?.Invoke(profileNames[profileSelected]);
-		ToggleButtons();
+		if (isPlayerOne)
+		{
+			playerMessage = "One";
+		}
+        else
+		{
+			playerMessage = "Two";
+		}
+		if (profileName == "")
+		{
+			OnError?.Invoke(string.Format("Please enter a name for the new "
+				+ "profile for Player {0}", playerMessage));
+		}
+		else if (profileNames.Contains(profileName))
+		{
+			OnError?.Invoke(string.Format("Name already exists for the new "
+				+ "profile for Player {0}", playerMessage));
+		}
+		else
+		{
+			try
+			{
+				Directory.CreateDirectory(Application.persistentDataPath + "/"
+					+ profileName);
+				profileNames.Insert(profileNames.Count - 1, profileName);
+				profileSelected = profileNames.Count - 2;
+				OnCreate?.Invoke(profileNames[profileSelected]);
+				OnProfileSelect?.Invoke(profileNames[profileSelected]);
+				ToggleButtons();
+				OnCreateButtons?.Invoke(false);
+			}
+			catch (IOException exception)
+			{
+				OnError?.Invoke(string.Format("Error saving the name for the "
+					+ "new profile for Player {0}", playerMessage));
+			}
+		}
 	}
 
 	public void AddProfileName(string profileName)
@@ -60,16 +99,18 @@ public class ProfileSelectController : MonoBehaviour
 		ToggleButtons();
 	}
 
+	public void Cancel()
+	{
+		OnNewButton?.Invoke(true);
+		OnCreateButtons?.Invoke(false);
+	}
+
 	public void Delete()
 	{
 		Directory.Delete(Application.persistentDataPath + "/"
 			+ profileNames[profileSelected], true);
 		OnDelete?.Invoke(profileNames[profileSelected]);
 		profileNames.Remove(profileNames[profileSelected]);
-		if (profileSelected != 0)
-		{
-			profileSelected--;
-		}
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
 		ToggleButtons();
 	}
@@ -120,12 +161,12 @@ public class ProfileSelectController : MonoBehaviour
 	{
 		if (!profileNames[profileSelected].Equals("")) {
 			OnProfileButtons?.Invoke(true); 
-			OnCreateButton?.Invoke(false);
+			OnNewButton?.Invoke(false);
 		}
 		else
 		{
 			OnProfileButtons?.Invoke(false);
-			OnCreateButton?.Invoke(true);
+			OnNewButton?.Invoke(true);
 		}
 	}
 }

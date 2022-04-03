@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Player Two
       objectReference: {fileID: 0}
+    - target: {fileID: 5813675159694067602, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: isPlayerOne
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5813675159694067603, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813675159694067628, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: m_Name
-      value: 2P Profile Select
+      value: 2PSelect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
