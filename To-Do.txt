@@ -2,5 +2,3 @@ Death Screen
 Pause Screen
 Profile Screen
 Detail
-
-Menu Screen [Create Profile Name Function]
