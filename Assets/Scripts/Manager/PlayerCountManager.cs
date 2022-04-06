@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCountManager : MonoBehaviour
 {
     [SerializeField] private bool isTwoPlayers;
+	[SerializeField] private GameObject playerOne1P;
+	[SerializeField] private GameObject playerOne2P;
+	[SerializeField] private GameObject playerTwo2P;
+	
+	public static int playerOnePoints { private set; get; }
+	public static int playerTwoPoints { private set; get; }
 
 	private void Awake()
 	{
@@ -25,13 +34,30 @@ public class PlayerCountManager : MonoBehaviour
 	private void OnePlayerMode()
 	{
 		Destroy(GameObject.Find("2P User Interface"));
-		Destroy(GameObject.Find("2P Player One"));
+		Destroy(playerOne2P);
 		Destroy(GameObject.Find("2P Player Two"));
 	}
 
 	private void TwoPlayerMode()
 	{
 		Destroy(GameObject.Find("1P User Interface"));
-		Destroy(GameObject.Find("1P Player"));
+		Destroy(playerOne1P);
+	}
+
+	public void SetEndPoints()
+	{
+		if (!isTwoPlayers)
+		{
+			playerOnePoints = playerOne1P.GetComponent<PointController>()
+				.pointsValue;
+		}
+		else
+		{
+			playerOnePoints = playerOne2P.GetComponent<PointController>()
+				.pointsValue;
+			playerTwoPoints = playerTwo2P.GetComponent<PointController>()
+				.pointsValue;
+		}
+		SceneManager.LoadScene("DeathScreen");
 	}
 }

@@ -53,6 +53,11 @@ namespace Player
 			spriteRend.color = color;
 		}
 
+		public bool IsLookingRight()
+		{
+			return !spriteRend.flipX;
+		}
+
 		public void FlipLeft()
         {
             spriteRend.flipX = true;

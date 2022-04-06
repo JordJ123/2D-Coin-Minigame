@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f434bed2d00aac9449d7438d8dca4c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reviveDuration: 25
+  reviveDuration: 5
 --- !u!1 &8272518361807682289
 GameObject:
   m_ObjectHideFlags: 0

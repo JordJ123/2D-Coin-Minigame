@@ -23,7 +23,7 @@ namespace Player
         private SpriteController spriteController;
 		private float horizontalSpeed;
 		private float verticalSpeed;
-		private bool lookingRight = true;
+		private bool lookingRight;
         private Vector2 velocity;
 
         private void Awake()
@@ -33,8 +33,9 @@ namespace Player
 			tf = transform;
 			rb2D = GetComponent<Rigidbody2D>();
             spriteController = GetComponent<SpriteController>();
-            velocity = new Vector2();
-        }
+			velocity = new Vector2();
+			lookingRight = spriteController.IsLookingRight();
+		}
 
 		void Update()
         {

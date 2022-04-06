@@ -538,12 +538,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1570336117}
     - target: {fileID: 2383368527542898117, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
+      propertyPath: OnGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 2383368527542898117, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
       propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2383368527542898117, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
       propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateLives
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383368527542898117, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
+      propertyPath: OnGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetEndPoints
       objectReference: {fileID: 0}
     - target: {fileID: 2383368527542898117, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
       propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1691,6 +1699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb78734b9fa3a444966bfc070a6852c, type: 3}
+--- !u!1 &368978706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 998861750090061977, guid: 4b7d638c84138334fa4267654abd8dcf, type: 3}
+  m_PrefabInstance: {fileID: 98841893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390681324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458a179a041838a4d834763814faee83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTwoPlayers: 0
+  isTwoPlayers: 1
+  playerOne1P: {fileID: 969237665}
+  playerOne2P: {fileID: 906418748}
+  playerTwo2P: {fileID: 368978706}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3360,6 +3376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99cb39f1a710744286fad5b84650468, type: 3}
+--- !u!1 &906418748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6853927474796561357, guid: 16154346fa0e50b4f9b7953800e20480, type: 3}
+  m_PrefabInstance: {fileID: 2123147259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &912162763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3674,6 +3695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a019d1352959ced499968bc558114cff, type: 3}
+--- !u!1 &969237665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762479222101774135, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+  m_PrefabInstance: {fileID: 2762479221408911883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &989864489
 GameObject:
   m_ObjectHideFlags: 0
@@ -14008,6 +14034,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2141534541}
     - target: {fileID: 8345676769215878801, guid: 16154346fa0e50b4f9b7953800e20480, type: 3}
+      propertyPath: OnGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 8345676769215878801, guid: 16154346fa0e50b4f9b7953800e20480, type: 3}
       propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -14194,6 +14224,10 @@ PrefabInstance:
       propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 576619773}
+    - target: {fileID: 763793633124784747, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: OnGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420030}
     - target: {fileID: 2762479222101774133, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: m_RootOrder
       value: 0

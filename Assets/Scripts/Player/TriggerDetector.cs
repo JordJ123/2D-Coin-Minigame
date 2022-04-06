@@ -23,9 +23,8 @@ namespace Player {
 		private GameObject gameObj;
 
 		private Enemy.HealthController enemyHealthController;
-		private bool ignoreEnemies;
-        
-        private void Awake()
+
+		private void Awake()
         {
             livesController = GetComponent<LivesController>();
             powerUpController = GetComponent<PowerUpController>();
@@ -34,7 +33,7 @@ namespace Player {
         
         private void OnTriggerEnter2D(Collider2D collider) 
         {
-            if (!ignoreEnemies && collider.tag == "Enemy")
+            if (collider.tag == "Enemy")
 			{
 				enemyHealthController
 					= collider.GetComponent<Enemy.HealthController>();
@@ -72,10 +71,10 @@ namespace Player {
 
 		private IEnumerator Invulnerability()
 		{
-			ignoreEnemies = true;
+			gameObj.layer = 14;
 			OnInvulnerability?.Invoke();
 			yield return new WaitForSeconds(invulnerabilityDuration);
-			ignoreEnemies = false;
+			gameObj.layer = 6;
 			OnVulnerability?.Invoke();
 		}
     }

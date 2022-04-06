@@ -8,8 +8,8 @@ namespace Player {
     public class PointController : MonoBehaviour
 	{
 		[SerializeField] public UnityEvent<int> OnCollect;
-        [SerializeField] private int pointsValue;
-		
+		[SerializeField] public int pointsValue { private set; get; }
+
 		private GameObject[] points;
 		private int pointsCollected;
         private int pointsCounter;

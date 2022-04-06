@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -12,8 +11,8 @@ namespace Player
 		[SerializeField] public UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnStart;
 		[SerializeField] private UnityEvent<int> OnLose;
+		[SerializeField] private UnityEvent OnGameOver;
 		[SerializeField] private int lives;
-		private static LivesController[] livesControllers;
 		private GameObject gameObj;
 		private PowerUpController powerUpController;
 		private bool isDead;
@@ -50,11 +49,8 @@ namespace Player
 		private bool EndGame()
 		{
 			isGameOver = true;
-			if (livesControllers == null)
-			{
-				livesControllers = FindObjectsOfType<LivesController>(false);
-			}
-			foreach (var livesController in livesControllers)
+			foreach (var livesController 
+				in FindObjectsOfType<LivesController>(true))
 			{
 				if (livesController.lives != 0)
 				{
@@ -64,12 +60,12 @@ namespace Player
 			}
 			if (isGameOver)
 			{
-				SceneManager.LoadScene("DeathScreen");
+				OnGameOver?.Invoke();
 			}
 			else
 			{
 				powerUpController.RemovePowerUp();
-				Destroy(gameObj);
+				gameObj.SetActive(false);
 				return true;
 			}
 			return false;

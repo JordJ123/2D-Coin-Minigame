@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreenController : MonoBehaviour
 {
-    public void PlayAgain()
+	public void PlayAgain()
     {
         SceneManager.LoadScene("GameScreen");
     }
