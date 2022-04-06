@@ -1,5 +1,2 @@
-Pause Screen
 Profile Screen
 Detail
-
-Death Screen [Scores]

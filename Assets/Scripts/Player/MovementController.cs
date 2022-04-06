@@ -44,15 +44,18 @@ namespace Player
 
         private void Move()
         {
-            velocity = rb2D.velocity;
-            velocity.x = MoveHorizontal();
-            velocity.y = MoveVertical();
-            rb2D.velocity = velocity;
-			if (velocity.x != 0 || velocity.y != 0)
+			if (Time.timeScale != 0)
 			{
-				OnMove?.Invoke(powerUpController.HasSpeedPowerUp(), tf);
+				velocity = rb2D.velocity;
+				velocity.x = MoveHorizontal();
+				velocity.y = MoveVertical();
+				rb2D.velocity = velocity;
+				if (velocity.x != 0 || velocity.y != 0)
+				{
+					OnMove?.Invoke(powerUpController.HasSpeedPowerUp(), tf);
+				}
 			}
-        }
+		}
 
         private float MoveHorizontal()
         {
