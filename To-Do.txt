@@ -1,4 +1,5 @@
-Death Screen
 Pause Screen
 Profile Screen
 Detail
+
+Death Screen [Two Players]

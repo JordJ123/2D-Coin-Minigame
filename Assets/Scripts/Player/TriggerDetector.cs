@@ -52,7 +52,6 @@ namespace Player {
 							OnDeath?.Invoke();
 							StartCoroutine(Invulnerability());
 						};
-						OnDeath?.Invoke();
 					}
 				}
 				enemyHealthController = null;

@@ -919,4 +919,4 @@ MonoBehaviour:
   profileName: PlayerOne
   isPlayerOne: 1
   achievementColour: {r: 1, g: 1, b: 1, a: 1}
-  resetAchievementData: 0
+  resetAchievementData: 1
