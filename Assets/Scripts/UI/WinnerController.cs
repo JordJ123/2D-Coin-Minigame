@@ -22,7 +22,15 @@ public class WinnerController : MonoBehaviour
 		//One Player
 		if (!ModeSelectController.IsTwoPlayers() && !isTwoPlayers)
 		{
-			winnerText.text = "Player One: " + playerOnePoints;
+			if (PlayerCountManager.playerOnePoints != 0)
+			{
+				winnerText.text = "Player One: " 
+					+ PlayerCountManager.playerOnePoints;
+			}
+			else
+			{
+				winnerText.text = "Player One: " + playerOnePoints;
+			}
 		}
 		
 		//Two Players

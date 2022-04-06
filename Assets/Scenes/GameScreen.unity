@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458a179a041838a4d834763814faee83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTwoPlayers: 1
+  isTwoPlayers: 0
   playerOne1P: {fileID: 969237665}
   playerOne2P: {fileID: 906418748}
   playerTwo2P: {fileID: 368978706}

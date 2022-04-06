@@ -203,7 +203,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isTwoPlayers: 1
+  isTwoPlayers: 0
   playerOnePoints: 0
   playerTwoPoints: 0
 --- !u!114 &14750616
