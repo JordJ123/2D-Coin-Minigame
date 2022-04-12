@@ -16,7 +16,7 @@ public class ProfileSelectController : MonoBehaviour
 	[SerializeField] private UnityEvent<string> OnError;
 	[SerializeField] private bool isPlayerOne;
 	public static bool isPlayerOneWASD { private set; get; } = true;
-	private static string profileNameSelected;
+	public static string profileNameSelected;
 	private List<string> profileNames = new List<string>();
 	private int profileSelected;
 	private string playerMessage = "";

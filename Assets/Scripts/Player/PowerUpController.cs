@@ -56,7 +56,6 @@ namespace Player
 			{
 				StopAllCoroutines();
 				OnSecondEvent(0);
-				spriteController.SetNormal();
 				if (HasAttackPowerUp())
 				{
 					foreach (var enemy in enemies)

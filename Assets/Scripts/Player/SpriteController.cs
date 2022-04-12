@@ -19,12 +19,6 @@ namespace Player
 			normalSprite = spriteRend.sprite;
 		}
 
-		public void SetNormal()
-		{
-			spriteRend.color = Color.white;
-			spriteRend.sprite = normalSprite;
-		}
-
 		public void SetInvulnerable()
 		{
 			SetColour(spriteRend.color, invulnerableOpacity);
@@ -37,16 +31,24 @@ namespace Player
 
         public void SetAttackPowerUp()
         {
-			SetColour(Color.white, spriteRend.color.a);
 			spriteRend.sprite = attackPowerUpSprite;
         }
+		
+		public void RemoveAttackPowerUp()
+		{
+			spriteRend.sprite = normalSprite;
+		}
 
 		public void SetSpeedPowerUp()
 		{
 			SetColour(speedPowerUpColour, spriteRend.color.a);
-			spriteRend.sprite = normalSprite;
 		}
 		
+		public void RemoveSpeedPowerUp()
+		{
+			SetColour(Color.white, spriteRend.color.a);
+		}
+
 		private void SetColour(Color color, float opacity)
 		{
 			color.a = opacity;

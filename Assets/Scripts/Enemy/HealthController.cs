@@ -29,7 +29,6 @@ namespace Enemy
 		private IEnumerator Revive()
 		{
 			yield return new WaitForSeconds(reviveDuration);
-			Debug.Log("Reset");
 			isAlive = true;
 			OnRevive?.Invoke();
 		}

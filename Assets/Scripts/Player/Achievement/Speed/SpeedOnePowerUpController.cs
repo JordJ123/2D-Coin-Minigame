@@ -32,10 +32,10 @@ namespace Player.Achievement.Speed
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				distanceCurrentX = 
-					FindObjectOfType<Player.SpawnController>().GetSpawnX();
-				distanceCurrentY = 
-					FindObjectOfType<Player.SpawnController>().GetSpawnY();
+				distanceCurrentX = transform.parent
+					.GetComponent<SpawnController>().GetSpawnX();
+				distanceCurrentY= transform.parent
+					.GetComponent<SpawnController>().GetSpawnY();
 				movementController.OnMove.AddListener(CheckAchievement);
 				powerUpController.OnSpeedReset.AddListener(FailAchievement);
 			}

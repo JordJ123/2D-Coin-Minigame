@@ -11,29 +11,32 @@ namespace PowerUp
         private static SpawnController currentPowerUp;
         private GameObject gameObj;
 
-        public static void StaticAwake()
-        {
-            powerUps = FindObjectsOfType<SpawnController>(false);
-			foreach (SpawnController powerUp in powerUps)
-			{
-				powerUp.Despawn();
-			}
-            SpawnPowerUp();
-        }
-        
         public static void SpawnPowerUp()
         {
             if (currentPowerUp != null)
             {
                 currentPowerUp.Despawn();
             }
-            currentPowerUp = powerUps[Random.Range(0, powerUps.Length)];
+			currentPowerUp = powerUps[Random.Range(0, powerUps.Length)];
             currentPowerUp.Respawn();
         }
 
         private void Awake()
         {
             gameObj = gameObject;
+		}
+
+		private void Start()
+		{
+			if (powerUps == null)
+			{
+				powerUps = FindObjectsOfType<SpawnController>(false);
+				foreach (SpawnController powerUp in powerUps)
+				{
+					powerUp.Despawn();
+				}
+			}
+			SpawnPowerUp();
 		}
 
         public void Respawn()

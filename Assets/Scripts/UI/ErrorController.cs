@@ -17,6 +17,5 @@ namespace UI {
 		{
 			error.text = errorMessage;
 		}
-		
 	}
 }
