@@ -12,14 +12,12 @@ namespace Player.Achievement.Death
 		{
 			movementController = transform.parent.GetComponent<MovementController>();
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("AFK Death", "AFKnight",
-				"Die without moving", transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = achievementListController.GetAchievement("AFK Death");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

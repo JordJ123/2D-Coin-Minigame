@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.b
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.g
+      value: 0.7725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.r
+      value: 0.86274517
+      objectReference: {fileID: 0}
     - target: {fileID: 2762479221408911885, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: isPlayerOne
       value: 0

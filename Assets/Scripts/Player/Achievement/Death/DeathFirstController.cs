@@ -7,14 +7,13 @@
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("First Death", "Initiation",
-				"Experience your first death", transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement =
+				achievementListController.GetAchievement("First Death");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

@@ -4,23 +4,20 @@ namespace Player.Achievement.Life
 {
 	public class LifeSmallController : AchievementController
 	{
-		[SerializeField] private int livesCount;
 		private LivesController livesController;
 		private int currentLifeCount;
 		
 		private void Awake()
 		{
 			livesController = transform.parent.GetComponent<LivesController>();
-			achievement = new Achievement("Small Lives", 
-				"Knight in Shining Armor",
-				string.Format("Gain {0} lives in one game", livesCount), 
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
+			
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Small Lives");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -31,7 +28,7 @@ namespace Player.Achievement.Life
 		private void CheckAchievement(int ignore)
 		{
 			currentLifeCount++;
-			if (currentLifeCount >= livesCount)
+			if (currentLifeCount >= achievementListController.livesSmallCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				livesController.OnGain.RemoveListener(CheckAchievement);

@@ -4,22 +4,20 @@ namespace Player.Achievement.Kill
 {
 	public class KillSmallController : AchievementController
 	{
-		[SerializeField] private int killCount;
 		private TriggerDetector triggerDetector;
 		private int currentKillCount;
 		
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("Small Kills", "Commander",
-				string.Format("Kill {0} enemies in one game", killCount), 
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
+			
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Small Kills");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -30,7 +28,7 @@ namespace Player.Achievement.Kill
 		private void CheckAchievement()
 		{
 			currentKillCount++;
-			if (currentKillCount >= killCount)
+			if (currentKillCount >= achievementListController.killsSmallCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				triggerDetector.OnKill.RemoveListener(CheckAchievement);

@@ -4,21 +4,18 @@ namespace Player.Achievement.Point
 {
 	public class PointSmallController : AchievementController
 	{
-		[SerializeField] private int pointsValue;
 		private PointController pointController;
 		
 		private void Awake()
 		{
 			pointController = transform.parent.GetComponent<PointController>();
-			achievement = new Achievement("Small Points", "Noble",
-				string.Format("Collect {0} points in one game", pointsValue),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Small Points");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -28,7 +25,7 @@ namespace Player.Achievement.Point
 
 		private void CheckAchievement(int pointsValue)
 		{
-			if (pointsValue >= this.pointsValue)
+			if (pointsValue >= achievementListController.pointsSmallValue)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				pointController.OnCollect.RemoveListener(CheckAchievement);

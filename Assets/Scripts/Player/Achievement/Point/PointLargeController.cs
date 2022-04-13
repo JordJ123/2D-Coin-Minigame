@@ -4,21 +4,18 @@ namespace Player.Achievement.Point
 {
 	public class PointLargeController : AchievementController
 	{
-		[SerializeField] private int pointsValue;
 		private PointController pointController;
 		
 		private void Awake()
 		{
 			pointController = transform.parent.GetComponent<PointController>();
-			achievement = new Achievement("Large Points", "Royalty",
-				string.Format("Collect {0} points in one game", pointsValue),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Large Points");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -28,7 +25,7 @@ namespace Player.Achievement.Point
 
 		private void CheckAchievement(int pointsValue)
 		{
-			if (pointsValue >= this.pointsValue)
+			if (pointsValue >= achievementListController.pointsLargeValue)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				pointController.OnCollect.RemoveListener(CheckAchievement);

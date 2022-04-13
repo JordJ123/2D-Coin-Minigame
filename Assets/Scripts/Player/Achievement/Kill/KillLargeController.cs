@@ -4,22 +4,19 @@ namespace Player.Achievement.Kill
 {
 	public class KillLargeController : AchievementController
 	{
-		[SerializeField] private int killCount;
 		private TriggerDetector triggerDetector;
 		private int currentKillCount;
 		
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("Large Kills", "Grand Cross",
-				string.Format("Kill {0} enemies in one game", killCount),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
+			
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = achievementListController.GetAchievement("Large Kills");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -30,7 +27,7 @@ namespace Player.Achievement.Kill
 		private void CheckAchievement()
 		{
 			currentKillCount++;
-			if (currentKillCount >= killCount)
+			if (currentKillCount >= achievementListController.killsLargeCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				triggerDetector.OnKill.RemoveListener(CheckAchievement);

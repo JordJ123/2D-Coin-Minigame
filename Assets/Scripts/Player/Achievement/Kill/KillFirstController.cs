@@ -7,14 +7,12 @@
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("First Kill", "Knight",
-				"Kill your first enemy", transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = achievementListController.GetAchievement("First Kill");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

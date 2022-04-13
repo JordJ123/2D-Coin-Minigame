@@ -5,21 +5,18 @@ namespace Player.Achievement.Life
 {
 	public class LifeHaveController : AchievementController
 	{
-		[SerializeField] private int livesCount;
 		private LivesController livesController;
 		
 		private void Awake()
 		{
 			livesController = transform.parent.GetComponent<LivesController>();
-			achievement = new Achievement("Have Lives", "Escape Artist",
-				string.Format("Have {0} lives at one time", livesCount),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Have Lives");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -29,7 +26,7 @@ namespace Player.Achievement.Life
 
 		private void CheckAchievement(int livesCount)
 		{
-			if (livesCount >= this.livesCount)
+			if (livesCount >= achievementListController.livesHaveCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				livesController.OnGain.RemoveListener(CheckAchievement);

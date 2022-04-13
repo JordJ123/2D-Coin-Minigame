@@ -10,15 +10,13 @@ namespace Player.Achievement.Speed
 		{
 			movementController =
 				transform.parent.GetComponent<MovementController>();
-			achievement = new Achievement("First Speed Movement", "First Steps",
-				"Move with the speed power-up for the first time", 
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("First Speed Movement");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

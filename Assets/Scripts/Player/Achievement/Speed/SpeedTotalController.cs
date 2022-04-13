@@ -5,7 +5,6 @@ namespace Player.Achievement.Speed
 {
 	public class SpeedTotalController : AchievementController
 	{
-		[SerializeField] private float distanceCount;
 		private MovementController movementController;
 		private float distanceCurrentCount;
 		private float distanceCurrentX;
@@ -15,16 +14,13 @@ namespace Player.Achievement.Speed
 		{
 			movementController =
 				transform.parent.GetComponent<MovementController>();
-			achievement = new Achievement("Total Speed Movement", 
-				"The Knights of Run", string.Format(
-				"Move with the speed power-up a distance of {0} in total", 
-				distanceCount), transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = achievementListController
+				.GetAchievement("Total Speed Movement");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -51,7 +47,8 @@ namespace Player.Achievement.Speed
 					- transform.position.x);
 				distanceCurrentCount += Math.Abs(distanceCurrentY 
 					- transform.position.y);
-				if (distanceCurrentCount >= distanceCount)
+				if (distanceCurrentCount 
+					>= achievementListController.speedTotalCount)
 				{
 					saveDataController.UnlockAchievement(achievement);
 					movementController.OnMove.RemoveListener(CheckAchievement);

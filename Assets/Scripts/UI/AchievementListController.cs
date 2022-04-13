@@ -15,11 +15,12 @@ namespace UI {
 			achievementList.text = "";
 		}
 
-		public void DisplayAchievement(Achievement achievement)
+		public void DisplayAchievement(Achievement achievement, string colour)
 		{
 			achievementList.text +=
-				"<b>" + achievement.GetDisplayName() + "</b> "
-				+ achievement.GetDisplayName() + "\n";
+				"<b>" + "<color=" + colour + ">"  
+				+ achievement.GetDisplayName() + "</b> "
+				+ achievement.GetDescription() + "\n" + "</color>";
 		}
 	}
 }

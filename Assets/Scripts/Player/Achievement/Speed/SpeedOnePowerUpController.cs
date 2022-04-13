@@ -6,7 +6,6 @@ namespace Player.Achievement.Speed
 {
 	public class SpeedOnePowerUpController : AchievementController
 	{
-		[SerializeField] private float distanceCount;
 		private MovementController movementController;
 		private PowerUpController powerUpController;
 		private float distanceCurrentCount;
@@ -19,16 +18,13 @@ namespace Player.Achievement.Speed
 				transform.parent.GetComponent<MovementController>();
 			powerUpController =
 				transform.parent.GetComponent<PowerUpController>();
-			achievement = new Achievement("One Power-Up Speed Movement", 
-				"Sonic and the Blue Knight", 
-				string.Format("Move a distance of {0} within one speed power-up", 
-				distanceCount), transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = achievementListController
+				.GetAchievement("One Power-Up Speed Movement");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -49,7 +45,8 @@ namespace Player.Achievement.Speed
 					- transform.position.x);
 				distanceCurrentCount += Math.Abs(distanceCurrentY 
 					- transform.position.y);
-				if (distanceCurrentCount >= distanceCount)
+				if (distanceCurrentCount 
+					>= achievementListController.speedOnePowerUpCount)
 				{
 					saveDataController.UnlockAchievement(achievement);
 					movementController.OnMove.RemoveListener(CheckAchievement);

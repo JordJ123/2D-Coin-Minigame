@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.g
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: achievementColour.r
+      value: 0.5372549
+      objectReference: {fileID: 0}
     - target: {fileID: 763793633124784747, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: OnGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

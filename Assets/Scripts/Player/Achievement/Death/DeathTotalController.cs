@@ -4,22 +4,19 @@ namespace Player.Achievement.Death
 {
 	public class DeathTotalController : AchievementController
 	{
-		[SerializeField] private int deathCount;
 		private TriggerDetector triggerDetector;
 		private int currentDeathCount;
 		
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("Total Deaths", "Elder Ring", 
-				string.Format("Experience {0} deaths in total", deathCount), 
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement
+				= achievementListController.GetAchievement("Total Deaths");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -37,7 +34,7 @@ namespace Player.Achievement.Death
 		private void CheckAchievement()
 		{
 			currentDeathCount++;
-			if (currentDeathCount >= deathCount)
+			if (currentDeathCount >= achievementListController.deathTotalCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				triggerDetector.OnDeath.RemoveListener(CheckAchievement);

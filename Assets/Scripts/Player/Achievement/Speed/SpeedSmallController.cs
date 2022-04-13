@@ -6,7 +6,6 @@ namespace Player.Achievement.Speed
 {
 	public class SpeedSmallController : AchievementController
 	{
-		[SerializeField] private float distanceCount;
 		private MovementController movementController;
 		private float distanceCurrentCount;
 		private float distanceCurrentX;
@@ -16,16 +15,13 @@ namespace Player.Achievement.Speed
 		{
 			movementController =
 				transform.parent.GetComponent<MovementController>();
-			achievement = new Achievement("Small Speed Movement", 
-				"Knight and his Steed", string.Format(
-				"Move with the speed power-up a distance of {0} in one game", 
-				distanceCount), transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Small Speed Movement");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -45,7 +41,8 @@ namespace Player.Achievement.Speed
 					- transform.position.x);
 				distanceCurrentCount += Math.Abs(distanceCurrentY 
 					- transform.position.y);
-				if (distanceCurrentCount >= distanceCount)
+				if (distanceCurrentCount 
+					>= achievementListController.speedSmallCount)
 				{
 					saveDataController.UnlockAchievement(achievement);
 					movementController.OnMove.RemoveListener(CheckAchievement);

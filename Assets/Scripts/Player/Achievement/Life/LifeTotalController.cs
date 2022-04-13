@@ -4,22 +4,19 @@ namespace Player.Achievement.Life
 {
 	public class LifeTotalController : AchievementController
 	{
-		[SerializeField] private int livesCount;
 		private LivesController livesController;
 		private int currentLifeCount;
 		
 		private void Awake()
 		{
 			livesController = transform.parent.GetComponent<LivesController>();
-			achievement = new Achievement("Total Lives", "The Dark Knight",
-				string.Format("Gain {0} lives in total", livesCount), 
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Total Lives");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -37,7 +34,7 @@ namespace Player.Achievement.Life
 		private void CheckAchievement(int ignore)
 		{
 			currentLifeCount++;
-			if (currentLifeCount >= livesCount)
+			if (currentLifeCount >= achievementListController.livesTotalCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				livesController.OnGain.RemoveListener(CheckAchievement);

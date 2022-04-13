@@ -9,14 +9,13 @@ namespace Player.Achievement.Point
 		private void Awake()
 		{
 			pointController = transform.parent.GetComponent<PointController>();
-			achievement = new Achievement("First Point", "Peasant",
-				"Collect your first point", transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("First Point");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

@@ -4,23 +4,19 @@ namespace Player.Achievement.Point
 {
 	public class PointTotalController : AchievementController
 	{
-		[SerializeField] private int pointsValue;
 		private PointController pointController;
 		private int savedPointsValue;
 		
 		private void Awake()
 		{
 			pointController = transform.parent.GetComponent<PointController>();
-			achievement = new Achievement("Total Points", 
-				"The Lord of the Coins", 
-				string.Format("Collect {0} points in total", pointsValue),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Total Points");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -37,7 +33,8 @@ namespace Player.Achievement.Point
 
 		private void CheckAchievement(int pointsValue)
 		{
-			if (savedPointsValue + pointsValue >= this.pointsValue)
+			if (savedPointsValue + pointsValue 
+				>= achievementListController.pointsTotalValue)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				pointController.OnCollect.RemoveListener(CheckAchievement);

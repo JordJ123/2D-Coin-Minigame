@@ -5,6 +5,7 @@ using Player.SaveData;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AchievementListController))]
 public class ProfileScreenController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<float> OnDeaths;
@@ -12,9 +13,15 @@ public class ProfileScreenController : MonoBehaviour
 	[SerializeField] private UnityEvent<float> OnKills;
 	[SerializeField] private UnityEvent<float> OnLives;
 	[SerializeField] private UnityEvent<float> OnPoints;
-	[SerializeField] private UnityEvent<Achievement> OnAchievement;
+	[SerializeField] private UnityEvent<Achievement, string> OnAchievement;
+	private AchievementListController achievementListController;
 	private StatisticsData statisticsData;
 	private AchievementData achievementData;
+
+	private void Awake()
+	{
+		achievementListController = GetComponent<AchievementListController>();
+	}
 	
     private void Start()
 	{
@@ -56,30 +63,16 @@ public class ProfileScreenController : MonoBehaviour
 		{
 			achievementData = new AchievementData(profileName);
 		}
-
-		foreach (var achievement 
-			in achievementData.GetUnlockedAchievements())
+		foreach (var achievement in achievementListController.GetAchievements())
 		{
-			OnAchievement?.Invoke(
-				new Achievement("", achievement, "", Color.white));
-		}
-		foreach (var achievement 
-			in achievementData.GetUnlockedAchievements())
-		{
-			OnAchievement?.Invoke(
-				new Achievement("", achievement, "", Color.white));
-		}
-		foreach (var achievement 
-			in achievementData.GetUnlockedAchievements())
-		{
-			OnAchievement?.Invoke(
-				new Achievement("", achievement, "", Color.white));
-		}
-		foreach (var achievement 
-			in achievementData.GetUnlockedAchievements())
-		{
-			OnAchievement?.Invoke(
-				new Achievement("", achievement, "", Color.white));
+			if (achievementData.HasAchievement(achievement))
+			{
+				OnAchievement?.Invoke(achievement, "green");
+			}
+			else
+			{
+				OnAchievement?.Invoke(achievement, "red");
+			}
 		}
 	}
 }

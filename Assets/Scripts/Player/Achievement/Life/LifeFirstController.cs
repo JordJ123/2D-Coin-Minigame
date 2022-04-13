@@ -7,14 +7,13 @@
 		private void Awake()
 		{
 			livesController = transform.parent.GetComponent<LivesController>();
-			achievement = new Achievement("First Life", "1UP",
-				"Gain your first extra life", transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("First Life");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{

@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace Player.Achievement
 {
-	[RequireComponent(typeof(AchievementListController))]
-	[RequireComponent(typeof(SaveDataController))]
 	public abstract class AchievementController : MonoBehaviour
 	{
 		protected AchievementListController achievementListController;

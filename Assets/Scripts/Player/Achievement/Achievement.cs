@@ -18,6 +18,11 @@ namespace Player.Achievement
 			this.idName = idName;
 			this.displayName = displayName;
 			this.description = description;
+			SetColour(colour);
+		}
+
+		public void SetColour(Color colour)
+		{
 			this.colour = colour;
 		}
 

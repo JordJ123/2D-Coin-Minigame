@@ -4,22 +4,20 @@ namespace Player.Achievement.Kill
 {
 	public class KillTotalController : AchievementController
 	{
-		[SerializeField] private int killCount;
 		private TriggerDetector triggerDetector;
 		private int currentKillCount;
 		
 		private void Awake()
 		{
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("Total Kills", "Legend",
-				string.Format("Kill {0} enemies in total", killCount),
-				transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
+			
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("Total Kills");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -37,7 +35,7 @@ namespace Player.Achievement.Kill
 		private void CheckAchievement()
 		{
 			currentKillCount++;
-			if (currentKillCount >= killCount)
+			if (currentKillCount >= achievementListController.killsTotalCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				triggerDetector.OnKill.RemoveListener(CheckAchievement);

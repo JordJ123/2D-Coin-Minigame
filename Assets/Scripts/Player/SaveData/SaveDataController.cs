@@ -4,11 +4,12 @@ using Player;
 using Player.SaveData;
 using UnityEngine;
 
+[RequireComponent(typeof(SpawnController))]
+[RequireComponent(typeof(TriggerDetector))]
 public class SaveDataController : MonoBehaviour
 {
 	[SerializeField] private string profileName;
 	[SerializeField] private bool isPlayerOne;
-	[SerializeField] private Color achievementColour;
 	[SerializeField] private bool resetAchievementData;
 	[SerializeField] private bool resetStatisticsData;
 	private Manager.AchievementManager achievementManager;
@@ -60,22 +61,17 @@ public class SaveDataController : MonoBehaviour
 		{
 			statisticsData = new StatisticsData(profileName);
 		}
-		distanceCurrentX = GetComponent<SpawnController>().GetSpawnX();
-		distanceCurrentY = GetComponent<SpawnController>().GetSpawnY();
 	}
 
 	private void Start()
 	{
+		distanceCurrentX = GetComponent<SpawnController>().GetSpawnX();
+		distanceCurrentY = GetComponent<SpawnController>().GetSpawnY();
 		triggerDetector.OnDeath.AddListener(statisticsData.IncrementDeaths);
 		movementController.OnMove.AddListener(IncrementDistance);
 		triggerDetector.OnKill.AddListener(statisticsData.IncrementKills);
 		livesController.OnGain.AddListener(statisticsData.IncrementLives);
 		pointController.OnCollect.AddListener(statisticsData.IncrementPoints);
-	}
-
-	public Color GetAchievementColour()
-	{
-		return achievementColour;
 	}
 
 	public bool IsAchievementUnlocked(

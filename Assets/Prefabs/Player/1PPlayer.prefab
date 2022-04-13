@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ff5a050fe789148ab5dcc3ccfa226b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 1000
 --- !u!114 &133073298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b1f84be88a07c418cb60cecf04d1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 10000
 --- !u!114 &133073301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0e54a931d6cad4eb098b17743d278e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 100000
 --- !u!114 &133073300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3a5f3bcf73eab488a92ba2bd887d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 1000
 --- !u!1 &460962047
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806dcb5f7adb6c544ade3da419c23063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCount: 10000
 --- !u!114 &460962052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d576aea360c90f46b2deeff6c74d5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCount: 25000
 --- !u!114 &460962053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1ea5ee198a5224bae39cd3be95efbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCount: 50000
 --- !u!114 &460962051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3441ab10bac8ee14da0b9302a4a82d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceCount: 5000
 --- !u!1 &745343408
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5750f1403fca47d438547bef3645f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCount: 5
 --- !u!114 &745343412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cf0cc33b1a3af4db10fa9a1438037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCount: 10
 --- !u!114 &745343414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8b449a1d9023a488d55056d2a30f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCount: 100
 --- !u!114 &745343411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a234e081aa26b8245aaedd20a89e8c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCount: 5
 --- !u!1 &1339165222
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4e2bef808599439820ef57a6a9fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesCount: 5
 --- !u!114 &1339165226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66213f655329f14ca54fce257c36dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesCount: 10
 --- !u!114 &1339165228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa7bfb7b960f704490a93ae7236e4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesCount: 100
 --- !u!114 &1339165225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a787612182e904198bb168dee69480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesCount: 10
 --- !u!1 &1821950644
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db57df887f3afbd43898fd9353cb77ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCount: 5
 --- !u!114 &1821950647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a387a8c0fe3a043afce50ebf7a7dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCount: 10
 --- !u!114 &1821950650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29331d5457cff184b91e68905a503432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCount: 100
 --- !u!114 &1821950646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +497,7 @@ GameObject:
   - component: {fileID: 1207813943}
   - component: {fileID: 6067519171477077945}
   - component: {fileID: 2762479221408911885}
+  - component: {fileID: 969237679}
   m_Layer: 6
   m_Name: 1PPlayer
   m_TagString: Player
@@ -956,6 +938,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileName: PlayerOne
   isPlayerOne: 1
-  achievementColour: {r: 1, g: 1, b: 1, a: 1}
   resetAchievementData: 0
   resetStatisticsData: 0
+--- !u!114 &969237679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762479222101774135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3550b23dfc7bfe64b90b36341e4041bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementColour: {r: 1, g: 1, b: 1, a: 1}
+  deathSmallCount: 10000
+  deathLargeCount: 10000
+  deathTotalCount: 10000
+  killsSmallCount: 10000
+  killsLargeCount: 10000
+  killsTotalCount: 10000
+  killsOnePowerUpCount: 10000
+  livesSmallCount: 10000
+  livesLargeCount: 10000
+  livesTotalCount: 10000
+  livesHaveCount: 10000
+  pointsSmallValue: 10000
+  pointsLargeValue: 10000
+  pointsTotalValue: 10000
+  pointsNoKillsValue: 10000
+  speedSmallCount: 10000
+  speedLargeCount: 10000
+  speedTotalCount: 10000
+  speedOnePowerUpCount: 10000

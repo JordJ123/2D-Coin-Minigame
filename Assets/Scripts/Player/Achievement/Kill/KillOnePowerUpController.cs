@@ -4,7 +4,6 @@ namespace Player.Achievement.Kill
 {
 	public class KillOnePowerUpController : AchievementController
 	{
-		[SerializeField] private int killCount;
 		private PowerUpController powerUpController;
 		private TriggerDetector triggerDetector;
 		private int currentKillCount;
@@ -14,15 +13,13 @@ namespace Player.Achievement.Kill
 			powerUpController = transform.parent
 				.GetComponent<PowerUpController>();
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("One Power-Up Kills", "Bloodbath",
-				string.Format("Kill {0} enemies during one attack power-up", 
-				killCount), transform.parent.GetComponent<SaveDataController>()
-					.GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement = 
+				achievementListController.GetAchievement("One Power-Up Kills");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -34,7 +31,8 @@ namespace Player.Achievement.Kill
 		private void CheckAchievement()
 		{
 			currentKillCount++;
-			if (currentKillCount >= killCount)
+			if (currentKillCount >= 
+				achievementListController.killsOnePowerUpCount)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				powerUpController.OnAttackReset.RemoveListener(FailAchievement);

@@ -4,7 +4,6 @@ namespace Player.Achievement.Point
 {
 	public class PointNoKillController : AchievementController
 	{
-		[SerializeField] private int pointsValue;
 		private PointController pointController;
 		private TriggerDetector triggerDetector;
 		
@@ -12,15 +11,13 @@ namespace Player.Achievement.Point
 		{
 			pointController = transform.parent.GetComponent<PointController>();
 			triggerDetector = transform.parent.GetComponent<TriggerDetector>();
-			achievement = new Achievement("No Kills Points", "Pacifist",
-				string.Format("Collect {0} points without getting a kill in one"
-					+ " game", pointsValue), transform.parent
-					.GetComponent<SaveDataController>().GetAchievementColour());
 			base.Awake();
 		}
 		
 		private void Start()
 		{
+			achievement 
+				= achievementListController.GetAchievement("No Kills Points");
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
@@ -31,7 +28,7 @@ namespace Player.Achievement.Point
 
 		private void CheckAchievement(int pointsValue)
 		{
-			if (pointsValue >= this.pointsValue)
+			if (pointsValue >= achievementListController.pointsNoKillsValue)
 			{
 				saveDataController.UnlockAchievement(achievement);
 				pointController.OnCollect.RemoveListener(CheckAchievement);
