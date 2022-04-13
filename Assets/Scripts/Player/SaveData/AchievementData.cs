@@ -14,6 +14,11 @@ namespace Player.SaveData
 		public AchievementData(string profileName) 
 			: base(profileName + "/achievements") {}
 
+		public List<string> GetUnlockedAchievements()
+		{
+			return unlockedAchievements;
+		}
+		
 		public void UnlockAchievement(
 			Player.Achievement.Achievement achievement)
 		{
