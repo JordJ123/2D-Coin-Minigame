@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class ModeSelectController : MonoBehaviour
 {
+	[SerializeField] private UnityEvent OnPlay;
 	[SerializeField] private UnityEvent<string> OnError;
     [SerializeField] private ProfileSelectController playerOneSelect;
     [SerializeField] private ProfileSelectController playerTwoSelect;
 	private static string playerOneName = "";
 	private static string playerTwoName = "";
 	private static bool isTwoPlayers;
+	private AudioSource audio;
 
 	public static string GetPlayerOneName()
 	{
@@ -28,11 +31,6 @@ public class ModeSelectController : MonoBehaviour
 		return isTwoPlayers;
 	}
 
-	private void Start()
-	{
-		OnError?.Invoke("");
-	}
-
 	public void OnePlayer()
 	{
 		playerOneName = playerOneSelect.GetProfileName();
@@ -42,6 +40,7 @@ public class ModeSelectController : MonoBehaviour
 		}
 		else
 		{
+			OnPlay?.Invoke();
 			isTwoPlayers = false;
 			SceneManager.LoadScene("GameScreen");
 		}
@@ -70,6 +69,7 @@ public class ModeSelectController : MonoBehaviour
 		}
 		else
 		{
+			OnPlay?.Invoke();
 			isTwoPlayers = true;
 			SceneManager.LoadScene("GameScreen");
 		}

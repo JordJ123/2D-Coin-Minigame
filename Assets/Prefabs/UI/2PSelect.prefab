@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 649012955857684635, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: m_text
+      value: "\u2191\n\u2190  \u2193  \u2192"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412148323329143080, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SaveSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412148323329143080, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Screen.SoundEffectController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5813675158354777363, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: m_text
       value: Player Two
@@ -14,6 +26,18 @@ PrefabInstance:
     - target: {fileID: 5813675159694067602, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: isPlayerOne
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813675159694067602, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: OnCreate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813675159694067602, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: OnCreate.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813675159694067602, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
+      propertyPath: OnCreate.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5813675159694067603, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: m_Pivot.x
@@ -101,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813675159694067628, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}
       propertyPath: m_Name
-      value: 2PSelect
+      value: 2P Profile Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38aef8c78d7b07f4b86f862f81b524f8, type: 3}

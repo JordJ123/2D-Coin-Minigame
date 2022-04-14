@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ProfileSelectController : MonoBehaviour
 {
 	[SerializeField] private UnityEvent<string> OnProfileSelect;
+	[SerializeField] private UnityEvent<bool> OnArrowButtons;
 	[SerializeField] private UnityEvent<bool> OnProfileButtons;
 	[SerializeField] private UnityEvent<bool> OnNewButton;
 	[SerializeField] private UnityEvent<bool> OnCreateButtons;
@@ -40,12 +41,17 @@ public class ProfileSelectController : MonoBehaviour
 
 	private void Start()
 	{
+		if (profileNames.Count <= 1)
+		{
+			OnArrowButtons?.Invoke(false);
+		}
 		OnProfileSelect?.Invoke(profileNames[0]);
 		ToggleButtons();
 		OnCreateButtons?.Invoke(false);
 	}
 	
 	public void Create() {
+		OnArrowButtons?.Invoke(false);
 		OnNewButton?.Invoke(false);
 	    OnCreateButtons?.Invoke(true);
 	}
@@ -81,6 +87,7 @@ public class ProfileSelectController : MonoBehaviour
 				OnCreate?.Invoke(profileNames[profileSelected]);
 				OnProfileSelect?.Invoke(profileNames[profileSelected]);
 				ToggleButtons();
+				OnArrowButtons?.Invoke(true);
 				OnCreateButtons?.Invoke(false);
 			}
 			catch (IOException exception)
@@ -103,6 +110,10 @@ public class ProfileSelectController : MonoBehaviour
 
 	public void Cancel()
 	{
+		if (profileNames.Count > 1)
+		{
+			OnArrowButtons?.Invoke(true);
+		}
 		OnNewButton?.Invoke(true);
 		OnCreateButtons?.Invoke(false);
 	}
@@ -114,6 +125,10 @@ public class ProfileSelectController : MonoBehaviour
 		OnDelete?.Invoke(profileNames[profileSelected]);
 		profileNames.Remove(profileNames[profileSelected]);
 		OnProfileSelect?.Invoke(profileNames[profileSelected]);
+		if (profileNames.Count <= 1)
+		{
+			OnArrowButtons?.Invoke(false);
+		}
 		ToggleButtons();
 	}
 
