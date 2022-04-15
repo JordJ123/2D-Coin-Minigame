@@ -2136,7 +2136,7 @@ GameObject:
   - component: {fileID: 1784895845}
   - component: {fileID: 1784895846}
   m_Layer: 0
-  m_Name: Sound Effects
+  m_Name: Menu Effects
   m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2168,10 +2168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fa641065ee42e48e8b73bd0a0243c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backwardSound: {fileID: 8300000, guid: 327b60b4b7cf27b4187e3e84b929ec0c, type: 3}
   errorSound: {fileID: 8300000, guid: fc6ef9573ba9e9041b3a2d92b94b6657, type: 3}
   forwardSound: {fileID: 8300000, guid: ff6553aaf0a1ffa4b836011da6283252, type: 3}
   loadSound: {fileID: 8300000, guid: c3e0373bd3124064e8930a12acac6b88, type: 3}
-  saveSound: {fileID: 0}
+  saveSound: {fileID: 8300000, guid: defb72d5e53568044977fba21f496737, type: 3}
 --- !u!82 &1784895846
 AudioSource:
   m_ObjectHideFlags: 0

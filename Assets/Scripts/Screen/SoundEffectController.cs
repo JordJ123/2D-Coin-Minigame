@@ -5,6 +5,7 @@ namespace Screen
 {
 	public class SoundEffectController : MonoBehaviour
 	{
+		[SerializeField] private AudioClip backwardSound;
 		[SerializeField] private AudioClip errorSound;
 		[SerializeField] private AudioClip forwardSound;
 		[SerializeField] private AudioClip loadSound;
@@ -15,6 +16,11 @@ namespace Screen
 			
 			DontDestroyOnLoad(gameObject);
 			audioSource = GetComponent<AudioSource>();
+		}
+		
+		public void BackwardSound()
+		{
+			audioSource.PlayOneShot(backwardSound);
 		}
 		
 		public void ErrorSound()
@@ -34,7 +40,7 @@ namespace Screen
 		
 		public void SaveSound()
 		{
-			audioSource.PlayOneShot(loadSound);
+			audioSource.PlayOneShot(saveSound);
 		}
 	}
 }
