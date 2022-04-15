@@ -2172,7 +2172,9 @@ MonoBehaviour:
   errorSound: {fileID: 8300000, guid: fc6ef9573ba9e9041b3a2d92b94b6657, type: 3}
   forwardSound: {fileID: 8300000, guid: ff6553aaf0a1ffa4b836011da6283252, type: 3}
   loadSound: {fileID: 8300000, guid: c3e0373bd3124064e8930a12acac6b88, type: 3}
+  pauseSound: {fileID: 8300000, guid: f293c8c6e7007f74f987f9e249a8699d, type: 3}
   saveSound: {fileID: 8300000, guid: defb72d5e53568044977fba21f496737, type: 3}
+  unpauseSound: {fileID: 8300000, guid: ccec79b2c32cb2546a835d96cc2fd606, type: 3}
 --- !u!82 &1784895846
 AudioSource:
   m_ObjectHideFlags: 0

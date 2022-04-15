@@ -9,8 +9,11 @@ namespace Screen
 		[SerializeField] private AudioClip errorSound;
 		[SerializeField] private AudioClip forwardSound;
 		[SerializeField] private AudioClip loadSound;
+		[SerializeField] private AudioClip pauseSound;
 		[SerializeField] private AudioClip saveSound;
+		[SerializeField] private AudioClip unpauseSound;
 		private AudioSource audioSource;
+		
 		private void Awake()
 		{
 			
@@ -38,9 +41,19 @@ namespace Screen
 			audioSource.PlayOneShot(loadSound);
 		}
 		
+		public void PauseSound()
+		{
+			audioSource.PlayOneShot(pauseSound);
+		}
+		
 		public void SaveSound()
 		{
 			audioSource.PlayOneShot(saveSound);
+		}
+		
+		public void UnpauseSound()
+		{
+			audioSource.PlayOneShot(unpauseSound);
 		}
 	}
 }
