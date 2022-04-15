@@ -7,7 +7,7 @@ namespace PowerUp
 {
     public class SpawnController : MonoBehaviour
     {
-        private static SpawnController[] powerUps;
+		private static SpawnController[] powerUps;
         private static SpawnController currentPowerUp;
         private GameObject gameObj;
 
@@ -35,8 +35,8 @@ namespace PowerUp
 				{
 					powerUp.Despawn();
 				}
+				SpawnPowerUp();
 			}
-			SpawnPowerUp();
 		}
 
         public void Respawn()
