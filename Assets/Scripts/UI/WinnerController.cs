@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Screen.GameScreen;
+using Screen.MenuScreen;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,10 +24,10 @@ public class WinnerController : MonoBehaviour
 		//One Player
 		if (!ModeSelectController.IsTwoPlayers() && !isTwoPlayers)
 		{
-			if (PlayerCountManager.playerOnePoints != 0)
+			if (PlayerCountController.playerOnePoints != 0)
 			{
 				winnerText.text = "Player One: " 
-					+ PlayerCountManager.playerOnePoints;
+					+ PlayerCountController.playerOnePoints;
 			}
 			else
 			{
@@ -36,15 +38,15 @@ public class WinnerController : MonoBehaviour
 		//Two Players
 		else
 		{
-			if (PlayerCountManager.playerOnePoints
-				> PlayerCountManager.playerTwoPoints 
+			if (PlayerCountController.playerOnePoints
+				> PlayerCountController.playerTwoPoints 
 				|| playerOnePoints > playerTwoPoints)
 			{
 				winnerText.text = "Player One Wins!";
 				isPlayerOneWinner = true;
 			}
-			else if (PlayerCountManager.playerTwoPoints
-				> PlayerCountManager.playerOnePoints
+			else if (PlayerCountController.playerTwoPoints
+				> PlayerCountController.playerOnePoints
 				|| playerTwoPoints > playerOnePoints)
 			{
 				winnerText.text = "Player Two Wins!";
@@ -57,9 +59,9 @@ public class WinnerController : MonoBehaviour
 				isPlayerTwoWinner = true;
 			}
 			OnPlayerOneCounter?.Invoke(true, 
-				PlayerCountManager.playerOnePoints, isPlayerOneWinner);
+				PlayerCountController.playerOnePoints, isPlayerOneWinner);
 			OnPlayerTwoCounter?.Invoke(false, 
-				PlayerCountManager.playerTwoPoints, isPlayerTwoWinner);
+				PlayerCountController.playerTwoPoints, isPlayerTwoWinner);
 		}
 	}
 }	

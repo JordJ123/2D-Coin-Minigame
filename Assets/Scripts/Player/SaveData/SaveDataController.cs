@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using Player.SaveData;
+using Screen.GameScreen;
+using Screen.MenuScreen;
 using UnityEngine;
 
 [RequireComponent(typeof(SpawnController))]
@@ -12,7 +14,7 @@ public class SaveDataController : MonoBehaviour
 	[SerializeField] private bool isPlayerOne;
 	[SerializeField] private bool resetAchievementData;
 	[SerializeField] private bool resetStatisticsData;
-	private Manager.AchievementManager achievementManager;
+	private AchievementDisplayController achievementDisplayController;
 	private LivesController livesController;
 	private MovementController movementController;
 	private PointController pointController;
@@ -24,7 +26,8 @@ public class SaveDataController : MonoBehaviour
 	
 	private void Awake()
 	{
-		achievementManager = FindObjectOfType<Manager.AchievementManager>();
+		achievementDisplayController 
+			= FindObjectOfType<AchievementDisplayController>();
 		livesController = GetComponent<LivesController>();
 		movementController = GetComponent<MovementController>();
 		pointController = GetComponent<PointController>();
@@ -97,7 +100,7 @@ public class SaveDataController : MonoBehaviour
 	{
 		achievement.Unlock();
 		achievementData.UnlockAchievement(achievement);
-		achievementManager.EnqueueAchievement(achievement);
+		achievementDisplayController.EnqueueAchievement(achievement);
 	}
 
 	private void IncrementDistance(bool ignore, Transform transform)

@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Screen;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-namespace UI {
+
+namespace Screen.GameScreen {
     public class PauseController : MonoBehaviour
 	{
 		private SoundEffectController audio;

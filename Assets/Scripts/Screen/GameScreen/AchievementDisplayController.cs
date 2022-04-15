@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Manager
+namespace Screen.GameScreen
 {
-	public class AchievementManager : MonoBehaviour
+	public class AchievementDisplayController : MonoBehaviour
 	{
 		[SerializeField] private float achievementDisplayDuration;
 		[SerializeField] private float achievementGapDuration;
