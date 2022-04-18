@@ -1,3 +1,4 @@
+using Screen.MenuScreen;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,14 +7,14 @@ namespace Screen
 	public class DeathScreenController : MonoBehaviour
 	{
 		private GameObject audioGameObject;
-		private SoundEffectController audio;
+		private MenuSoundController audio;
     
 		private void Awake()
 		{
 			audioGameObject = GameObject.FindWithTag("Sound");
 			if (audioGameObject != null)
 			{
-				audio = audioGameObject.GetComponent<SoundEffectController>();
+				audio = audioGameObject.GetComponent<MenuSoundController>();
 			}
 		}
 

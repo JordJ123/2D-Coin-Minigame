@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7407348051776538296, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 413cbc6e83ee83b46a81499b0877cd1e, type: 3}
     - target: {fileID: 8191534882999533467, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_Name
       value: Speed
@@ -106,7 +110,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8191534882999533467, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
   m_PrefabInstance: {fileID: 1084516366543505158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-4040250055884804069
+--- !u!114 &5322847918392712773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,8 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9125089376777549981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65be1e35455ecab4e94cd122034d95f2, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c7129cb8ba4c488f35a1a47a210a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerController: {fileID: 0}
   duration: 15

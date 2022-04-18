@@ -14,7 +14,11 @@ namespace Player
 	public class MovementController : MonoBehaviour
 	{
 		[SerializeField] public UnityEvent<bool, Transform> OnMove;
+		[SerializeField] public UnityEvent<AudioClip, float> OnMoveSound;
+		[SerializeField] public AudioClip movementSound;
         [SerializeField] private float moveDistance;
+		[SerializeField] private float soundVolume;
+		[SerializeField] private float soundDelay;
 		
 		private InputController inputController;
 		private PowerUpController powerUpController;
@@ -23,8 +27,9 @@ namespace Player
         private SpriteController spriteController;
 		private float horizontalSpeed;
 		private float verticalSpeed;
+		private bool isCoroutine;
 		private bool lookingRight;
-        private Vector2 velocity;
+		private Vector2 velocity;
 
         private void Awake()
 		{
@@ -36,14 +41,24 @@ namespace Player
 			velocity = new Vector2();
 			lookingRight = spriteController.IsLookingRight();
 		}
+		
+		public void SetNormalSound()
+		{
+			soundDelay *= 2;
+		}
 
-		void Update()
+		public void SetSpeedSound()
+		{
+			soundDelay /= 2;
+		}
+
+		void FixedUpdate()
         {
             Move();
         }
 
         private void Move()
-        {
+		{
 			if (Time.timeScale != 0)
 			{
 				velocity = rb2D.velocity;
@@ -52,7 +67,17 @@ namespace Player
 				rb2D.velocity = velocity;
 				if (velocity.x != 0 || velocity.y != 0)
 				{
+					if (!isCoroutine)
+					{
+						isCoroutine = true;
+						StartCoroutine(MovementSound());
+					}
 					OnMove?.Invoke(powerUpController.HasSpeedPowerUp(), tf);
+				}
+				else
+				{
+					isCoroutine = false;
+					StopAllCoroutines();
 				}
 			}
 		}
@@ -88,5 +113,14 @@ namespace Player
 			}
             return verticalSpeed;
         }
+
+		protected IEnumerator MovementSound()
+		{
+			while (true)
+			{
+				OnMoveSound?.Invoke(movementSound, soundDelay);
+				yield return new WaitForSeconds(soundDelay);
+			}
+		}
     }
 }

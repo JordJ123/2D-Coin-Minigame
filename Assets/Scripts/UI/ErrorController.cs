@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Screen;
+using Screen.MenuScreen;
 using TMPro;
 using UnityEngine;
 
@@ -8,13 +6,13 @@ namespace UI {
 	[RequireComponent(typeof(TextMeshProUGUI))]
 	public class ErrorController : MonoBehaviour
 	{
-	    private SoundEffectController audio;
+	    private MenuSoundController audio;
 		private TextMeshProUGUI text;
         
 		private void Awake()
 		{
 			audio = GameObject.FindWithTag("Sound")
-				.GetComponent<SoundEffectController>();
+				.GetComponent<MenuSoundController>();
 			text = GetComponent<TextMeshProUGUI>();
 			text.text = "";
 		}

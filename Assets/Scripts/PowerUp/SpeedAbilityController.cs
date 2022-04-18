@@ -5,8 +5,14 @@ namespace PowerUp
 {
 	public class SpeedAbilityController : TimedAbilityController
 	{
+		private void Awake()
+		{
+			base.Awake();
+		}
+		
 		public override void Ability(GameObject player)
 		{
+			Collect();
 			AbilityStart(player);
 			player.GetComponent<Player.PowerUpController>().StartCoroutine(
 				AbilityEnd(player.GetComponent<Player.PowerUpController>()));

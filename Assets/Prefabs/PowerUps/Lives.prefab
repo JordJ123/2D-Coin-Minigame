@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7407348051776538296, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ab50840c19ac08742978779d1ebc2414, type: 3}
     - target: {fileID: 8191534882999533467, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
       propertyPath: m_Name
       value: Lives

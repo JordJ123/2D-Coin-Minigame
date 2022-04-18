@@ -14,6 +14,7 @@ namespace Player
 
 		private GameObject gameObj;
 	    private LivesController livesController;
+		private MovementController movementController;
 		private SpriteController spriteController;
 	    private PowerUp.TimedAbilityController powerUpController;
 		private Enemy.SpriteController[] enemies;
@@ -22,6 +23,7 @@ namespace Player
 		{
 			enemies = FindObjectsOfType<Enemy.SpriteController>();
 			livesController = GetComponent<LivesController>();
+			movementController = GetComponent<MovementController>();
 			spriteController = GetComponent<SpriteController>();
 		}
 
@@ -46,6 +48,7 @@ namespace Player
 			speedAbilityController)
 		{
 			RemovePowerUp();
+			movementController.SetSpeedSound();
 			spriteController.SetSpeedPowerUp();
 			powerUpController = speedAbilityController;
 		}

@@ -91,6 +91,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2PPlayerOne
       objectReference: {fileID: 0}
+    - target: {fileID: 2762479222101774155, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: OnMoveSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479222101774155, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: OnMoveSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
     - target: {fileID: 4467212069261342102, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: attackColour.b
       value: 0.74509805

@@ -5,12 +5,16 @@ using UnityEngine;
 
 namespace PowerUp
 {
-	public abstract class TimedAbilityController : MonoBehaviour, 
-		IAbilityController
+	public abstract class TimedAbilityController : AbilityController
 	{
 		[SerializeField] protected int duration;
 
-		public abstract void Ability(GameObject player);
+		protected void Awake()
+		{
+			base.Awake();
+		}
+		
+		public abstract override void Ability(GameObject player);
 
 		protected abstract void AbilityStart(GameObject player);
 

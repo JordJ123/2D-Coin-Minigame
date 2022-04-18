@@ -1,3 +1,4 @@
+using Screen.MenuScreen;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,14 +6,18 @@ using UnityEngine.SceneManagement;
 namespace Screen.GameScreen {
     public class PauseController : MonoBehaviour
 	{
-		private SoundEffectController audio;
+		private GameObject audioGameObject;
+		private MenuSoundController audio;
 		private GameObject menu;
 		private GameObject pauseButton;
 
 		private void Awake()
 		{
-			audio = GameObject.FindWithTag("Sound")
-				.GetComponent<SoundEffectController>();
+			audioGameObject = GameObject.FindWithTag("Sound");
+			if (audioGameObject != null)
+			{
+				audio = audioGameObject.GetComponent<MenuSoundController>();
+			}
 			pauseButton = GameObject.Find("Pause Button");
 			menu = GameObject.Find("Pause Menu");
 			menu.SetActive(false);
@@ -37,6 +42,7 @@ namespace Screen.GameScreen {
 		public void Quit()
 		{
 			if (audio != null) audio.BackwardSound();
+			Time.timeScale = 1;
 			SceneManager.LoadScene("MenuScreen");
 		}
     }

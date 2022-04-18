@@ -63,10 +63,9 @@ namespace Player {
 			}
             else if (collider.tag == "PowerUp")
             {
-                collider.GetComponent<PowerUp.SpawnController>().Despawn();
-                collider.GetComponent<PowerUp.IAbilityController>()
+				collider.GetComponent<PowerUp.AbilityController>()
 					.Ability(gameObj);
-            }
+			}
         }
 
 		private IEnumerator Invulnerability()
