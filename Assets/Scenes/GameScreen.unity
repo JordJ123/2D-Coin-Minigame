@@ -15561,6 +15561,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 645975216}
     - target: {fileID: 2762479222101774155, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: soundVolume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762479222101774155, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: OnMoveSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420034}

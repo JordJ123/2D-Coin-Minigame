@@ -46,9 +46,9 @@ namespace Player {
 					}
 					else
 					{
+						OnDeath?.Invoke();
 						if (!livesController.LoseLife())
 						{
-							OnDeath?.Invoke();
 							StartCoroutine(Invulnerability());
 						};
 					}

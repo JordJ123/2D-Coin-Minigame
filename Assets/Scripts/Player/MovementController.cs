@@ -118,7 +118,7 @@ namespace Player
 		{
 			while (true)
 			{
-				OnMoveSound?.Invoke(movementSound, soundDelay);
+				OnMoveSound?.Invoke(movementSound, soundVolume);
 				yield return new WaitForSeconds(soundDelay);
 			}
 		}
