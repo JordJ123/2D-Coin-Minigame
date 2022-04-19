@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Screen.MenuScreen
 {
-	public class MenuSoundController : MonoBehaviour
+	public class MenuSoundController : SoundController
 	{
 		[SerializeField] private AudioClip backwardSound;
 		[SerializeField] private AudioClip errorSound;
@@ -12,28 +12,35 @@ namespace Screen.MenuScreen
 		[SerializeField] private AudioClip pauseSound;
 		[SerializeField] private AudioClip saveSound;
 		[SerializeField] private AudioClip unpauseSound;
-		private AudioSource audioSource;
-		
+		private static MenuSoundController menuSoundController;
+
 		private void Awake()
 		{
-			
+			if (menuSoundController == null)
+			{
+				menuSoundController = this;
+			}
+			else
+			{
+				Destroy(gameObject);
+			}
 			DontDestroyOnLoad(gameObject);
 			audioSource = GetComponent<AudioSource>();
 		}
 		
 		public void BackwardSound()
 		{
-			audioSource.PlayOneShot(backwardSound);
+			PlaySound(backwardSound);
 		}
 		
 		public void ErrorSound()
 		{
-			audioSource.PlayOneShot(errorSound);
+			PlaySound(errorSound);
 		}
 
 		public void ForwardSound()
 		{
-			audioSource.PlayOneShot(forwardSound);
+			PlaySound(forwardSound);
 		}
 
 		public void LoadSound()
@@ -43,17 +50,17 @@ namespace Screen.MenuScreen
 		
 		public void PauseSound()
 		{
-			audioSource.PlayOneShot(pauseSound);
+			PlaySound(pauseSound);
 		}
 		
 		public void SaveSound()
 		{
-			audioSource.PlayOneShot(saveSound);
+			PlaySound(saveSound);
 		}
 		
 		public void UnpauseSound()
 		{
-			audioSource.PlayOneShot(unpauseSound);
+			PlaySound(unpauseSound);
 		}
 	}
 }

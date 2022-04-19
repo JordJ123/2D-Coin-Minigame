@@ -2136,7 +2136,7 @@ GameObject:
   - component: {fileID: 1784895845}
   - component: {fileID: 1784895846}
   m_Layer: 0
-  m_Name: Menu Effects
+  m_Name: Sound
   m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2185,11 +2185,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 03be6c626b79dca4e9d935cbd8f92400, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

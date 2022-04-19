@@ -5,7 +5,7 @@ namespace Screen
 	[RequireComponent(typeof(AudioSource))]
 	public class SoundController : MonoBehaviour
 	{
-		private AudioSource audioSource;
+		protected AudioSource audioSource;
 		
 		private void Awake()
 		{
@@ -14,7 +14,7 @@ namespace Screen
 
 		public void PlaySound(AudioClip audioClip)
 		{
-			audioSource.PlayOneShot(audioClip);
+			audioSource.PlayOneShot(audioClip, 1);
 		}
 		
 		public void PlaySound(AudioClip audioClip, float volume)
