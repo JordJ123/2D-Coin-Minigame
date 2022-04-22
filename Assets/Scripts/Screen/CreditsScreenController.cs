@@ -30,6 +30,12 @@ namespace Screen
 			Application.OpenURL("https://0x72.itch.io/dungeontileset-ii");
 		}
 		
+		public void Font()
+        {
+            if (audio != null) audio.ForwardSound();
+            Application.OpenURL("https://csanyk.itch.io/min-font");
+        }
+		
 		public void GameSounds()
 		{
 			if (audio != null) audio.ForwardSound();
