@@ -13,6 +13,7 @@ namespace Screen.MenuScreen
 		[SerializeField] private UnityEvent<bool> OnProfileButtons;
 		[SerializeField] private UnityEvent<bool> OnNewButton;
 		[SerializeField] private UnityEvent<bool> OnCreateButtons;
+		[SerializeField] private UnityEvent OnCancel;
 		[SerializeField] private UnityEvent<string> OnCreate;
 		[SerializeField] private UnityEvent<string> OnDelete;
 		[SerializeField] private UnityEvent OnSwapControls;
@@ -23,6 +24,7 @@ namespace Screen.MenuScreen
 		private List<string> profileNames = new List<string>();
 		private int profileSelected;
 		private string playerMessage = "";
+		private bool createMode;
 		
 
 		private void Awake()
@@ -56,6 +58,7 @@ namespace Screen.MenuScreen
 			OnArrowButtons?.Invoke(false);
 			OnNewButton?.Invoke(false);
 		    OnCreateButtons?.Invoke(true);
+			createMode = true;
 		}
 
 		public void Save(string profileName)
@@ -91,6 +94,7 @@ namespace Screen.MenuScreen
 					ToggleButtons();
 					OnArrowButtons?.Invoke(true);
 					OnCreateButtons?.Invoke(false);
+					createMode = false;
 				}
 				catch (IOException exception)
 				{
@@ -108,6 +112,10 @@ namespace Screen.MenuScreen
 			}
 			profileNames.Insert(profileNames.Count - 1, profileName);
 			ToggleButtons();
+			if (!createMode)
+			{
+				OnArrowButtons?.Invoke(true);
+			}
 		}
 
 		public void Cancel()
@@ -116,8 +124,10 @@ namespace Screen.MenuScreen
 			{
 				OnArrowButtons?.Invoke(true);
 			}
+			OnCancel?.Invoke();
 			OnNewButton?.Invoke(true);
 			OnCreateButtons?.Invoke(false);
+			createMode = false;
 		}
 
 		public void Delete()
@@ -144,6 +154,10 @@ namespace Screen.MenuScreen
 			}
 			profileNames.Remove(profileName);
 			OnProfileSelect?.Invoke(profileNames[profileSelected]);
+			if (profileNames.Count <= 1)
+			{
+				OnArrowButtons?.Invoke(false);
+			}
 			ToggleButtons();
 		}
 
