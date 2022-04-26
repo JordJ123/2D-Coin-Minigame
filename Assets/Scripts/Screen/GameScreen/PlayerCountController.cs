@@ -49,14 +49,14 @@ namespace Screen.GameScreen
     		if (!isTwoPlayers)
     		{
     			playerOnePoints = playerOne1P.GetComponent<PointController>()
-    				.pointsValue;
+    				.GetPointsValue();
     		}
     		else
     		{
     			playerOnePoints = playerOne2P.GetComponent<PointController>()
-    				.pointsValue;
+    				.GetPointsValue();
     			playerTwoPoints = playerTwo2P.GetComponent<PointController>()
-    				.pointsValue;
+    				.GetPointsValue();
     		}
     		SceneManager.LoadScene("DeathScreen");
     	}

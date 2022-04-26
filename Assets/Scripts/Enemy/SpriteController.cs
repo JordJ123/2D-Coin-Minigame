@@ -5,42 +5,24 @@ using UnityEngine;
 
 namespace Enemy
 {
-	[RequireComponent(typeof(HealthController))]
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class SpriteController : MonoBehaviour
 	{
 		[SerializeField] private Color twoPlayerColour;
 		[SerializeField] private float deadOpacity;
-		
-		private HealthController healthController;
-        private SpriteRenderer spriteRend;
+		private SpriteRenderer spriteRend;
         private Color baseColour;
 		private bool isBaseFlipX;
 		private List<Color> currentColours = new List<Color>();
 
 		void Awake()
         {
-			healthController = GetComponent<HealthController>();
-            spriteRend = GetComponent<SpriteRenderer>();
+			spriteRend = GetComponent<SpriteRenderer>();
             baseColour = spriteRend.color;
 			isBaseFlipX = spriteRend.flipX;
 		}
 		
-		private void Start()
-		{
-			healthController.OnDeath += SetDead;
-			healthController.OnRevive += SetAlive;
-			healthController.OnReset += Reset;
-		}
-		
-		private void OnDisable()
-		{
-			healthController.OnDeath -= SetDead;
-			healthController.OnRevive -= SetAlive;
-			healthController.OnReset -= Reset;
-		}
-
-        public void SetVunerable(Color colour)
+		public void SetVunerable(Color colour)
         {
 			if (CompareColours(spriteRend.color, Color.white))
 			{
@@ -69,13 +51,13 @@ namespace Enemy
 			}
 		}
 
-		private void SetDead()
+		public void SetDead()
 		{
 			SetColour(spriteRend.color, deadOpacity);
 			spriteRend.flipX = isBaseFlipX;
 		}
 
-		private void SetAlive()
+		public void SetAlive()
 		{
 			SetColour(spriteRend.color, 1);
 		}
@@ -85,6 +67,11 @@ namespace Enemy
 			color.a = opacity;
 			spriteRend.color = color;
 		}
+		
+		public void SetFlipRight(bool flipRight)
+		{
+			spriteRend.flipX = flipRight;
+		}
 
 		private bool CompareColours(Color colourOne, Color colourTwo)
 		{
@@ -93,17 +80,7 @@ namespace Enemy
 				&& colourOne.b == colourTwo.b;
 		}
 
-		public void FlipLeft()
-        {
-            spriteRend.flipX = false;
-        }
-        
-        public void FlipRight()
-        {
-            spriteRend.flipX = true;
-        }
-
-		private void Reset()
+		public void Reset()
 		{
 			SetAlive();
 			spriteRend.flipX = isBaseFlipX;

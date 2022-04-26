@@ -3,20 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WallDetector : MonoBehaviour
 {
+	[SerializeField] public UnityEvent OnWall;
     [SerializeField] private Direction direction;
 	private DirectionType directionType;
-    private MovementController movementController;
-    private bool hasWall;
+	private bool hasWall;
 
 	private void Awake()
 	{
 		directionType = transform.parent.GetComponent<DirectionType>();
-		movementController = transform.parent
-			.GetComponent<MovementController>();
-    }
+	}
 
     public Direction GetDirection()
     {
@@ -35,7 +34,7 @@ public class WallDetector : MonoBehaviour
 			hasWall = true;
 			if (directionType.Direction == direction)
 			{
-				movementController.SetWallDirection();
+				OnWall?.Invoke();
 			}
 		}
     }

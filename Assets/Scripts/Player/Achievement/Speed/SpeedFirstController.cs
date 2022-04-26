@@ -20,17 +20,14 @@ namespace Player.Achievement.Speed
 			base.Start();
 			if (!achievement.IsUnlocked())
 			{
-				movementController.OnMove.AddListener(CheckAchievement);
+				movementController.OnMoveSpeed.AddListener(CheckAchievement);
 			}
 		}
 
-		private void CheckAchievement(bool hasSpeedPowerUp, Transform ignore)
+		private void CheckAchievement()
 		{
-			if (hasSpeedPowerUp)
-			{
-				saveDataController.UnlockAchievement(achievement);
-				movementController.OnMove.RemoveListener(CheckAchievement);
-			}
+			saveDataController.UnlockAchievement(achievement);
+			movementController.OnMoveSpeed.RemoveListener(CheckAchievement);
 		}
 	}
 }

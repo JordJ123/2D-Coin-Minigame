@@ -71,7 +71,7 @@ public class SaveDataController : MonoBehaviour
 		distanceCurrentX = GetComponent<SpawnController>().GetSpawnX();
 		distanceCurrentY = GetComponent<SpawnController>().GetSpawnY();
 		triggerDetector.OnDeath.AddListener(statisticsData.IncrementDeaths);
-		movementController.OnMove.AddListener(IncrementDistance);
+		movementController.OnMoveDistance.AddListener(IncrementDistance);
 		triggerDetector.OnKill.AddListener(statisticsData.IncrementKills);
 		livesController.OnGain.AddListener(statisticsData.IncrementLives);
 		pointController.OnCollect.AddListener(statisticsData.IncrementPoints);
@@ -103,7 +103,7 @@ public class SaveDataController : MonoBehaviour
 		achievementDisplayController.EnqueueAchievement(achievement);
 	}
 
-	private void IncrementDistance(bool ignore, Transform transform)
+	private void IncrementDistance(Transform transform)
 	{
 		statisticsData.IncrementDistance(transform, distanceCurrentX, 
 			distanceCurrentY);

@@ -32,7 +32,7 @@ namespace Player.Achievement.Speed
 					.GetComponent<SpawnController>().GetSpawnX();
 				distanceCurrentY= transform.parent
 					.GetComponent<SpawnController>().GetSpawnY();
-				movementController.OnMove.AddListener(CheckAchievement);
+				movementController.OnMoveSpeedDistance.AddListener(CheckAchievement);
 				powerUpController.OnSpeedReset.AddListener(FailAchievement);
 			}
 		}
@@ -49,11 +49,10 @@ namespace Player.Achievement.Speed
 					>= achievementListController.speedOnePowerUpCount)
 				{
 					saveDataController.UnlockAchievement(achievement);
-					movementController.OnMove.RemoveListener(CheckAchievement);
+					movementController.OnMoveSpeedDistance.RemoveListener(CheckAchievement);
 					powerUpController.OnSpeedReset
 						.RemoveListener(FailAchievement);
 				}
-
 			}
 			distanceCurrentX = transform.position.x;
 			distanceCurrentY = - transform.position.y;

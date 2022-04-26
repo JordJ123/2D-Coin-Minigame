@@ -41,7 +41,7 @@ namespace Player.Achievement.Death
 			}
 		}
 
-		private void FailAchievement(bool ignore, Transform ignore2)
+		private void FailAchievement()
 		{
 			isFailed = true;
 			movementController.OnMove.RemoveListener(FailAchievement);

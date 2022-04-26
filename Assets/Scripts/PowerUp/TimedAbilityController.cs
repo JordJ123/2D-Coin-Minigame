@@ -9,11 +9,6 @@ namespace PowerUp
 	{
 		[SerializeField] protected int duration;
 
-		protected void Awake()
-		{
-			base.Awake();
-		}
-		
 		public abstract override void Ability(GameObject player);
 
 		protected abstract void AbilityStart(GameObject player);

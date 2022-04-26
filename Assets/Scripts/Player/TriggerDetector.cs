@@ -6,10 +6,8 @@ using UnityEngine.Events;
 
 namespace Player {
     [RequireComponent(typeof(LivesController))]
-    [RequireComponent(typeof(Player.PointController))]
     [RequireComponent(typeof(PowerUpController))]
-    [RequireComponent(typeof(Player.SpawnController))]
-    public class TriggerDetector : MonoBehaviour
+	public class TriggerDetector : MonoBehaviour
 	{
 		[SerializeField] public UnityEvent OnDeath;
 		[SerializeField] public UnityEvent OnKill;
@@ -17,11 +15,9 @@ namespace Player {
 		[SerializeField] private UnityEvent OnInvulnerability;
 		[SerializeField] private UnityEvent OnVulnerability;
 		[SerializeField] private int invulnerabilityDuration;
-		
-        private LivesController livesController;
+		private LivesController livesController;
 		private PowerUpController powerUpController;
 		private GameObject gameObj;
-
 		private Enemy.HealthController enemyHealthController;
 
 		private void Awake()

@@ -5,11 +5,6 @@ namespace PowerUp
 {
 	public class SpeedAbilityController : TimedAbilityController
 	{
-		private void Awake()
-		{
-			base.Awake();
-		}
-		
 		public override void Ability(GameObject player)
 		{
 			Collect();

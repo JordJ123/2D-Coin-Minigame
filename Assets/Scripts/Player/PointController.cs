@@ -8,29 +8,36 @@ namespace Player {
     public class PointController : MonoBehaviour
 	{
 		[SerializeField] public UnityEvent<int> OnCollect;
-		[SerializeField] public int pointsValue { private set; get; }
-
-		private GameObject[] points;
-		private int pointsCollected;
-        private int pointsCounter;
-        
+		[SerializeField] private int pointsValue;
+		private static GameObject[] points;
+		private static int pointsLength;
+		private static int pointsCollected;
+		
         private void Awake()
         {
-            points = GameObject.FindGameObjectsWithTag("Point");
-			pointsCounter = points.Length;
-        }
+			if (points == null)
+			{
+				points = GameObject.FindGameObjectsWithTag("Point");
+				pointsLength = points.Length;
+			}
+		}
 
 		private void Start()
 		{
 			OnCollect?.Invoke(pointsValue);
 		}
+
+		public int GetPointsValue()
+		{
+			return pointsValue;
+		}
         
         public void CollectPoints(int value) 
         {
             pointsValue += value;
-            pointsCollected++;
 			OnCollect?.Invoke(pointsValue);
-			if (pointsCollected % pointsCounter == 0)
+			pointsCollected++;
+			if (pointsCollected % pointsLength == 0)
             {
 				foreach (var point in points)
                 {

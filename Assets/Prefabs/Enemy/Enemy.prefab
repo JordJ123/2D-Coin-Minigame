@@ -70,6 +70,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f89400e7d79c3468e3ce0864433b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: SetWallDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 2
 --- !u!1 &5554567840039620838
 GameObject:
@@ -141,6 +156,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f89400e7d79c3468e3ce0864433b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: SetWallDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 1
 --- !u!1 &7375048986536959737
 GameObject:
@@ -160,6 +190,7 @@ GameObject:
   - component: {fileID: 4435360329329851805}
   - component: {fileID: 3795022071154889090}
   - component: {fileID: 7444305493182270564}
+  - component: {fileID: 5758702116684497532}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -300,6 +331,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadcbb211138eba4fb4803d1563c46bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnFlipRight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 473950169940383964}
+        m_TargetAssemblyTypeName: Enemy.SpriteController, Assembly-CSharp
+        m_MethodName: SetFlipRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   moveDistance: 2.5
 --- !u!50 &5388805263675206735
 Rigidbody2D:
@@ -334,6 +380,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857e97327d7085347a63cd94f0fda017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnIntersection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: SetIntersectionDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3795022071154889090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +420,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f434bed2d00aac9449d7438d8dca4c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeathAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: FreezeMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4708498600872034870}
+        m_TargetAssemblyTypeName: Enemy.SpawnController, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 473950169940383964}
+        m_TargetAssemblyTypeName: Enemy.SpriteController, Assembly-CSharp
+        m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRevive:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: UnfreezeMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 473950169940383964}
+        m_TargetAssemblyTypeName: Enemy.SpriteController, Assembly-CSharp
+        m_MethodName: SetAlive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnReset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: ResetMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4708498600872034870}
+        m_TargetAssemblyTypeName: Enemy.SpawnController, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 473950169940383964}
+        m_TargetAssemblyTypeName: Enemy.SpriteController, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   reviveDuration: 5
+--- !u!95 &5758702116684497532
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375048986536959737}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4dab54686e3cca48a4a84670622ed2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8272518361807682289
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +618,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f89400e7d79c3468e3ce0864433b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: SetWallDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 3
 --- !u!1 &8472662367607441996
 GameObject:
@@ -501,4 +704,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f89400e7d79c3468e3ce0864433b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6294316720596674809}
+        m_TargetAssemblyTypeName: Enemy.MovementController, Assembly-CSharp
+        m_MethodName: SetWallDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 0

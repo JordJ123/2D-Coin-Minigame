@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 6067519171477077945}
   - component: {fileID: 2762479221408911885}
   - component: {fileID: 969237679}
+  - component: {fileID: 1977704184556817032}
   m_Layer: 6
   m_Name: 1PPlayer
   m_TagString: Player
@@ -611,6 +612,30 @@ MonoBehaviour:
   OnMove:
     m_PersistentCalls:
       m_Calls: []
+  OnMoveDistance:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMoveSpeed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMoveSpeedDistance:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMoveAnimation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1977704184556817032}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetBool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMoveSound:
     m_PersistentCalls:
       m_Calls:
@@ -624,6 +649,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1977704184556817032}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Moving
           m_BoolArgument: 0
         m_CallState: 2
   movementSound: {fileID: 8300000, guid: 5d6e81c9bd0f1d34691c5cd8aefe1adb, type: 3}
@@ -657,6 +694,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pointsValue: 0
 --- !u!114 &4669650999890111351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +945,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c6cc21d771f284b9a3778d379e1600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLives:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 763793633124784747}
+        m_TargetAssemblyTypeName: Player.LivesController, Assembly-CSharp
+        m_MethodName: GainLife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8969528801936269435}
+        m_TargetAssemblyTypeName: Player.SpriteController, Assembly-CSharp
+        m_MethodName: SetAttackPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAttackReset:
     m_PersistentCalls:
       m_Calls:
@@ -919,6 +987,45 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSpeed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2762479222101774155}
+        m_TargetAssemblyTypeName: Player.MovementController, Assembly-CSharp
+        m_MethodName: SetSpeedSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8969528801936269435}
+        m_TargetAssemblyTypeName: Player.SpriteController, Assembly-CSharp
+        m_MethodName: SetSpeedPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1977704184556817032}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: set_speed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -946,6 +1053,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1977704184556817032}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: set_speed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1004,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileName: PlayerOne
   isPlayerOne: 1
-  resetAchievementData: 0
+  resetAchievementData: 1
   resetStatisticsData: 0
 --- !u!114 &969237679
 MonoBehaviour:
@@ -1038,3 +1157,22 @@ MonoBehaviour:
   speedLargeCount: 10000
   speedTotalCount: 10000
   speedOnePowerUpCount: 10000
+--- !u!95 &1977704184556817032
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762479222101774135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80f5d78059132e947aa9eae01d6823fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

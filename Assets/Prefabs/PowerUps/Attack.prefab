@@ -118,6 +118,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8191534882999533467, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
   m_PrefabInstance: {fileID: 1987178780222938593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2493538925051640320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4109874282655262689, guid: dc8f966e6832dc7409c9b0eb6f1f1e1e, type: 3}
+  m_PrefabInstance: {fileID: 1987178780222938593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655500346416538234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947d852817152434ca5f20780cf4a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-6733747103977494997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,4 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9aa662c327b1b40ad2183a330ef1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2493538925051640320}
+        m_TargetAssemblyTypeName: PowerUp.SpawnController, Assembly-CSharp
+        m_MethodName: Despawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   duration: 15

@@ -2,16 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemy 
 {
+	[RequireComponent(typeof(BoxCollider2D))]
 	[RequireComponent(typeof(DirectionType))]
 	[RequireComponent(typeof(MovementController))]
     public class TriggerDetector : MonoBehaviour
     {
+		[SerializeField] public UnityEvent<Direction> OnIntersection;
 		private BoxCollider2D boxCollider2D;
 		private DirectionType directionType;
-		private MovementController movementController;
 		private bool isValid = true;
         private float leftX;
         private float rightX;
@@ -25,7 +27,6 @@ namespace Enemy
 		{
 			boxCollider2D = GetComponent<BoxCollider2D>();
 			directionType = GetComponent<DirectionType>();
-			movementController = GetComponent<MovementController>();
 		}
 
         private void OnTriggerStay2D(Collider2D collider) 
@@ -79,8 +80,7 @@ namespace Enemy
 				if (inBounds)
 				{
 					isValid = false;
-					movementController
-						.SetIntersectionDirection(intersectionDirection);
+					OnIntersection?.Invoke(intersectionDirection);
 				}
             }
         }

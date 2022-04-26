@@ -5,11 +5,6 @@ namespace PowerUp
 {
 	public class AttackAbilityController : TimedAbilityController
 	{
-		private void Awake()
-		{
-			base.Awake();
-		}
-
 		public override void Ability(GameObject player)
 		{
 			Collect();

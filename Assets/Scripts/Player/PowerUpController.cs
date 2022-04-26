@@ -4,34 +4,29 @@ using UnityEngine.Events;
 
 namespace Player
 {
-	[RequireComponent(typeof(SpriteController))]
 	public class PowerUpController : MonoBehaviour
 	{
+		[SerializeField] public UnityEvent OnLives;
+		[SerializeField] public UnityEvent OnAttack;
 		[SerializeField] public UnityEvent OnAttackReset;
+		[SerializeField] public UnityEvent OnSpeed;
 		[SerializeField] public UnityEvent OnSpeedReset;
 		[SerializeField] private UnityEvent<int> OnSecond;
 		[SerializeField] private Color attackColour;
-
 		private GameObject gameObj;
-	    private LivesController livesController;
-		private MovementController movementController;
-		private SpriteController spriteController;
-	    private PowerUp.TimedAbilityController powerUpController;
+		private PowerUp.TimedAbilityController powerUpController;
 		private Enemy.SpriteController[] enemies;
 
 		private void Awake()
 		{
 			enemies = FindObjectsOfType<Enemy.SpriteController>();
-			livesController = GetComponent<LivesController>();
-			movementController = GetComponent<MovementController>();
-			spriteController = GetComponent<SpriteController>();
 		}
 
 	    public void SetAttackPowerUp(PowerUp.AttackAbilityController
 			attackAbilityController)
 		{
 			RemovePowerUp();
-			spriteController.SetAttackPowerUp();
+			OnAttack?.Invoke();
 			foreach (var enemy in enemies)
 			{
 				enemy.SetVunerable(attackColour);
@@ -41,15 +36,14 @@ namespace Player
 
 	    public void SetLivesPowerUp()
 	    {
-	        livesController.GainLife();
-	    }
+			OnLives?.Invoke();
+		}
 		
 		public void SetSpeedPowerUp(PowerUp.SpeedAbilityController 
 			speedAbilityController)
 		{
 			RemovePowerUp();
-			movementController.SetSpeedSound();
-			spriteController.SetSpeedPowerUp();
+			OnSpeed?.Invoke();
 			powerUpController = speedAbilityController;
 		}
 		

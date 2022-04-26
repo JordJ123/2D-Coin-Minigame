@@ -1,26 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Point
 {
     public class SpawnController : MonoBehaviour
     {
-        private GameObject gameObj;
+        [SerializeField] public UnityEvent<bool> OnActive;
 
-        private void Awake()
-        {
-            gameObj = gameObject;
-        }
-    
         public void Despawn() 
         {
-            gameObj.SetActive(false);
+            OnActive?.Invoke(false);
         }
 
         public void Respawn()
         {
-            gameObj.SetActive(true);
+            OnActive?.Invoke(true);
         }
     }
 }
