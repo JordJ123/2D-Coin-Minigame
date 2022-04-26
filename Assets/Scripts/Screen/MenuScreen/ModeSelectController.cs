@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -6,16 +7,16 @@ namespace Screen.MenuScreen
 {
 	public class ModeSelectController : MonoBehaviour
     {
-    	[SerializeField] private UnityEvent OnPlay;
-    	[SerializeField] private UnityEvent<string> OnError;
+		[SerializeField] private UnityEvent<string> OnError;
         [SerializeField] private ProfileSelectController playerOneSelect;
         [SerializeField] private ProfileSelectController playerTwoSelect;
     	private static string playerOneName = "";
     	private static string playerTwoName = "";
     	private static bool isTwoPlayers;
-    	private AudioSource audio;
-    
-    	public static string GetPlayerOneName()
+		private GameObject audioGameObject;
+		private MenuSoundController audio;
+
+		public static string GetPlayerOneName()
     	{
     		return playerOneName;
     	}
@@ -29,8 +30,17 @@ namespace Screen.MenuScreen
     	{
     		return isTwoPlayers;
     	}
-    
-    	public void OnePlayer()
+
+		private void Start()
+		{
+			audioGameObject = GameObject.FindWithTag("Sound");
+			if (audioGameObject != null)
+			{
+				audio = audioGameObject.GetComponent<MenuSoundController>();
+			}
+		}
+
+		public void OnePlayer()
     	{
     		playerOneName = playerOneSelect.GetProfileName();
     		if (playerOneName == "")
@@ -39,7 +49,7 @@ namespace Screen.MenuScreen
     		}
     		else
     		{
-    			OnPlay?.Invoke();
+				if (audio != null) audio.LoadSound();
     			isTwoPlayers = false;
     			SceneManager.LoadScene("GameScreen");
     		}
@@ -68,7 +78,7 @@ namespace Screen.MenuScreen
     		}
     		else
     		{
-    			OnPlay?.Invoke();
+				if (audio != null) audio.LoadSound();
     			isTwoPlayers = true;
     			SceneManager.LoadScene("GameScreen");
     		}
@@ -76,6 +86,7 @@ namespace Screen.MenuScreen
     
     	public void Credits()
     	{
+			if (audio != null) audio.ForwardSound();
     		SceneManager.LoadScene("CreditsScreen");
     	}
     	

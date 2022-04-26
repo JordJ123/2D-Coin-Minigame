@@ -6,27 +6,13 @@ using UnityEngine.Events;
 
 namespace Enemy
 {
-	[RequireComponent(typeof(Animator))]
 	public class HealthController : MonoBehaviour
 	{
-		[SerializeField] public UnityEvent<string, bool> OnDeathAnimation;
 		[SerializeField] public UnityEvent OnDeath;
 		[SerializeField] public UnityEvent OnRevive;
 		[SerializeField] public UnityEvent OnReset;
 		[SerializeField] private float reviveDuration;
-		private Animator animator;
 		private bool isAlive = true;
-
-		private void Awake()
-		{
-			animator = GetComponent<Animator>();
-			OnDeathAnimation.AddListener(animator.SetBool);
-		}
-
-		private void Start()
-		{
-			OnDeathAnimation?.Invoke("Dead", false);
-		}
 
 		private void OnDisable()
 		{
@@ -42,7 +28,6 @@ namespace Enemy
 		{
 			isAlive = false;
 			OnDeath?.Invoke();
-			OnDeathAnimation?.Invoke("Dead", true);
 			StartCoroutine(Revive());
 		}
 
@@ -50,7 +35,6 @@ namespace Enemy
 		{
 			yield return new WaitForSeconds(reviveDuration);
 			isAlive = true;
-			OnDeathAnimation?.Invoke("Dead", false);
 			OnRevive?.Invoke();
 		}
 		

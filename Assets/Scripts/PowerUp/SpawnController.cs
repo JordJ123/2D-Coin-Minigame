@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PowerUp
 {
@@ -20,8 +22,13 @@ namespace PowerUp
 			currentPowerUp = powerUps[Random.Range(0, powerUps.Length)];
             currentPowerUp.Respawn();
         }
+		
+		public static void Reset()
+		{
+			powerUps = null;
+		}
 
-        private void Awake()
+		private void Awake()
         {
             gameObj = gameObject;
 		}
@@ -39,7 +46,7 @@ namespace PowerUp
 			}
 		}
 
-        public void Respawn()
+		public void Respawn()
         {
             gameObj.SetActive(true);
         }

@@ -27,6 +27,11 @@ namespace Player {
 			OnCollect?.Invoke(pointsValue);
 		}
 
+		public static void Reset()
+		{
+			points = null;
+		}
+
 		public int GetPointsValue()
 		{
 			return pointsValue;

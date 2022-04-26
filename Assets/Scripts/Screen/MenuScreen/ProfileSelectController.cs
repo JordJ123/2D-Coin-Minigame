@@ -22,6 +22,8 @@ namespace Screen.MenuScreen
 		public static bool isPlayerOneWASD { private set; get; } = true;
 		public static string profileNameSelected;
 		private List<string> profileNames = new List<string>();
+		private GameObject audioGameObject;
+		private MenuSoundController audio;
 		private int profileSelected;
 		private string playerMessage = "";
 		private bool createMode;
@@ -45,6 +47,11 @@ namespace Screen.MenuScreen
 
 		private void Start()
 		{
+			audioGameObject = GameObject.FindWithTag("Sound");
+			if (audioGameObject != null)
+			{
+				audio = audioGameObject.GetComponent<MenuSoundController>();
+			}
 			if (profileNames.Count <= 1)
 			{
 				OnArrowButtons?.Invoke(false);
@@ -55,6 +62,7 @@ namespace Screen.MenuScreen
 		}
 		
 		public void Create() {
+			if (audio != null) audio.SaveSound();
 			OnArrowButtons?.Invoke(false);
 			OnNewButton?.Invoke(false);
 		    OnCreateButtons?.Invoke(true);
@@ -89,6 +97,7 @@ namespace Screen.MenuScreen
 						+ profileName);
 					profileNames.Insert(profileNames.Count - 1, profileName);
 					profileSelected = profileNames.Count - 2;
+					if (audio != null) audio.SaveSound();
 					OnCreate?.Invoke(profileNames[profileSelected]);
 					OnProfileSelect?.Invoke(profileNames[profileSelected]);
 					ToggleButtons();
@@ -120,6 +129,7 @@ namespace Screen.MenuScreen
 
 		public void Cancel()
 		{
+			if (audio != null) audio.ErrorSound();
 			if (profileNames.Count > 1)
 			{
 				OnArrowButtons?.Invoke(true);
@@ -132,6 +142,7 @@ namespace Screen.MenuScreen
 
 		public void Delete()
 		{
+			if (audio != null) audio.ErrorSound();
 			Directory.Delete(Application.persistentDataPath + "/"
 				+ profileNames[profileSelected], true);
 			OnDelete?.Invoke(profileNames[profileSelected]);
@@ -163,12 +174,14 @@ namespace Screen.MenuScreen
 
 		public void ViewProfile()
 		{
+			if (audio != null) audio.ForwardSound();
 			profileNameSelected = profileNames[profileSelected];
 			SceneManager.LoadScene("ProfileScreen");
 		}
 
 		public void Left()
 		{
+			if (audio != null) audio.ForwardSound();
 			profileSelected--;
 			if (profileSelected < 0)
 			{
@@ -181,6 +194,7 @@ namespace Screen.MenuScreen
 		
 		public void Right()
 		{
+			if (audio != null) audio.ForwardSound();
 			profileSelected++;
 			if (profileSelected > profileNames.Count - 1)
 			{
@@ -192,6 +206,7 @@ namespace Screen.MenuScreen
 
 		public void SwapControls()
 		{
+			if (audio != null) audio.ForwardSound();
 			isPlayerOneWASD = !isPlayerOneWASD;
 			OnSwapControls?.Invoke();
 		}

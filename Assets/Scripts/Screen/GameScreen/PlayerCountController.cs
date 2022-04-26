@@ -58,6 +58,8 @@ namespace Screen.GameScreen
     			playerTwoPoints = playerTwo2P.GetComponent<PointController>()
     				.GetPointsValue();
     		}
+			PointController.Reset();
+			PowerUp.SpawnController.Reset();
     		SceneManager.LoadScene("DeathScreen");
     	}
     }
