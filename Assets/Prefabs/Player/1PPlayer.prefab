@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileName: PlayerOne
   isPlayerOne: 1
-  resetAchievementData: 1
+  resetAchievementData: 0
   resetStatisticsData: 0
 --- !u!114 &969237679
 MonoBehaviour:

@@ -19,6 +19,7 @@ namespace Player {
 			{
 				points = GameObject.FindGameObjectsWithTag("Point");
 				pointsLength = points.Length;
+				pointsCollected = 0;
 			}
 		}
 

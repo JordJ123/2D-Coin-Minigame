@@ -43,6 +43,8 @@ namespace Screen.GameScreen {
 		{
 			if (audio != null) audio.BackwardSound();
 			Time.timeScale = 1;
+			Player.PointController.Reset();
+			PowerUp.SpawnController.Reset();
 			SceneManager.LoadScene("MenuScreen");
 		}
     }

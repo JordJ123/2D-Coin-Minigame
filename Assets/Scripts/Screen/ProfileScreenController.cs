@@ -3,6 +3,7 @@ using Player.SaveData;
 using Screen.MenuScreen;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Screen
 {
@@ -15,13 +16,21 @@ namespace Screen
     	[SerializeField] private UnityEvent<float> OnLives;
     	[SerializeField] private UnityEvent<float> OnPoints;
     	[SerializeField] private UnityEvent<Achievement, string> OnAchievement;
+		private GameObject audioGameObject;
+		private MenuSoundController audio;
     	private AchievementListController achievementListController;
     	private StatisticsData statisticsData;
     	private AchievementData achievementData;
     
     	private void Awake()
     	{
-    		achievementListController = GetComponent<AchievementListController>();
+			audioGameObject = GameObject.FindWithTag("Sound");
+			if (audioGameObject != null)
+			{
+				audio = audioGameObject.GetComponent<MenuSoundController>();
+			}
+    		achievementListController 
+				= GetComponent<AchievementListController>();
     	}
     	
         private void Start()
@@ -77,5 +86,11 @@ namespace Screen
     			}
     		}
     	}
+		
+		public void Return()
+		{
+			if (audio != null) audio.BackwardSound();
+			SceneManager.LoadScene("MenuScreen");
+		}
     }
 }
