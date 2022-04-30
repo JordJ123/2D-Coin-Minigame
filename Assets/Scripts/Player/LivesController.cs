@@ -8,8 +8,8 @@ namespace Player
 {
 	public class LivesController : MonoBehaviour
 	{
-		[SerializeField] public UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnStart;
+		[SerializeField] public UnityEvent<int> OnGain;
 		[SerializeField] private UnityEvent<int> OnLose;
 		[SerializeField] private UnityEvent OnGameOver;
 		[SerializeField] private int lives;
@@ -40,6 +40,7 @@ namespace Player
 			lives--;
 			if (lives == 0)
 			{
+				
 				isDead = EndGame();
 			}
 			OnLose?.Invoke(lives);

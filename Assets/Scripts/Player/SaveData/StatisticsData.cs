@@ -7,6 +7,7 @@ namespace Player.SaveData {
 	[Serializable]
     public class StatisticsData : SaveData
 	{
+		public int highScore { private set; get; }
 		public int deaths { private set; get; }
 		public float distance { private set; get; }
 		public int kills { private set; get; }
@@ -15,6 +16,15 @@ namespace Player.SaveData {
 
 		public StatisticsData(string profileName)
 			: base(profileName + "/statistics") {}
+
+		public void SetHighScore(int highScore)
+		{
+			if (highScore > this.highScore)
+			{
+				this.highScore = highScore;
+			}
+			Save(this);
+		}
 
 		public void IncrementDeaths()
 		{

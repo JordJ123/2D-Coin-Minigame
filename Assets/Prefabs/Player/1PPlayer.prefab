@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a594e1a0b7347254e91bb97b85e1dae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGain:
+  OnStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -734,7 +734,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnStart:
+  OnGain:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -1138,25 +1138,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementColour: {r: 1, g: 1, b: 1, a: 1}
-  deathSmallCount: 10000
-  deathLargeCount: 10000
-  deathTotalCount: 10000
-  killsSmallCount: 10000
-  killsLargeCount: 10000
-  killsTotalCount: 10000
-  killsOnePowerUpCount: 10000
-  livesSmallCount: 10000
-  livesLargeCount: 10000
-  livesTotalCount: 10000
-  livesHaveCount: 10000
-  pointsSmallValue: 10000
-  pointsLargeValue: 10000
-  pointsTotalValue: 10000
-  pointsNoKillsValue: 10000
-  speedSmallCount: 10000
-  speedLargeCount: 10000
+  deathSmallCount: 2
+  deathLargeCount: 3
+  deathTotalCount: 4
+  killsSmallCount: 2
+  killsLargeCount: 3
+  killsTotalCount: 4
+  killsOnePowerUpCount: 5
+  livesSmallCount: 1
+  livesLargeCount: 2
+  livesTotalCount: 3
+  livesHaveCount: 7
+  pointsSmallValue: 100
+  pointsLargeValue: 150
+  pointsTotalValue: 200
+  pointsNoKillsValue: 250
+  speedSmallCount: 100
+  speedLargeCount: 1000
   speedTotalCount: 10000
-  speedOnePowerUpCount: 10000
+  speedOnePowerUpCount: 100
 --- !u!95 &1977704184556817032
 Animator:
   serializedVersion: 3

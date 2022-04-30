@@ -1001,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452368474031220621, guid: 6e9860af31b7ab54b82ccf68892af392, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9860af31b7ab54b82ccf68892af392, type: 3}
@@ -12714,7 +12714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9125089376777549981, guid: ef224ecd6f7d87d4eb0bad55e72496f3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4040250055884804069, guid: ef224ecd6f7d87d4eb0bad55e72496f3, type: 3}
@@ -15635,6 +15635,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 846964393}
     m_Modifications:
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: deathLargeCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: deathSmallCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: speedLargeCount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: speedSmallCount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: speedTotalCount
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 969237679, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
+      propertyPath: speedOnePowerUpCount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 763793633124784747, guid: 8f46ecd0eaff9a94d912ae731adac33d, type: 3}
       propertyPath: OnGain.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

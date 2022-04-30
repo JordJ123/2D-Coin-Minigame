@@ -10,6 +10,7 @@ namespace Screen
 	[RequireComponent(typeof(AchievementListController))]
     public class ProfileScreenController : MonoBehaviour
     {
+		[SerializeField] private UnityEvent<float> OnHighScore;
     	[SerializeField] private UnityEvent<float> OnDeaths;
     	[SerializeField] private UnityEvent<float> OnDistance;
     	[SerializeField] private UnityEvent<float> OnKills;
@@ -55,6 +56,7 @@ namespace Screen
     		{
     			statisticsData = new StatisticsData(profileName);
     		}
+			OnHighScore?.Invoke(statisticsData.highScore);
     		OnDeaths?.Invoke(statisticsData.deaths);
     		OnDistance?.Invoke(statisticsData.distance);
     		OnKills?.Invoke(statisticsData.kills);

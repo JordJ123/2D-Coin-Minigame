@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
@@ -75,6 +76,7 @@ public class SaveDataController : MonoBehaviour
 		triggerDetector.OnKill.AddListener(statisticsData.IncrementKills);
 		livesController.OnGain.AddListener(statisticsData.IncrementLives);
 		pointController.OnCollect.AddListener(statisticsData.IncrementPoints);
+		pointController.OnCollect.AddListener(statisticsData.SetHighScore);
 	}
 
 	public bool IsAchievementUnlocked(
